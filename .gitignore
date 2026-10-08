@@ -1,0 +1,6 @@
+.impeccable/
+docs/review-v2/
+submission/*.zip
+submission/*.tar.gz
+.sites-checkout/
+__pycache__/

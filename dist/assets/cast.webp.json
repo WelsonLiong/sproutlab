@@ -1,0 +1,8 @@
+{
+  "asset": "cast.webp",
+  "source": "OpenAI image generation",
+  "created": "2026-10-08",
+  "purpose": "Original decorative cartoon artwork for a Year 4 science learning environment",
+  "prompt_record": "docs/cast-prompt.txt",
+  "modifications": "Converted to WebP for web delivery; artwork content unchanged."
+}

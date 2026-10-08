@@ -1,0 +1,9 @@
+Use case: illustration-story
+Asset type: full landscape activity-map background for Sprout Lab, a Year 4 English photosynthesis learning website.
+Primary request: an original polished, cheerful children's storybook botanical garden illustration. Wide landscape, approximately 1536 x 1024 pixels.
+Scene/backdrop: soft mint and leaf-green forest edges frame a broad creamy sunlit grassy clearing. A slender turquoise stream curves along the left and bottom edge, leaving the middle clearing open. A warm yellow sun sits in the upper left sky. Tiny coral and purple flowers add restrained accents along the borders.
+Subject: an oversized friendly rooted seedling in the right foreground, two or three fresh green leaves, charming gentle face, its root network naturally visible in a small cutaway patch of warm soil. Keep it confined to the rightmost quarter of the composition.
+Style/medium: sophisticated clean flat gouache and cartoon editorial illustration, charming rounded organic forms, soft tactile painted edges, light paper texture, confident simple silhouettes, beautifully balanced color.
+Composition/framing: landscape overview of a magical learning garden. Plentiful calm middle negative space: the central 60 percent must be pale cream-green unobstructed clearing with minimal surface detail so HTML learning nodes can be placed on top. Plants and visual richness clustered at outer edges. Flat illustration fills canvas edge to edge.
+Lighting/mood: bright gentle morning sunlight, welcoming, playful, peaceful and curious.
+Constraints: no text, no letters, no typography, no labels, no UI, no interface cards, no learning nodes, no humans, no watermark, no logo. No large objects in the middle clearing.

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#176349">
+  <meta name="description" content="Explore, experiment and play your way through photosynthesis. An English Year 4 science adventure with safe AI literacy.">
+  <title>Sprout Lab · Your photosynthesis adventure</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='12' fill='%23176349'/%3E%3Cpath d='M20 32V17M20 24C6 25 6 11 6 11C20 10 22 18 20 24M20 18C20 5 33 6 33 6C34 18 25 20 20 18' fill='%23d0eb87' stroke='%23d0eb87' stroke-width='2'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css?v=3">
+  <link rel="stylesheet" href="activity.css?v=3">
+  <script src="app.js" type="module"></script>
+</head>
+<body>
+  <a href="#main" class="skip">Skip to activity</a>
+  <header class="app-header">
+    <a class="brand" href="#map"><span class="brand-mark" data-icon="sprout"></span><span>sprout<span class="brand-light">lab</span><small>SMALL LEAVES. BIG DISCOVERIES.</small></span></a>
+    <nav class="main-nav" aria-label="Learning navigation"><a href="#map" data-nav="map"><span data-icon="map"></span>Adventure map</a><a href="#journal" data-nav="journal"><span data-icon="book"></span>My journal</a></nav>
+    <div class="header-tools"><span class="collection" title="Discoveries collected"><span data-icon="star"></span><strong id="progress-count">0 / 7</strong></span><button id="sound" class="icon-btn" aria-label="Turn sound on" aria-pressed="false" data-icon="volume"></button><button id="settings" class="icon-btn" aria-label="Accessibility and settings" data-icon="settings"></button></div>
+  </header>
+  <div class="app-layout">
+    <main id="main" tabindex="-1"></main>
+  </div>
+  <footer class="site-footer"><span>Year 4 Science · Unit 4 · Photosynthesis</span><div><a href="#teacher">Teacher's corner</a><a href="offline.html">Offline trail</a><a href="#credits">Sources & safety</a></div></footer>
+  <div id="toast" class="toast" role="status"></div>
+  <dialog id="settings-dialog" aria-labelledby="settings-title"><div class="dialog-top"><h2 id="settings-title">Make yourself comfortable</h2><button data-close class="icon-btn" aria-label="Close settings">×</button></div><label class="setting"><span>Larger text</span><input type="checkbox" id="large-text"></label><label class="setting"><span>Reduce movement</span><input type="checkbox" id="reduce-motion"></label><label class="setting"><span>Low-data mode <small>Hide decorative artwork.</small></span><input type="checkbox" id="low-data"></label><p class="small">Your settings and discoveries stay in this browser. We do not ask for your name or send your answers to a server.</p><button id="reset-progress" class="text-btn">Start a fresh adventure</button><div id="reset-confirm" hidden><p>Clear your discoveries and journal from this browser?</p><button id="confirm-reset" class="btn coral">Yes, clear my progress</button><button id="cancel-reset" class="btn secondary">Keep my progress</button></div></dialog>
+  <noscript><p class="noscript">Turn on JavaScript to play the activities, or open <a href="offline.html">the printable learning trail</a>.</p></noscript>
+</body>
+</html>

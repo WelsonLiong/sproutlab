@@ -1,0 +1,7 @@
+Use case: illustration-story.
+Asset type: one wide illustrated game-world background for an interactive Year 4 photosynthesis map, landscape canvas 1536 by 1024.
+Primary request: a cheerful sunny children's adventure-game landscape in flat 2D cartoon style, clear rounded dark-green outlines, simple clean fills, soft minimal shading, matching a polished storybook sprite atlas of a green seedling, lavender robot, yellow sun, and cyan droplet.
+Scene/backdrop: sunny cyan sky, fluffy white clouds, rolling mint and grass-green hills, oversized friendly flowers. A winding small blue creek lies at the bottom right; a quirky treehouse and book nook sits along the far left edge, and a tiny wooden bridge sits along the far right edge.
+Composition/framing: a wide warm-cream walking path winds through a spacious grassy central clearing. Keep the middle 70 percent of the entire image open and uncluttered, suitable for seven clickable game destinations that will be added later in code. Concentrate decorative plants, flowers, the treehouse/book nook, creek, and bridge near the outer edges. Preserve generous usable central space without central props.
+Color palette: saturated cheerful cyan sky and mint/grass greens with sunny yellow, coral, and teal accents. Bright, kind, adventurous and inviting for ten-year-old learners.
+Constraints: one background image only, no characters, no faces, no text, no letters, no numbers, no labels, no pins, no markers, no interface, no buttons, no logos, no watermark, no frames, no photorealism. Opaque fully painted background.
