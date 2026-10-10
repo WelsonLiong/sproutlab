@@ -1,0 +1,27 @@
+SPROUT LAB — YEAR 4 PHOTOSYNTHESIS
+
+Verified publication URL:
+https://sprout-lab-greenhaven.smocks-pickets-7r.chatgpt.site
+
+Deployment status: succeeded, 8 October 2026.
+Audience: private, owner only. Sharing access must be arranged before a lecturer or pupils can open the hosted site.
+
+Local preview:
+http://127.0.0.1:4174/#map
+This local address works only while the preview server is running on this computer.
+
+Portable source:
+Extract Sprout-Lab-Source-Backup.zip. From the extracted folder, serve dist through an HTTP server, for example:
+python -m http.server 4174 --directory dist
+Then visit http://localhost:4174
+
+For disconnected use without a server, open dist/offline.html directly and print it if desired.
+
+Documentation:
+Sprout-Lab-EDUP3133-Documentation-DRAFT.pdf — 7 pages.
+The official cover details and genuine evidence from two adult usability tests remain to be completed. No adult tests are claimed by this draft.
+
+The supplied third-person game and its 3D assets are intentionally excluded. Proposed improvements and the future integration plan are in docs/future-game.md.
+
+Published source commit:
+bc6b9e2d76d8a1d8d9113b7670a1f2e74d8122d7

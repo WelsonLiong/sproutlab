@@ -30,3 +30,6 @@ The official KPM guide download redirected to the portal homepage during retriev
 
 ## User-requested redesign, 8 October 2026
 Replaced the persistent sidebar and dense adult-oriented panels with an illustrated garden map, cartoon scene layouts, bold touch targets and a three-stage AI mission. Added evidence objects, sentence-building tiles and privacy shields. Kept science details and pedagogy in the teacher corner. Technical browser checks are in docs/verification.md; they do not substitute for two real adult usability tests.
+
+## Teaching alternative — 11 October 2026
+Codex drafted and implemented the agreed cartoon opening and playable leaf factory. Existing character artwork is reused. New sandwich, soil pot, cutaway leaf, roots, stem and factory elements are original SVG/CSS geometry, with browser animation and optional device speech. No new raster image generation or external media download. The science distinguishes raw materials from energy; simplified counts and speed and the imaginary machine are labelled. Original picture notes remain available.

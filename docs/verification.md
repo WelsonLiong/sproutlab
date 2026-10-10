@@ -34,3 +34,15 @@ These are agent-operated technical checks, not adult usability-test evidence.
 - Device speech voices vary. This run did not evaluate narration with a real child or claim a formal screen-reader/accessibility audit.
 - Confirm student details, lecturer acceptance of a custom website, exact KPM subdomain wording and sharing access before formal submission.
 - The third-person game remains a future integration; the supplied assets are not loaded by the current site.
+
+## Cartoon and playable leaf factory — 11 October 2026
+
+- Watched the automatic cartoon transition into the worked demonstration, then into the pupil start prompt. Pause and resume checked.
+- Completed water delivery, all three carbon dioxide bubbles and sunlight-slider interaction; production began automatically and both products opened their explanations.
+- Replayed the factory and supplied gas and sunlight first: without water, the process did not start. No assessment question is added by this activity.
+- Tested the alternative CO2 button and native keyboard operation of the water controls and sunlight slider.
+- Checked mobile 390×844 layout (document width 390px); corrected root-label clipping, product-label overlap and cropped artwork.
+- Checked larger-text, reduced-motion and low-data preferences; restored the original preferences without clearing the user’s discoveries.
+- Verified that Picture notes still opens the original five-scene explanation and links back to the new experience. Both modes use the existing story completion badge.
+- No captured browser console warnings or errors during the full new-experience run. Device voice quality is not assessed; captions remain available throughout.
+- Updated teacher mapping and the seven-page documentation draft. This remains technical verification, not the required real-adult usability evidence.

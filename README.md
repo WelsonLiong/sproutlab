@@ -24,3 +24,6 @@ The future 3D game and provided game assets are intentionally excluded from this
 
 ## October 8 redesign
 The child-facing interface now uses cartoon scenes, a garden map, Beep’s three-stage evidence mission, word tiles and privacy shields. Technical verification is recorded in docs/verification.md. The website source is dependency-free ES modules; no build is required.
+
+## October 11 teaching alternative
+`#factory` adds a short cartoon, an automatic worked demonstration and a playable leaf factory. `#story` preserves the original picture notes; both count as the same explanation stop. New implementation: `dist/factory.js` and `dist/factory.css`. The garden now opens the new mode, with both modes linked side by side. Browser voices are optional; captions, pause, replay, keyboard controls and reduced motion remain available.
