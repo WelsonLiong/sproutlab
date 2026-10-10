@@ -46,3 +46,12 @@ These are agent-operated technical checks, not adult usability-test evidence.
 - Verified that Picture notes still opens the original five-scene explanation and links back to the new experience. Both modes use the existing story completion badge.
 - No captured browser console warnings or errors during the full new-experience run. Device voice quality is not assessed; captions remain available throughout.
 - Updated teacher mapping and the seven-page documentation draft. This remains technical verification, not the required real-adult usability evidence.
+
+### Illustrated hideout revision
+Replaced the rejected flat SVG factory with two generated environment illustrations, character controls within the scene, animated water and gas characters, sunlight rays and animated product characters. The original story notes and the teaching sequence remain. The scientific model note now explicitly distinguishes the imaginary room and faces from real leaf anatomy.
+
+- Completed the illustrated demonstration and pupil cycle on desktop: all water and gas deliveries, sunlight, glucose and oxygen explanations, completion and replay worked.
+- Inspected the portrait illustration and active controls at 390×844. No horizontal overflow was observed; water, sunlight and carbon dioxide controls remained usable, including keyboard input.
+- Saved desktop and phone screenshots in `docs/review-v2/`. No captured console warnings or errors in this revision.
+- Checked the illustrated scene with reduced movement and low-data mode enabled, then restored the original preferences without clearing discoveries.
+- Re-rendered and visually reviewed all seven documentation pages after the artwork record update.

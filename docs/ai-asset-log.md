@@ -33,3 +33,6 @@ Replaced the persistent sidebar and dense adult-oriented panels with an illustra
 
 ## Teaching alternative — 11 October 2026
 Codex drafted and implemented the agreed cartoon opening and playable leaf factory. Existing character artwork is reused. New sandwich, soil pot, cutaway leaf, roots, stem and factory elements are original SVG/CSS geometry, with browser animation and optional device speech. No new raster image generation or external media download. The science distinguishes raw materials from energy; simplified counts and speed and the imaginary machine are labelled. Original picture notes remain available.
+
+## Illustrated leaf hideout revision — 11 October 2026
+The user rejected the flat factory diagram as presentation-like. Replaced it with a richly illustrated leaf interior and in-scene character controls. Two images were made with the built-in image-generation tool: landscape and portrait, stored as `dist/assets/leaf-hideout.webp` and `dist/assets/leaf-hideout-mobile.webp`. Exact prompts are in `docs/leaf-hideout-prompts.txt`. The PNG originals remain in the Codex generated-images folder; WebP conversion only optimises file format. The room, smiling green pods and moving material characters are expressly imaginary representations of real photosynthesis, not literal leaf anatomy. No machinery remains in the scene.
