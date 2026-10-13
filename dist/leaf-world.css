@@ -5,3 +5,29 @@
 @media(max-width:720px){.science-scenes{grid-template-columns:1fr}.leaf-panel{border-left:0;border-top:3px dashed #a7bb80}.scene-heading{padding:17px 17px 3px;min-height:74px}.scene-heading b{font-size:22px}.scene-heading small{font-size:12px}.zoom-tag{display:block;font-size:8px}.science-drawing{max-height:470px}.plant-actions{padding:14px 13px;min-height:120px}.air-action{min-height:auto;padding:16px}.gas-action-button{max-width:none;font-size:15px}.scene-action small{font-size:10px}.light-action>b{font-size:12px}.science-status{font-size:14px;line-height:1.4;padding:12px}.leaf-products{grid-template-columns:1fr;padding:16px;gap:13px}.science-product span>b{font-size:18px}.science-product small{font-size:11px}.factory-narrator #guide-face{width:45px;height:45px}.gift-reveal>.cartoon-cast{width:55px;height:55px}.large-text .plant-actions{grid-template-columns:1fr}.large-text .scene-action{font-size:17px}.large-text .scene-heading b{font-size:25px}.large-text .scene-heading small{font-size:15px}}
 @media(prefers-reduced-motion:reduce){.svg-workshop *{animation:none!important;transition:none!important}.lunch-movie *{animation:none!important;transition:none!important}}
 .reduce-motion .svg-workshop *{animation:none!important;transition:none!important}
+
+
+/* Scale the artwork with available height, and compress its surrounding controls smoothly. */
+@media(min-width:721px){
+.science-drawing{max-height:clamp(270px,38vh,500px)}
+.scene-heading{min-height:clamp(62px,7.2vh,83px);padding:clamp(8px,1.8vh,20px) 18px clamp(4px,.6vh,8px)}
+.plant-actions{min-height:clamp(96px,11.1vh,127px);padding:clamp(5px,1vh,16px) 12px;gap:8px}
+.scene-action{min-height:clamp(56px,6.3vh,67px);padding:clamp(8px,1vh,11px) clamp(8px,1vw,13px);font-size:clamp(13px,1vw,16px)}
+.air-action{min-height:clamp(96px,11.1vh,127px);padding:clamp(6px,1vh,16px) 12px}
+.science-drawing .svg-small{font-size:18px}
+.science-status{padding-block:clamp(8px,1.1vh,13px)}
+.experience-bar{padding:clamp(6px,1vh,12px) clamp(14px,1.6vw,23px)}
+.episode-tags span{padding:clamp(6px,.7vh,8px) clamp(8px,.8vw,12px)}
+.factory-narrator{min-height:clamp(90px,10vh,116px);padding:clamp(8px,1vh,12px) clamp(16px,1.7vw,24px)}
+.factory-narrator #guide-face,.factory-narrator #guide-face .cartoon-cast{width:clamp(60px,7vh,85px);height:clamp(60px,7vh,85px)}
+.experience-transport{padding:clamp(5px,.8vh,9px) clamp(14px,1.7vw,25px)}
+.demonstrating .leaf-products{display:none}
+}
+
+/* Give the narrated step one clear visual target while keeping supporting context readable. */
+.svg-workshop .science-drawing,.svg-workshop .scene-heading{transition:opacity .24s ease,filter .24s ease,outline-color .24s ease,background-color .24s ease,box-shadow .24s ease}
+.svg-workshop[data-focus=water] .leaf-panel .science-drawing,.svg-workshop[data-focus=air] .plant-panel .science-drawing,.svg-workshop[data-focus=light] .plant-panel .science-drawing,.svg-workshop[data-focus=gifts] .plant-panel .science-drawing{opacity:.82;filter:saturate(.65)}
+.svg-workshop[data-focus=water] .plant-panel .science-drawing,.svg-workshop[data-focus=air] .leaf-panel .science-drawing,.svg-workshop[data-focus=light] .leaf-panel .science-drawing,.svg-workshop[data-focus=make] .science-drawing,.svg-workshop[data-focus=gifts] .leaf-panel .science-drawing{outline:4px solid #aa7710;outline-offset:-5px}
+.svg-workshop[data-focus=water] .plant-panel .scene-heading,.svg-workshop[data-focus=air] .leaf-panel .scene-heading,.svg-workshop[data-focus=light] .leaf-panel .scene-heading,.svg-workshop[data-focus=make] .scene-heading,.svg-workshop[data-focus=gifts] .leaf-panel .scene-heading{background-color:#fff0b9;box-shadow:inset 0 -3px #aa7710}
+.svg-workshop[data-focus=gifts] .leaf-products{outline:3px solid #aa7710;outline-offset:-4px}
+.science-status{font-size:14px;font-weight:800}

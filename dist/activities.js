@@ -1,6 +1,6 @@
 import {icon,title,next,state,save,complete,setNextVisible,toast,audio,read,escapeHTML,chime,cast,companion} from './app.js?v=7';
 import {teacher,credits} from './resources.js?v=7';
-import {factory,bindFactory,cleanupFactory} from './factory.js?v=5';
+import {factory,bindFactory,cleanupFactory} from './factory.js?v=7';
 let timers=[],flowTimer=0;
 export function cleanup(){timers.forEach(clearInterval);timers=[];clearTimeout(flowTimer);flowTimer=0;cleanupFactory()}
 const needs=[['sun','Sunlight','Energy from the Sun'],['drop','Water','Absorbed through roots'],['wind','Carbon dioxide','A gas that enters leaves'],['leaf','Chlorophyll','The green substance that absorbs light']];
