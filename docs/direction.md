@@ -16,3 +16,6 @@ After the user found the notes too textbook-like, added an alternative: a 36-sec
 The original notes remain available for comparison. Both modes award the same Leaf explorer discovery and occupy the same 3-minute explanation slot. Counts and timing are illustrative; the factory is explicitly a metaphor, and it does not imply leaves contain mechanical machines. No new quiz, backend, third-party asset or third-person game was added.
 
 The subsequent visual review rejected the flat SVG factory and boxed controls. The revised scene uses a lush illustrated leaf hideout, water and gas character journeys, a movable cloud and glowing chlorophyll. Actions sit within the scene. A separately generated portrait composition serves small screens.
+
+## SVG direction correction
+For the additional cartoon and playable explanation, use code-drawn cartoon art only. Whole-plant geography must remain recognizable: roots in soil, stem connected to leaves, internal water flow. A separately labelled enlarged leaf slice can reveal cells, chlorophyll-containing chloroplasts and a real opening for gas exchange. No fantasy room, airborne water, mixer or detached chlorophyll destination. Decorative faces belong to the story cast; the science model shows plant structures.

@@ -55,3 +55,14 @@ Replaced the rejected flat SVG factory with two generated environment illustrati
 - Saved desktop and phone screenshots in `docs/review-v2/`. No captured console warnings or errors in this revision.
 - Checked the illustrated scene with reduced movement and low-data mode enabled, then restored the original preferences without clearing discoveries.
 - Re-rendered and visually reviewed all seven documentation pages after the artwork record update.
+
+## Original SVG science model — 11 October 2026
+- Replaced all raster artwork in the factory route, including opening cast and caption portraits, with SVG code. Rejected leaf images are outside dist; the activity DOM contains no image elements or generated-atlas characters.
+- Visually checked the whole-plant water path inside root, stem, petiole and leaf vein, and the separately labelled enlarged leaf slice. Gas arrows pass through a visible lower-surface gap; the chlorophyll callout points to a chloroplast inside a cell.
+- Watched the complete guided sequence. In pupil mode, supplied carbon dioxide and light first: production waited for water. Traced water using Enter, then opened both product explanations and reached completion. A 10% slider value permits the model to run; no unsupported 70% light threshold remains.
+- Inspected 390×844 layout with no horizontal overflow and normal desktop layout. Saved updated SVG screenshots in docs/review-v2. No captured browser console warnings/errors during this run.
+- JavaScript syntax checks passed for factory.js and factory-art.js. Seven-page report rebuilt and rendered after updating the asset record. Earlier raster screenshots are historical, not evidence for the current artwork.
+- Replayed the revised activity with reduced movement enabled: water arrival, production and product controls remained available. Restored the previous movement preference after the check.
+
+### Final continuation — 13 October 2026
+Restarted the preview after the interrupted session, confirmed the saved SVG revision loads correctly, rechecked final module syntax, and reviewed the desktop drawing. The earlier full interaction, mobile and reduced-motion checks above apply to this implementation. Publication and source backup include the SVG replacement; retired raster interiors remain outside dist.
