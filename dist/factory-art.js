@@ -1,13 +1,8 @@
 // Original SVG drawings. Diagram paths share coordinates with their animations.
-const face=(x,y)=>`<g fill="#254f42"><ellipse cx="${x-12}" cy="${y}" rx="4" ry="6"/><ellipse cx="${x+12}" cy="${y}" rx="4" ry="6"/><path d="M${x-8} ${y+13}q8 10 16 0" fill="none" stroke="#254f42" stroke-width="3" stroke-linecap="round"/></g>`;
-export function cartoonCast(kind='sprout'){
-  const shapes={
-    sprout:`<ellipse cx="100" cy="179" rx="66" ry="10" fill="#31584018"/><path d="M100 174V98" stroke="#315e42" stroke-width="13" stroke-linecap="round"/><path d="M100 118C27 126 24 61 29 40c64-3 88 38 71 78Z" fill="#82cc61" stroke="#315e42" stroke-width="5"/><path d="M100 111c-13-59 24-93 76-91 9 66-22 99-76 91Z" fill="#acd974" stroke="#315e42" stroke-width="5"/><path d="m51 66 50 53 50-68" fill="none" stroke="#4c9858" stroke-width="4"/><ellipse cx="100" cy="130" rx="35" ry="29" fill="#b9e58b" stroke="#315e42" stroke-width="4"/>${face(100,122)}<path d="m100 169-30 13m30-13 24 16m-24-16-4 20" stroke="#94684c" stroke-width="5" stroke-linecap="round"/>`,
-    robot:`<ellipse cx="100" cy="185" rx="66" ry="9" fill="#31584018"/><path d="M64 140v29m72-29v29M54 104l-23 19m115-19 20-20M100 37V20" stroke="#31545b" stroke-width="10" stroke-linecap="round"/><circle cx="100" cy="16" r="9" fill="#ffd66c" stroke="#31545b" stroke-width="4"/><rect x="42" y="39" width="116" height="110" rx="28" fill="#87d9e2" stroke="#31545b" stroke-width="5"/><rect x="57" y="57" width="86" height="54" rx="16" fill="#fff9df" stroke="#31545b" stroke-width="4"/>${face(100,77)}<circle cx="100" cy="131" r="7" fill="#ffd66c"/><path d="M57 177h23m40 0h23" stroke="#31545b" stroke-width="12" stroke-linecap="round"/>`,
-    drop:`<path d="M100 20C79 58 45 83 45 119a55 55 0 0 0 110 0c0-36-34-61-55-99Z" fill="#7dd2ed" stroke="#28637b" stroke-width="5"/><path d="M71 98q-12 18-8 29" fill="none" stroke="#e0faff" stroke-width="9" stroke-linecap="round"/>${face(104,118)}`,
-    sun:`<g stroke="#b1842f" stroke-width="6" stroke-linecap="round">${Array.from({length:12},(_,i)=>{let a=i*Math.PI/6;return `<path d="M${100+Math.cos(a)*69} ${100+Math.sin(a)*69}l${Math.cos(a)*16} ${Math.sin(a)*16}"/>`}).join('')}</g><circle cx="100" cy="100" r="56" fill="#ffdb67" stroke="#b1842f" stroke-width="5"/>${face(100,91)}`
-  };
-  return `<span class="cartoon-cast" aria-hidden="true"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">${shapes[kind]||shapes.sprout}</svg></span>`;
+// The story cast uses the approved illustrated sprites. Scientific paths remain live SVG.
+export function cartoonCast(kind='sprout') {
+  const name=['sprout','robot','drop','sun'].includes(kind)?kind:'sprout';
+  return `<span class="cartoon-cast cast cast-${name}" aria-hidden="true"></span>`;
 }
 
 export const waterRoute='M150 472Q216 455 250 395L250 260L280 222L391 163';
@@ -15,7 +10,7 @@ export function plantDrawing(){return `<svg class="science-drawing plant-drawing
   <defs><marker id="plant-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="m1 1 8 4-8 4" fill="none" stroke="#2685a5" stroke-width="2"/></marker></defs>
   <path d="M0 0h520v540H0Z" fill="#e5f6fa"/>
   <g fill="#fffdf1"><path d="M26 73q0-17 17-17 5-21 26-17 23 0 24 25 19-3 22 13H26Z"/><path d="M326 38q4-16 22-15 5-19 24-18 24 1 24 24 17-3 21 13H326Z"/></g>
-  <g class="plant-sun" transform="translate(373 14) scale(.62)">${cartoonCast('sun').match(/<svg[^>]*>([\s\S]*)<\/svg>/)[1]}</g>
+  <g class="plant-sun" transform="translate(435 76)" stroke="#a8771d" stroke-width="4" stroke-linecap="round"><circle r="30" fill="#ffdb67"/><path d="M0-42v-11M0 42v11M-42 0h-11M42 0h11M-30-30l-8-8M30-30l8-8M-30 30l-8 8M30 30l8 8" fill="none"/></g>
   <g class="energy-rays" fill="none" stroke="#eab944" stroke-width="7" stroke-linecap="round"><path d="m384 110-32 41"/><path d="m417 116-17 45"/><path d="m349 94-39 34"/></g>
   <g class="plant-cloud"><path d="M366 105q-10-29 20-34 6-30 33-24 24 3 22 29 28-5 28 22 1 16-24 16h-58q-20 0-21-9Z" fill="#fff" stroke="#8bafb8" stroke-width="3"/></g>
   <path d="M0 366Q117 350 236 368T520 361V540H0Z" fill="#dba779"/><path d="M0 367Q120 350 235 369T520 362" fill="none" stroke="#639750" stroke-width="12"/>
@@ -35,6 +30,9 @@ export function plantDrawing(){return `<svg class="science-drawing plant-drawing
   <g class="zoom-ring"><ellipse cx="345" cy="204" rx="104" ry="88" transform="rotate(-27 345 204)" fill="none" stroke="#ac78b7" stroke-width="3" stroke-dasharray="8 7"/><circle cx="443" cy="255" r="19" fill="#f4e4fa" stroke="#845493" stroke-width="3"/><path d="m455 270 12 15m-24-39v16m-8-8h16" stroke="#845493" stroke-width="4" stroke-linecap="round"/></g>
   <g fill="#b2e8f5" stroke="#3c87a0" stroke-width="2"><path d="M81 438q-18 23 0 23t0-23Z"/><path d="M114 467q-15 21 0 21t0-21Z"/></g>
   <text x="31" y="507" class="soil-label">Water in soil</text><text x="355" y="520" class="soil-label">Soil</text>
+<g class="demo-cue cue-water" aria-hidden="true"><circle class="target-ring" cx="150" cy="472" r="26"/><path class="cue-pointer" d="M65 406v32l57 23"/><rect x="13" y="369" width="188" height="38" rx="8"/><text x="27" y="395">Start at this root</text></g>
+<g class="demo-cue cue-sun" aria-hidden="true"><circle class="target-ring" cx="435" cy="76" r="48"/><path class="cue-pointer" d="M270 43h103l16 18"/><rect x="32" y="22" width="239" height="38" rx="8"/><text x="46" y="48">Watch the cloud →</text></g>
+<g class="demo-cue cue-connection" aria-hidden="true"><ellipse class="target-ring" cx="345" cy="204" rx="104" ry="88"/><rect x="247" y="313" width="255" height="64" rx="8"/><path class="cue-pointer" d="m345 313 0-22"/><text x="260" y="339">This same leaf →</text><text x="260" y="362">enlarged beside it</text></g>
 </svg>`}
 
 export function leafDrawing(){return `<svg class="science-drawing leaf-drawing" viewBox="0 0 520 540" role="img" aria-label="An enlarged side-view slice through the same leaf. Water arrives through a vein inside the leaf. Carbon dioxide enters a tiny opening on the underside. Chlorophyll is in the green chloroplasts inside leaf cells. Oxygen exits into the air.">
@@ -54,7 +52,7 @@ export function leafDrawing(){return `<svg class="science-drawing leaf-drawing" 
  <path d="M33 339q129-14 290-1v21q-158-16-290-4Zm368 4q43 4 86 12v-20q-43-8-86-9Z" fill="#a3ce7c" stroke="#4e7850" stroke-width="3"/>
  <path d="M344 333h33v40h-33Z" fill="#f4f9dc"/>
  <path d="M323 338q20-2 22 11t-22 10m78-16q-21-6-24 7t24 14" fill="#86bd6d" stroke="#4e7850" stroke-width="3"/>
- <path class="gas-route-base" d="M308 484q43-37 49-90l4-33q0-30-23-37" fill="none" stroke="#b7a2bf" stroke-width="3" stroke-dasharray="6 7"/>
+ <path id="demo-gas-route" class="gas-route-base" d="M308 484q43-37 49-90l4-33q0-30-23-37" fill="none" stroke="#b7a2bf" stroke-width="3" stroke-dasharray="6 7"/>
  <path class="carbon-stream" d="M308 484q43-37 49-90l4-33q0-30-23-37" fill="none" stroke="#8b5a9e" stroke-width="5" stroke-dasharray="8 10" marker-end="url(#gas-arrow)"/>
  <path class="oxygen-stream" d="M359 302q26 23 16 57-7 40 78 80" fill="none" stroke="#24829d" stroke-width="5" stroke-dasharray="8 10" marker-end="url(#oxygen-arrow)"/>
  <path d="m353 370-37 62h-88" fill="none" stroke="#597850" stroke-width="2"/><text x="153" y="427" class="svg-small">Tiny opening</text><text x="153" y="448" class="svg-small">under the leaf</text>
@@ -62,4 +60,9 @@ export function leafDrawing(){return `<svg class="science-drawing leaf-drawing" 
  <g class="oxygen-symbol"><circle cx="464" cy="462" r="25" fill="#c5edf6" stroke="#24829d" stroke-width="3"/><text x="464" y="469" text-anchor="middle">O₂</text><text x="464" y="507" text-anchor="middle" class="svg-small">into the air</text></g>
  <g class="food-symbol" transform="translate(286 243)"><path d="m0-17 16 9v18L0 19l-16-9V-8Z" fill="#ffe59d" stroke="#a27b2e" stroke-width="3"/><text x="0" y="6" text-anchor="middle" font-size="14">G</text></g>
  <text x="41" y="506" class="svg-small">Enlarged side view</text><text x="41" y="524" class="svg-small">of the same leaf</text>
+<g class="demo-cue cue-air" aria-hidden="true"><circle class="target-ring" cx="361" cy="352" r="33"/><path class="cue-pointer" d="M168 361h139l20-5"/><rect x="15" y="323" width="231" height="38" rx="8"/><text x="29" y="349">Watch this opening →</text></g>
+<g class="demo-cue cue-chlorophyll" aria-hidden="true"><ellipse class="target-ring" cx="303" cy="213" rx="29" ry="25"/><path class="cue-pointer" d="M402 124v34l-74 39"/><rect x="196" y="110" width="310" height="38" rx="8"/><text x="210" y="136">Light reaches these green ovals ↓</text></g>
+<g class="demo-cue cue-making" aria-hidden="true"><rect class="target-ring" x="52" y="183" width="401" height="140" rx="25"/><path class="cue-pointer" d="M180 126v48"/><rect x="15" y="88" width="230" height="38" rx="8"/><text x="29" y="114">Food is made here ↓</text></g>
+<g class="demo-cue cue-products" aria-hidden="true"><circle class="target-ring" cx="286" cy="243" r="31"/><circle class="target-ring" cx="464" cy="462" r="36"/><rect x="24" y="90" width="290" height="38" rx="8"/><text x="38" y="116">G: food stays in the leaf</text><path class="cue-pointer" d="M270 128v73"/><rect x="24" y="455" width="226" height="38" rx="8"/><text x="38" y="481">O₂: into the air →</text></g>
+<circle id="carbon-traveller" r="10" fill="#8b5a9e" stroke="#fffdf4" stroke-width="3" visibility="hidden"/>
 </svg>`}

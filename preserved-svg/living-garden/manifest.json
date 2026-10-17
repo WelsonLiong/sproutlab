@@ -1,0 +1,1635 @@
+{
+  "version": 1,
+  "date": "2026-10-14",
+  "direction": "B — Living Garden",
+  "provenance": "Original SVG geometry authored in this chat for the user; existing UI icon geometry retained from app.js. No raster tracing or external artwork.",
+  "integration": "Assets are complete. Luna integrates them; do not ask Luna to redraw characters, backgrounds or diagrams.",
+  "assetCount": 85,
+  "assets": {
+    "sprout-curious": {
+      "file": "sprout-curious.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        280
+      ],
+      "description": "Sprout, a rooted leaf character, curious. Decorative fictional character; roots stay on the ground.",
+      "category": "characters",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "fa3306e29fbdd91c01235280f07ed911dda7720522141de75e0e13b04f811fde"
+    },
+    "sprout-speaking": {
+      "file": "sprout-speaking.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        280
+      ],
+      "description": "Sprout, a rooted leaf character, speaking. Decorative fictional character; roots stay on the ground.",
+      "category": "characters",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "bbd585eda973e81e9cedbfdc32d3b6bc85cc51277482be75a09884b737fd1a8a"
+    },
+    "sprout-thinking": {
+      "file": "sprout-thinking.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        280
+      ],
+      "description": "Sprout, a rooted leaf character, thinking. Decorative fictional character; roots stay on the ground.",
+      "category": "characters",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "8feae03ed418c7a96aceb72cbafeb6515c695b8b7cd41c4c83d83561126278f9"
+    },
+    "sprout-delighted": {
+      "file": "sprout-delighted.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        280
+      ],
+      "description": "Sprout, a rooted leaf character, delighted. Decorative fictional character; roots stay on the ground.",
+      "category": "characters",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "1c7b6d50d02eccea023bd26accff170844593630f9baacb04bd83909ac5cc3fa"
+    },
+    "beep-offering": {
+      "file": "beep-offering.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        280
+      ],
+      "description": "Beep the little turquoise robot, offering. A fictional story helper.",
+      "category": "characters",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "e38f207dee015207215ff5f885c283823c27df469ca9e684fb780b37f0196435"
+    },
+    "beep-puzzled": {
+      "file": "beep-puzzled.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        280
+      ],
+      "description": "Beep the little turquoise robot, puzzled. A fictional story helper.",
+      "category": "characters",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "786bb4411b2f49cf2356e7c80b69cbdb93ae1c06255d08f5817e2e8addad1499"
+    },
+    "beep-listening": {
+      "file": "beep-listening.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        280
+      ],
+      "description": "Beep the little turquoise robot, listening. A fictional story helper.",
+      "category": "characters",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "9a8f8f9eb432233bffee35ce590f54e3baa0de60cfd31eadd5fd9a98672bf23e"
+    },
+    "beep-discovery": {
+      "file": "beep-discovery.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        280
+      ],
+      "description": "Beep the little turquoise robot, discovery. A fictional story helper.",
+      "category": "characters",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "2e2195c42dea5e0c310335d5d3116d7211f280d359568bc27c563efbbbd84a6e"
+    },
+    "water-neutral": {
+      "file": "water-neutral.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        280
+      ],
+      "description": "A friendly water-drop guide, neutral. This character is for captions; the scientific water trace stays inside the plant.",
+      "category": "characters",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "d3c001429c59f969b636e38eb66e9c2b01e20d5ef802fdb44d54ca8bffe8963f"
+    },
+    "water-moving": {
+      "file": "water-moving.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        280
+      ],
+      "description": "A friendly water-drop guide, moving. This character is for captions; the scientific water trace stays inside the plant.",
+      "category": "characters",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "0728f22310bfcf692fe6d39efa26f70cc368c8d11edddec2aae43cc5a260d46c"
+    },
+    "sun-cheerful": {
+      "file": "sun-cheerful.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        240
+      ],
+      "description": "A cheerful cartoon sun.",
+      "category": "characters",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "a2eb6f172c08feb7fcbb8bd7be76110779503ae6c36fada3393e274ae1bb01b9"
+    },
+    "cloud-soft": {
+      "file": "cloud-soft.svg",
+      "viewBox": [
+        0,
+        0,
+        260,
+        190
+      ],
+      "description": "A soft white cloud drawn with cool-blue shading.",
+      "category": "characters",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "c2512d66c3b4106b64474774c91d938d39c8ce24481b4f139b3bf085fb2012f8"
+    },
+    "sun-covered": {
+      "file": "sun-covered.svg",
+      "viewBox": [
+        0,
+        0,
+        330,
+        260
+      ],
+      "description": "Qualitative sunlight illustration: covered. Not a measured irradiance value.",
+      "category": "weather",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "f155e3a098a7fb67985cc662881be70c223b202cceaa8a930379c1558cd58562"
+    },
+    "sun-partial": {
+      "file": "sun-partial.svg",
+      "viewBox": [
+        0,
+        0,
+        330,
+        260
+      ],
+      "description": "Qualitative sunlight illustration: partial. Not a measured irradiance value.",
+      "category": "weather",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "09012541d89287dec56d017d4eb52f73c4bdbe53182ab2e7251684148ba74d48"
+    },
+    "sun-clear": {
+      "file": "sun-clear.svg",
+      "viewBox": [
+        0,
+        0,
+        330,
+        260
+      ],
+      "description": "Qualitative sunlight illustration: clear. Not a measured irradiance value.",
+      "category": "weather",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "3cfe2a96e181dd75e1ce70f20ea22214b5ccd2ab59916fdd8d1ced5d49706db9"
+    },
+    "caterpillar": {
+      "file": "caterpillar.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        240
+      ],
+      "description": "Original cartoon caterpillar for ecology explanations and garden decoration.",
+      "category": "ecology",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "f640bcf626788cf621a652756b0e27b8ac4e8c0bc2f6252342954698043bd7aa"
+    },
+    "bird": {
+      "file": "bird.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        240
+      ],
+      "description": "Original cartoon bird for ecology explanations and garden decoration.",
+      "category": "ecology",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "9b50ac8e617ab3ac9a6fa52e31a17b6287b278f8d87e2a70af82421150ff890c"
+    },
+    "rabbit": {
+      "file": "rabbit.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        240
+      ],
+      "description": "Original cartoon rabbit for ecology explanations and garden decoration.",
+      "category": "ecology",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "6b8ee2cf013e248bd7a3ced9d2a8626f62000f47772cd8beb2a272f54fe59dad"
+    },
+    "butterfly": {
+      "file": "butterfly.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        240
+      ],
+      "description": "Original cartoon butterfly for ecology explanations and garden decoration.",
+      "category": "ecology",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "e5371ee6e6436fece7b5a8e01e9f616f81dddb11e8635e9ee37c2adc6f60a8e2"
+    },
+    "sandwich": {
+      "file": "sandwich.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        240
+      ],
+      "description": "Original sandwich illustration. Symbols are qualitative teaching aids, not quantities or molecular-scale drawings.",
+      "category": "objects",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "c4c4e41eb6fe7869fb441d0424eb96bd2859452aceaf218d3af2b365429f3d13"
+    },
+    "soil-pot": {
+      "file": "soil-pot.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        240
+      ],
+      "description": "Original soil pot illustration. Symbols are qualitative teaching aids, not quantities or molecular-scale drawings.",
+      "category": "objects",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "f4b608041c3224e95a9789ca7b5d1df1d7cf408a523facd4cc46b5c8b1607385"
+    },
+    "leaf": {
+      "file": "leaf.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        240
+      ],
+      "description": "Original leaf illustration. Symbols are qualitative teaching aids, not quantities or molecular-scale drawings.",
+      "category": "objects",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "3d61a04f6519d0a61c1f39e8cc9cac91ff49eacd2511605ac99b3480ee7f07d0"
+    },
+    "chloroplast": {
+      "file": "chloroplast.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        240
+      ],
+      "description": "Original chloroplast illustration. Symbols are qualitative teaching aids, not quantities or molecular-scale drawings.",
+      "category": "objects",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "752b79b80444c070ce6f72dad907eac55bb3e4856abad5a0250e2d8fbdd1eb11"
+    },
+    "glucose": {
+      "file": "glucose.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        240
+      ],
+      "description": "Original glucose illustration. Symbols are qualitative teaching aids, not quantities or molecular-scale drawings.",
+      "category": "objects",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "449dd82209327d213315f6fc1b70462aaef57629c1a600f6fd7d672601b48d78"
+    },
+    "oxygen": {
+      "file": "oxygen.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        240
+      ],
+      "description": "Original oxygen illustration. Symbols are qualitative teaching aids, not quantities or molecular-scale drawings.",
+      "category": "objects",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "e8a5e2e558f1bf81b1b53e792315985fb778f9399f741caab61f80ce1868028c"
+    },
+    "carbon-dioxide": {
+      "file": "carbon-dioxide.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        240
+      ],
+      "description": "Original carbon dioxide illustration. Symbols are qualitative teaching aids, not quantities or molecular-scale drawings.",
+      "category": "objects",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "57cc8aed0d644d23db523caeab072a534d576d18f2b2db3de33fd5b93c6cf1ec"
+    },
+    "magnifier": {
+      "file": "magnifier.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        240
+      ],
+      "description": "Original magnifier illustration. Symbols are qualitative teaching aids, not quantities or molecular-scale drawings.",
+      "category": "objects",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "e6f10b4a2796ef4bb6f3d0f7e9d7f48f4f2009985c52ae3d384d4012f9e4743e"
+    },
+    "journal": {
+      "file": "journal.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        240
+      ],
+      "description": "Original journal illustration. Symbols are qualitative teaching aids, not quantities or molecular-scale drawings.",
+      "category": "objects",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "b553fbdcad68dcf8c502b374d5121e66e055ba1e0f41d8af16724087c7400406"
+    },
+    "source-book": {
+      "file": "source-book.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        240
+      ],
+      "description": "Original source book illustration. Symbols are qualitative teaching aids, not quantities or molecular-scale drawings.",
+      "category": "objects",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "7bb8363158943e93fb37a5b45609432b709b4cc56067c43060d61c40d1477e6a"
+    },
+    "privacy-shield": {
+      "file": "privacy-shield.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        240
+      ],
+      "description": "Original privacy shield illustration. Symbols are qualitative teaching aids, not quantities or molecular-scale drawings.",
+      "category": "objects",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "73d7673ccb9c132fcc59979230deea107a9f1c850d2c86910ffcc25e5fa134e1"
+    },
+    "pencil": {
+      "file": "pencil.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        240
+      ],
+      "description": "Original pencil illustration. Symbols are qualitative teaching aids, not quantities or molecular-scale drawings.",
+      "category": "objects",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "68100dfc3c05d8d73d237b6828c4a7f174ea896c867de47b9dc308999d47ba69"
+    },
+    "flag": {
+      "file": "flag.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        240
+      ],
+      "description": "Original flag illustration. Symbols are qualitative teaching aids, not quantities or molecular-scale drawings.",
+      "category": "objects",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "0e6d309db8ad2098ca8c3ee1e01fa1069350e2fcaa63185ebbf77ae723bae2cf"
+    },
+    "water-can": {
+      "file": "water-can.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        240
+      ],
+      "description": "Original water can illustration. Symbols are qualitative teaching aids, not quantities or molecular-scale drawings.",
+      "category": "objects",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "96b9f12dbf0ab2540095e3d6f213176293c951d2d2405e08841a2794a25235dd"
+    },
+    "whole-plant": {
+      "file": "whole-plant.svg",
+      "viewBox": [
+        0,
+        0,
+        520,
+        540
+      ],
+      "description": "A rooted plant with connected roots, stem, petioles and leaves. Water travels inside a root, stem and leaf vein. Transparent background; ground level is y366.",
+      "category": "science",
+      "states": [
+        "neutral",
+        "water",
+        "selected",
+        "light"
+      ],
+      "hooks": [
+        "water-route",
+        "water-traveller",
+        "water-stream",
+        "plant-cloud",
+        "energy-rays",
+        "zoom-ring"
+      ],
+      "anchors": {
+        "groundY": 366,
+        "leaf": [
+          398,
+          161
+        ],
+        "rootStart": [
+          150,
+          472
+        ],
+        "waterRoute": "M150 472Q216 455 250 395L250 260L280 222L391 163"
+      },
+      "sha256": "32c6c29dacdd59b412a7497f154ba4fd37366249a8a7004f41ff45450740541e"
+    },
+    "leaf-slice": {
+      "file": "leaf-slice.svg",
+      "viewBox": [
+        0,
+        0,
+        520,
+        430
+      ],
+      "description": "Simplified enlarged side view of a leaf. Chloroplasts are inside cells. A vein supplies water. Carbon dioxide enters and oxygen leaves through the gap on the underside. Not to scale.",
+      "category": "science",
+      "states": [
+        "neutral",
+        "water",
+        "gas",
+        "light",
+        "products"
+      ],
+      "hooks": [
+        "leaf-water-stream",
+        "carbon-stream",
+        "oxygen-stream",
+        "energy-rays",
+        "food-symbol",
+        "focus-label",
+        "chloroplasts"
+      ],
+      "anchors": {
+        "opening": [
+          338,
+          290
+        ],
+        "vein": [
+          38,
+          233
+        ]
+      },
+      "sha256": "bee8f5fb661bbe754ec778fb7da50c3612dbddfa59dad8d8a1bd65966fb84611"
+    },
+    "whole-plant-water": {
+      "file": "whole-plant-water.svg",
+      "viewBox": [
+        0,
+        0,
+        520,
+        540
+      ],
+      "description": "A rooted plant with connected roots, stem, petioles and leaves. Water travels inside a root, stem and leaf vein. Transparent background; ground level is y366.",
+      "category": "science",
+      "states": [
+        "neutral",
+        "water",
+        "selected",
+        "light"
+      ],
+      "hooks": [
+        "water-route",
+        "water-traveller",
+        "water-stream",
+        "plant-cloud",
+        "energy-rays",
+        "zoom-ring"
+      ],
+      "anchors": {
+        "groundY": 366,
+        "leaf": [
+          398,
+          161
+        ],
+        "rootStart": [
+          150,
+          472
+        ],
+        "waterRoute": "M150 472Q216 455 250 395L250 260L280 222L391 163"
+      },
+      "defaultState": "water",
+      "base": "whole-plant",
+      "sha256": "7d40bf677575018c24d62918ae8c953a1d4d6e0d40f5127e59ccbf783417dc93"
+    },
+    "whole-plant-selected": {
+      "file": "whole-plant-selected.svg",
+      "viewBox": [
+        0,
+        0,
+        520,
+        540
+      ],
+      "description": "A rooted plant with connected roots, stem, petioles and leaves. Water travels inside a root, stem and leaf vein. Transparent background; ground level is y366.",
+      "category": "science",
+      "states": [
+        "neutral",
+        "water",
+        "selected",
+        "light"
+      ],
+      "hooks": [
+        "water-route",
+        "water-traveller",
+        "water-stream",
+        "plant-cloud",
+        "energy-rays",
+        "zoom-ring"
+      ],
+      "anchors": {
+        "groundY": 366,
+        "leaf": [
+          398,
+          161
+        ],
+        "rootStart": [
+          150,
+          472
+        ],
+        "waterRoute": "M150 472Q216 455 250 395L250 260L280 222L391 163"
+      },
+      "defaultState": "selected",
+      "base": "whole-plant",
+      "sha256": "18329ea78b938ec32385d27d8b54675b5a4377dfbf3a59acae06e01ffe811cf0"
+    },
+    "whole-plant-light": {
+      "file": "whole-plant-light.svg",
+      "viewBox": [
+        0,
+        0,
+        520,
+        540
+      ],
+      "description": "A rooted plant with connected roots, stem, petioles and leaves. Water travels inside a root, stem and leaf vein. Transparent background; ground level is y366.",
+      "category": "science",
+      "states": [
+        "neutral",
+        "water",
+        "selected",
+        "light"
+      ],
+      "hooks": [
+        "water-route",
+        "water-traveller",
+        "water-stream",
+        "plant-cloud",
+        "energy-rays",
+        "zoom-ring"
+      ],
+      "anchors": {
+        "groundY": 366,
+        "leaf": [
+          398,
+          161
+        ],
+        "rootStart": [
+          150,
+          472
+        ],
+        "waterRoute": "M150 472Q216 455 250 395L250 260L280 222L391 163"
+      },
+      "defaultState": "light",
+      "base": "whole-plant",
+      "sha256": "62df1a2e7fe9d1057d31283a89a9422c084207cddb4321f5ed235fcda1492307"
+    },
+    "leaf-slice-water": {
+      "file": "leaf-slice-water.svg",
+      "viewBox": [
+        0,
+        0,
+        520,
+        430
+      ],
+      "description": "Simplified enlarged side view of a leaf. Chloroplasts are inside cells. A vein supplies water. Carbon dioxide enters and oxygen leaves through the gap on the underside. Not to scale.",
+      "category": "science",
+      "states": [
+        "neutral",
+        "water",
+        "gas",
+        "light",
+        "products"
+      ],
+      "hooks": [
+        "leaf-water-stream",
+        "carbon-stream",
+        "oxygen-stream",
+        "energy-rays",
+        "food-symbol",
+        "focus-label",
+        "chloroplasts"
+      ],
+      "anchors": {
+        "opening": [
+          338,
+          290
+        ],
+        "vein": [
+          38,
+          233
+        ]
+      },
+      "defaultState": "water",
+      "base": "leaf-slice",
+      "sha256": "ab507244513f2149173027d7a00fb82806e01ca13349ce16e7639bb947d3e4db"
+    },
+    "leaf-slice-gas": {
+      "file": "leaf-slice-gas.svg",
+      "viewBox": [
+        0,
+        0,
+        520,
+        430
+      ],
+      "description": "Simplified enlarged side view of a leaf. Chloroplasts are inside cells. A vein supplies water. Carbon dioxide enters and oxygen leaves through the gap on the underside. Not to scale.",
+      "category": "science",
+      "states": [
+        "neutral",
+        "water",
+        "gas",
+        "light",
+        "products"
+      ],
+      "hooks": [
+        "leaf-water-stream",
+        "carbon-stream",
+        "oxygen-stream",
+        "energy-rays",
+        "food-symbol",
+        "focus-label",
+        "chloroplasts"
+      ],
+      "anchors": {
+        "opening": [
+          338,
+          290
+        ],
+        "vein": [
+          38,
+          233
+        ]
+      },
+      "defaultState": "gas",
+      "base": "leaf-slice",
+      "sha256": "5ed8044f02e55e50498817441699be53cc54e22ca539ed24407345444332dff0"
+    },
+    "leaf-slice-light": {
+      "file": "leaf-slice-light.svg",
+      "viewBox": [
+        0,
+        0,
+        520,
+        430
+      ],
+      "description": "Simplified enlarged side view of a leaf. Chloroplasts are inside cells. A vein supplies water. Carbon dioxide enters and oxygen leaves through the gap on the underside. Not to scale.",
+      "category": "science",
+      "states": [
+        "neutral",
+        "water",
+        "gas",
+        "light",
+        "products"
+      ],
+      "hooks": [
+        "leaf-water-stream",
+        "carbon-stream",
+        "oxygen-stream",
+        "energy-rays",
+        "food-symbol",
+        "focus-label",
+        "chloroplasts"
+      ],
+      "anchors": {
+        "opening": [
+          338,
+          290
+        ],
+        "vein": [
+          38,
+          233
+        ]
+      },
+      "defaultState": "light",
+      "base": "leaf-slice",
+      "sha256": "95071ad69c45803108ac5bd034ea3e0fcfd99fa92539172b54e278fde4e7edea"
+    },
+    "leaf-slice-products": {
+      "file": "leaf-slice-products.svg",
+      "viewBox": [
+        0,
+        0,
+        520,
+        430
+      ],
+      "description": "Simplified enlarged side view of a leaf. Chloroplasts are inside cells. A vein supplies water. Carbon dioxide enters and oxygen leaves through the gap on the underside. Not to scale.",
+      "category": "science",
+      "states": [
+        "neutral",
+        "water",
+        "gas",
+        "light",
+        "products"
+      ],
+      "hooks": [
+        "leaf-water-stream",
+        "carbon-stream",
+        "oxygen-stream",
+        "energy-rays",
+        "food-symbol",
+        "focus-label",
+        "chloroplasts"
+      ],
+      "anchors": {
+        "opening": [
+          338,
+          290
+        ],
+        "vein": [
+          38,
+          233
+        ]
+      },
+      "defaultState": "products",
+      "base": "leaf-slice",
+      "sha256": "a15078efeecc8a0404bfe83d9033f9fc786addc2d367d652116726c196266cf4"
+    },
+    "garden-landscape": {
+      "file": "garden-landscape.svg",
+      "viewBox": [
+        0,
+        0,
+        1200,
+        620
+      ],
+      "description": "Wide sky and illustrated garden with underground soil cutaway. The centre is clear for a separate scientific plant. Contains no sun, characters, labels or controls.",
+      "category": "environments",
+      "states": [],
+      "hooks": [],
+      "anchors": {
+        "groundFraction": 0.6777777777777778,
+        "plantCentreX": 0.47,
+        "safeInset": [
+          0.72,
+          0.03,
+          0.98,
+          0.56
+        ]
+      },
+      "sha256": "1f77d201c70f86cbb54f009f4cd838dc04431be3011bb50bc5650d1f43ac5e9b"
+    },
+    "garden-portrait": {
+      "file": "garden-portrait.svg",
+      "viewBox": [
+        0,
+        0,
+        600,
+        780
+      ],
+      "description": "Portrait garden composition with clear central planting space and visible soil. Use as a full portrait SVG; do not crop the landscape artwork.",
+      "category": "environments",
+      "states": [],
+      "hooks": [],
+      "anchors": {
+        "groundFraction": 0.6777777777777778,
+        "plantCentreX": 0.5
+      },
+      "sha256": "68608d3403d3c3be6a367a7ca53d897c0378ee86567d2c86a0129dc0ed21a1b2"
+    },
+    "celebration-garden": {
+      "file": "celebration-garden.svg",
+      "viewBox": [
+        0,
+        0,
+        1200,
+        620
+      ],
+      "description": "Quiet garden gathering background with a small butterfly and bird. Add the already supplied Sprout and Beep art as separate elements.",
+      "category": "environments",
+      "states": [],
+      "hooks": [],
+      "anchors": {
+        "groundFraction": 0.6777777777777778
+      },
+      "sha256": "2bf222c69d57233bc900b64f050a004e7bda4d2616425813b3d93c77000ddeec"
+    },
+    "station-mystery": {
+      "file": "station-mystery.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        240
+      ],
+      "description": "Illustrated destination for the mystery stop. Navigation labels and completion badges must remain real HTML.",
+      "category": "destinations",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "0f2cc781836d44c27e2364045c899fe1731839f1d8fe0bf5bd18c00404515e19"
+    },
+    "station-story": {
+      "file": "station-story.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        240
+      ],
+      "description": "Illustrated destination for the story stop. Navigation labels and completion badges must remain real HTML.",
+      "category": "destinations",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "44d0c1c59935b61d2b1f51390703fbd02a5ac60847a6a36af85a575faa064fe9"
+    },
+    "station-lab": {
+      "file": "station-lab.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        240
+      ],
+      "description": "Illustrated destination for the lab stop. Navigation labels and completion badges must remain real HTML.",
+      "category": "destinations",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "04479a17775af791ab55432c4f90ab3e4aadce89bc9b80ee9d51ca7841711e7c"
+    },
+    "station-creek": {
+      "file": "station-creek.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        240
+      ],
+      "description": "Illustrated destination for the creek stop. Navigation labels and completion badges must remain real HTML.",
+      "category": "destinations",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "6ae5e5516dab2335e2044b01cc880725abe3725896aa9ab1830d6fd4a79a4aea"
+    },
+    "station-detective": {
+      "file": "station-detective.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        240
+      ],
+      "description": "Illustrated destination for the detective stop. Navigation labels and completion badges must remain real HTML.",
+      "category": "destinations",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "14393ad1c91e8da5e7764277e188c315255ef9dbab238a6365a91efe9d11050a"
+    },
+    "station-check": {
+      "file": "station-check.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        240
+      ],
+      "description": "Illustrated destination for the check stop. Navigation labels and completion badges must remain real HTML.",
+      "category": "destinations",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "8a04fbd951378e5ad7222a5ff2adda6e3eedf98d47316fd68a4f5a15eac6fcb8"
+    },
+    "station-finish": {
+      "file": "station-finish.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        240
+      ],
+      "description": "Illustrated destination for the finish stop. Navigation labels and completion badges must remain real HTML.",
+      "category": "destinations",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "79f29c142e32c36daa0053e2cac651b04d056ce2acd80be7e0293b2aadd40fcf"
+    },
+    "map-landscape": {
+      "file": "map-landscape.svg",
+      "viewBox": [
+        0,
+        0,
+        1200,
+        760
+      ],
+      "description": "A drawn seven-stop garden trail. Semantic HTML links should use the manifest anchors and remain keyboard accessible. No text or controls are baked into the drawing.",
+      "category": "environments",
+      "states": [],
+      "hooks": [],
+      "anchors": {
+        "stations": {
+          "mystery": [
+            0.14,
+            0.35
+          ],
+          "story": [
+            0.36,
+            0.23
+          ],
+          "lab": [
+            0.59,
+            0.34
+          ],
+          "creek": [
+            0.82,
+            0.25
+          ],
+          "detective": [
+            0.82,
+            0.68
+          ],
+          "check": [
+            0.55,
+            0.79
+          ],
+          "finish": [
+            0.28,
+            0.7
+          ]
+        }
+      },
+      "sha256": "2d1851a0a2852468242b4cce6575bbeb3fb4425e484a3429dea563b433774843"
+    },
+    "map-portrait": {
+      "file": "map-portrait.svg",
+      "viewBox": [
+        0,
+        0,
+        600,
+        1480
+      ],
+      "description": "A drawn seven-stop garden trail. Semantic HTML links should use the manifest anchors and remain keyboard accessible. No text or controls are baked into the drawing.",
+      "category": "environments",
+      "states": [],
+      "hooks": [],
+      "anchors": {
+        "stations": {
+          "mystery": [
+            0.27,
+            0.16
+          ],
+          "story": [
+            0.69,
+            0.28
+          ],
+          "lab": [
+            0.27,
+            0.4
+          ],
+          "creek": [
+            0.7,
+            0.52
+          ],
+          "detective": [
+            0.28,
+            0.65
+          ],
+          "check": [
+            0.7,
+            0.77
+          ],
+          "finish": [
+            0.34,
+            0.89
+          ]
+        }
+      },
+      "sha256": "881ee2c72b68c72e6737220e60e37f977a1019b71c86b02a832f950905d1f724"
+    },
+    "creek-bank-landscape": {
+      "file": "creek-bank-landscape.svg",
+      "viewBox": [
+        0,
+        0,
+        1200,
+        680
+      ],
+      "description": "Illustrated creek banks with a clear central area for the real channel puzzle.",
+      "category": "environments",
+      "states": [],
+      "hooks": [],
+      "anchors": {
+        "puzzleSafeRect": [
+          0.25,
+          0.06,
+          0.75,
+          0.94
+        ]
+      },
+      "sha256": "64416a1543e3067b7724b025b7c5a869e73d99efb81b7bcabfa39268e6bca0a3"
+    },
+    "creek-bank-portrait": {
+      "file": "creek-bank-portrait.svg",
+      "viewBox": [
+        0,
+        0,
+        600,
+        880
+      ],
+      "description": "Tall creek composition with a clear central area for the channel puzzle.",
+      "category": "environments",
+      "states": [],
+      "hooks": [],
+      "anchors": {
+        "puzzleSafeRect": [
+          0.17,
+          0.25,
+          0.83,
+          0.73
+        ]
+      },
+      "sha256": "3cea2469e97f331db4358bf2a26bd20ae5dc457561859cbb74536077f9a0d3db"
+    },
+    "investigation-clearing": {
+      "file": "investigation-clearing.svg",
+      "viewBox": [
+        0,
+        0,
+        1200,
+        620
+      ],
+      "description": "Garden clearing with a source book and magnifier at the edges. Evidence controls belong in HTML.",
+      "category": "environments",
+      "states": [],
+      "hooks": [],
+      "anchors": {
+        "groundFraction": 0.6777777777777778
+      },
+      "sha256": "8aa35aa0c5d847d00d08d5f810eabd62ff032eaaeaffc5091a17f8fdc2a1d0d7"
+    },
+    "journal-page": {
+      "file": "journal-page.svg",
+      "viewBox": [
+        0,
+        0,
+        900,
+        1100
+      ],
+      "description": "Quiet field-journal paper with drawn binding and edge accents. All writing and achievement entries remain HTML.",
+      "category": "environments",
+      "states": [],
+      "hooks": [],
+      "anchors": {
+        "writingSafeRect": [
+          0.12,
+          0.08,
+          0.84,
+          0.87
+        ]
+      },
+      "sha256": "c85f6cf8fcdfbbbb4b81354b6e7efcde16a10b3855b8476d70dd1be34ed96e64"
+    },
+    "channel-straight": {
+      "file": "channel-straight.svg",
+      "viewBox": [
+        0,
+        0,
+        100,
+        100
+      ],
+      "description": "Drawn straight water channel. Rotate the real tile control; ports lie exactly on the viewBox edge midpoints.",
+      "category": "puzzle",
+      "states": [],
+      "hooks": [
+        "channel",
+        "water-flow",
+        "flow"
+      ],
+      "anchors": {
+        "ports": [
+          [
+            0,
+            50
+          ],
+          [
+            100,
+            50
+          ]
+        ]
+      },
+      "sha256": "f86582ab9ac02f75bb35fa594b32676b9ec6269c8e7ddcc89a2b78cdd1e3d2a0"
+    },
+    "channel-elbow": {
+      "file": "channel-elbow.svg",
+      "viewBox": [
+        0,
+        0,
+        100,
+        100
+      ],
+      "description": "Drawn elbow water channel. Rotate the real tile control; ports lie exactly on the viewBox edge midpoints.",
+      "category": "puzzle",
+      "states": [],
+      "hooks": [
+        "channel",
+        "water-flow",
+        "flow"
+      ],
+      "anchors": {
+        "ports": [
+          [
+            50,
+            0
+          ],
+          [
+            100,
+            50
+          ]
+        ]
+      },
+      "sha256": "362d7658261781c57efdb65746c4f204f064b492cd6d6e5bf28746cd6103eda8"
+    },
+    "brand-mark": {
+      "file": "brand-mark.svg",
+      "viewBox": [
+        0,
+        0,
+        56,
+        58
+      ],
+      "description": "SproutLab rooted leaf emblem.",
+      "category": "brand",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "276f235ecd60c80a37ca5d7c6c819cb4f479bc7e0083e6ca4c435532df792815"
+    },
+    "wordmark": {
+      "file": "wordmark.svg",
+      "viewBox": [
+        0,
+        0,
+        420,
+        90
+      ],
+      "description": "SproutLab wordmark with drawn rooted Sprout. Uses sans-serif fallback independently; inherit the existing Nunito font when inline in the app.",
+      "category": "brand",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "4e253fc525394ac0f5610bcb4c1333499228cf70a473f14ae789eb69306899b2"
+    },
+    "icon-sprout": {
+      "file": "icon-sprout.svg",
+      "viewBox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "description": "Existing SproutLab sprout UI icon, retained from app.js.",
+      "category": "icons",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "5972dc907c4e9d0ffeab8fe0ca58908b501e0081e3cbd87bc8bbc8aeb94139e1"
+    },
+    "icon-map": {
+      "file": "icon-map.svg",
+      "viewBox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "description": "Existing SproutLab map UI icon, retained from app.js.",
+      "category": "icons",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "6668aea9ad4ee2db4ca935fce54c1b705a9970233d79080603d51f1b9a6ce5f3"
+    },
+    "icon-book": {
+      "file": "icon-book.svg",
+      "viewBox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "description": "Existing SproutLab book UI icon, retained from app.js.",
+      "category": "icons",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "02e4b14d750f184ad03c78e197855300db5fbc91fb2f3e4037ced0ba872f84c7"
+    },
+    "icon-sun": {
+      "file": "icon-sun.svg",
+      "viewBox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "description": "Existing SproutLab sun UI icon, retained from app.js.",
+      "category": "icons",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "ed77b31a3993a7eb89c82ecececbc8e4bca79ba18842de7d49843971796feaeb"
+    },
+    "icon-drop": {
+      "file": "icon-drop.svg",
+      "viewBox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "description": "Existing SproutLab drop UI icon, retained from app.js.",
+      "category": "icons",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "ea6fd6431f997267c944091a4a0e836bf1c06d1e6cee46961b0528fc08dc4973"
+    },
+    "icon-leaf": {
+      "file": "icon-leaf.svg",
+      "viewBox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "description": "Existing SproutLab leaf UI icon, retained from app.js.",
+      "category": "icons",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "9acdcdfdd64933a5850e75150d2ec8e1918d0bffb2b4c0605a845e68df0a40ef"
+    },
+    "icon-search": {
+      "file": "icon-search.svg",
+      "viewBox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "description": "Existing SproutLab search UI icon, retained from app.js.",
+      "category": "icons",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "43e49551f3ed78b2cad4e65ad6e96cd1018705f7bca7f48fce048358a98dcea8"
+    },
+    "icon-flask": {
+      "file": "icon-flask.svg",
+      "viewBox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "description": "Existing SproutLab flask UI icon, retained from app.js.",
+      "category": "icons",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "fadbcd98b377389dd42b6d15a33cdaef96c859c2e46f7d2148a7d4f2b23ebb41"
+    },
+    "icon-flag": {
+      "file": "icon-flag.svg",
+      "viewBox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "description": "Existing SproutLab flag UI icon, retained from app.js.",
+      "category": "icons",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "b259e1add00f9a2e537f9591729118958aa6ae2f725de087b3941320dc9ecc8f"
+    },
+    "icon-star": {
+      "file": "icon-star.svg",
+      "viewBox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "description": "Existing SproutLab star UI icon, retained from app.js.",
+      "category": "icons",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "ce79abe3bf7da4ce8b985881b4ce6580af61a8ecb8ab8cae54a4e9f721d6a644"
+    },
+    "icon-arrow": {
+      "file": "icon-arrow.svg",
+      "viewBox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "description": "Existing SproutLab arrow UI icon, retained from app.js.",
+      "category": "icons",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "c8396c55bb3b703219a1c5dda14804871ed80775e31be51b0002f978f5c8f95e"
+    },
+    "icon-check": {
+      "file": "icon-check.svg",
+      "viewBox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "description": "Existing SproutLab check UI icon, retained from app.js.",
+      "category": "icons",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "69194f93ff95db5cf47e8f272f7fe02b69527d671a73ecd0a5bece356df14660"
+    },
+    "icon-clock": {
+      "file": "icon-clock.svg",
+      "viewBox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "description": "Existing SproutLab clock UI icon, retained from app.js.",
+      "category": "icons",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "1a455d3c5e46ce201c778bfd6a59f94b0f61d6824e1f5ac99451cba6a726ee5b"
+    },
+    "icon-shield": {
+      "file": "icon-shield.svg",
+      "viewBox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "description": "Existing SproutLab shield UI icon, retained from app.js.",
+      "category": "icons",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "f5eb615b175d23ece536892d55d76ec9b2081ef94836bd6b362c56d38773d2f8"
+    },
+    "icon-teacher": {
+      "file": "icon-teacher.svg",
+      "viewBox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "description": "Existing SproutLab teacher UI icon, retained from app.js.",
+      "category": "icons",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "6d4e18ceb4a9c3f56d6e1cdcf50c9c3724b219875c1e551374d0b5e20d0dcdcc"
+    },
+    "icon-volume": {
+      "file": "icon-volume.svg",
+      "viewBox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "description": "Existing SproutLab volume UI icon, retained from app.js.",
+      "category": "icons",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "1589cded70c14cba9f8dcdd26c36c7881451c94270b6aff597d62abc4c999199"
+    },
+    "icon-settings": {
+      "file": "icon-settings.svg",
+      "viewBox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "description": "Existing SproutLab settings UI icon, retained from app.js.",
+      "category": "icons",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "2d8b90b60e436d30b3887e276c340622b24808c70864c21c91e04793fcdb50cc"
+    },
+    "icon-play": {
+      "file": "icon-play.svg",
+      "viewBox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "description": "Existing SproutLab play UI icon, retained from app.js.",
+      "category": "icons",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "cca2adaa42247f6b4edb3d68899699d7f73d05acc0f82824e681f80e25aeb24b"
+    },
+    "icon-game": {
+      "file": "icon-game.svg",
+      "viewBox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "description": "Existing SproutLab game UI icon, retained from app.js.",
+      "category": "icons",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "9fab2f667be906ebb8a2b9cfacc6fdf3aad3dc492e49edafe368f311b669ce0d"
+    },
+    "icon-wind": {
+      "file": "icon-wind.svg",
+      "viewBox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "description": "Existing SproutLab wind UI icon, retained from app.js.",
+      "category": "icons",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "1c4cce76d91fabc9b64dca2f7afd00e5accf77e181311173344cb122ca48a4c5"
+    },
+    "icon-lightbulb": {
+      "file": "icon-lightbulb.svg",
+      "viewBox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "description": "Existing SproutLab lightbulb UI icon, retained from app.js.",
+      "category": "icons",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "96999cd6553ee913428a1f5b8f1fcfa2a566c6151ed2058305c624d17f5e078b"
+    },
+    "icon-heart": {
+      "file": "icon-heart.svg",
+      "viewBox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "description": "Existing SproutLab heart UI icon, retained from app.js.",
+      "category": "icons",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "f171b700ccb0ffb1e4c9dd8f509181f3ca6bbbab5b5271c26fcb0190e814ce19"
+    },
+    "icon-download": {
+      "file": "icon-download.svg",
+      "viewBox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "description": "Existing SproutLab download UI icon, retained from app.js.",
+      "category": "icons",
+      "states": [],
+      "hooks": [],
+      "anchors": {},
+      "sha256": "493464ef888598cc000249964c537555c8b9fed47da735e251700b5fb6d42f27"
+    }
+  }
+}

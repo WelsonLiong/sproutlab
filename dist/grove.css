@@ -1,0 +1,131 @@
+/* Greenhaven: a quiet, sunlit 3D world with a small, readable adventure HUD. */
+body[data-route=grove]{overflow:hidden;padding-bottom:0!important;background:#b9d2bf;color:#253d2c}
+body[data-route=grove]>.app-header,body[data-route=grove]>.site-footer{display:none}
+body[data-route=grove] .app-layout{margin:0;max-width:none}
+body[data-route=grove] main{position:fixed;inset:0;max-width:none;padding:0;min-height:0}
+.grove{position:absolute;inset:0;isolation:isolate;font-family:Nunito,sans-serif;overflow:hidden;--forest:#263f2f;--parchment:#fff9e8;--gold:#f2d681;--shade:0 8px 25px #203c2833}
+#grove-view,.grove-shade{position:absolute;inset:0}
+#grove-view{outline:none;touch-action:none}
+#grove-view canvas{display:block;width:100%;height:100%}
+.grove-shade{pointer-events:none;background:linear-gradient(180deg,#18362322,transparent 18%,transparent 75%,#203b3433)}
+.grove button,.grove input,.grove a{font:inherit}
+.grove button{border:0;font-weight:900;border-radius:10px;min-height:48px;padding:12px 20px;display:inline-flex;align-items:center;justify-content:center;gap:10px;color:var(--forest);background:var(--parchment);box-shadow:var(--shade);cursor:pointer;transition:background .18s,transform .18s}
+.grove button:hover:not(:disabled){background:#fffdf5;transform:translateY(-2px)}
+.grove button:active:not(:disabled){transform:translateY(1px)}
+.grove button:disabled{background:#d5dbce;color:#55604f;cursor:default;box-shadow:none}
+.grove button:focus-visible,.grove a:focus-visible,.grove input:focus-visible{outline:3px solid #8d4d28;outline-offset:4px}
+.grove input{caret-color:#386441;accent-color:#386441}
+.grove ::selection{background:#e9c773;color:#213d29}
+.grove-top{position:absolute;top:24px;left:32px;right:32px;display:flex;align-items:center;justify-content:space-between;gap:20px;z-index:12}
+.grove-brand{display:flex;align-items:center;gap:9px;color:#253c2b;text-decoration:none;font-size:27px;font-weight:1000;letter-spacing:-1px;background:#fff9e8f5;border-radius:25px;padding:3px 12px 3px 3px}
+.grove-brand>.icon{width:39px;height:39px;padding:7px;background:#f5dd8e;border-radius:50%;stroke-width:2}
+.grove-brand>span>span{color:#5c713d}
+.grove-tools{display:flex;gap:9px}
+.grove-tools button{min-height:42px;padding:9px 12px;background:#fff9e8f5;font-size:13px}
+.grove-tools button .icon{width:20px;height:20px}
+.grove-tools button[aria-pressed=true]{background:#f0d68b}
+.grove-mission{position:absolute;left:32px;top:97px;width:330px;padding:20px 24px 17px;background:#fff9e8f5;box-shadow:0 7px 30px #243e2522;border-radius:4px 23px 23px 23px;z-index:3;pointer-events:none}
+.grove-chapter{font-size:12px;color:#5b6747;font-weight:850;display:block;margin-bottom:7px}
+.grove-mission h1{font:400 27px/1.1 'Lilita One',Nunito,sans-serif;letter-spacing:0;text-wrap:balance}
+.grove-mission p{font-size:14px;line-height:1.45;margin-top:9px}
+.grove-milestones{display:flex;align-items:center;margin-top:16px;gap:9px;font-size:11px;color:#5c634f;font-weight:850}
+.grove-milestones span{display:flex;align-items:center;gap:5px}
+.grove-milestones span:before{content:'';width:9px;height:9px;border-radius:50%;border:1.5px solid #677252}
+.grove-milestones span.done:before{background:#478351;border-color:#478351}
+.grove-milestones i{width:25px;height:1px;background:#b9bea0}
+.grove-compass{position:absolute;right:32px;top:96px;background:#fff9e8f2;padding:12px 18px 12px 13px;border-radius:14px;display:grid;grid-template-columns:36px auto;gap:0 11px;box-shadow:var(--shade);z-index:3}
+.grove-compass>span{grid-row:span 2;background:#dbebce;border-radius:50%;display:grid;place-items:center;width:36px;height:36px}
+.grove-compass b{font-size:13px}.grove-compass small{font-size:11px;color:#59634e}
+.grove-marker{position:absolute;left:0;top:0;pointer-events:none;z-index:2;will-change:transform}
+.grove-marker>span{display:grid;place-items:center;width:41px;height:41px;border-radius:50% 50% 50% 3px;transform:translate(-50%,-120%) rotate(-45deg);background:#ffe294;color:#4b4f2c;box-shadow:0 5px 18px #3c431c44;border:2px solid #fff6d6}
+.grove-marker .icon{transform:rotate(45deg);width:21px;height:21px}
+.grove-context{position:absolute;bottom:157px;left:50%;transform:translateX(-50%);z-index:8;white-space:nowrap}
+.grove-context button{background:#fff9e8;box-shadow:0 5px 20px #213d2944;padding:10px 22px 10px 10px}
+.grove kbd{font:850 12px Nunito,sans-serif;border:1px solid #8e9a7c;border-bottom-width:2px;padding:2px 6px;border-radius:4px;background:#fffcf0;white-space:nowrap}
+.grove-context kbd{background:#355d40;color:#fff8dd;border:0;min-width:33px;height:33px;display:grid;place-items:center;font-size:17px}
+.grove-controls{position:absolute;bottom:101px;left:32px;display:flex;align-items:center;gap:19px;color:#263f2f;font-size:12px;z-index:5;background:#fff9e8e8;padding:9px 14px;border-radius:8px}
+.grove-message{position:absolute;left:50%;bottom:165px;max-width:min(590px,calc(100% - 40px));transform:translate(-50%,10px);background:#263f2ff5;color:#fff9e8;border-radius:13px;padding:15px 22px;font-size:15px;font-weight:750;text-align:center;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:7;box-shadow:0 8px 30px #203c2822}
+.grove-message.visible{opacity:1;transform:translate(-50%,0)}
+.grove:has(.grove-context:not([hidden])) .grove-message{bottom:221px}
+.grove-bottom{position:absolute;left:0;right:0;bottom:0;padding:14px 32px max(14px,env(safe-area-inset-bottom));display:flex;justify-content:space-between;align-items:center;gap:18px;background:#fff9e8fa;z-index:15;border-top:1px solid #d3d8bd}
+.grove-bottom>span{font-size:13px;font-weight:800;color:#566349}
+.grove-bottom button{background:#315f41;color:#fff9e8;box-shadow:0 3px 12px #223e2922;min-width:215px;min-height:46px;font-size:14px}
+.grove-bottom button:hover:not(:disabled){background:#244e33;color:white}
+.grove-bottom button:enabled{background:#315f41;color:#fff9e8;transition:transform .18s}
+.grove-bottom .icon{width:19px;height:19px}
+.grove-intro{position:absolute;inset:0;z-index:9;background:linear-gradient(90deg,#eef0d5f5 0%,#eff1d5e0 26%,#f0f2d48a 42%,#eff2d400 65%);display:flex;align-items:center;padding:105px 5vw 60px}
+.grove-intro-copy{max-width:525px}
+.grove-location{font-family:Caveat,cursive;font-size:26px;color:#4e6745;display:block;margin-bottom:10px}
+.grove-intro h1{font:400 clamp(48px,5.2vw,78px)/.98 'Lilita One',Nunito,sans-serif;letter-spacing:-.025em;color:#284934;text-wrap:balance}
+.grove-intro h1 em{font-style:normal;color:#597539}
+.grove-intro-copy>p{font-size:18px;line-height:1.55;margin-top:20px;max-width:36ch}
+.grove-intro form{margin-top:28px}
+.grove-intro label{display:block;font-size:14px;font-weight:900;margin-bottom:8px}
+.grove-name-row{display:flex;gap:9px;flex-wrap:wrap}
+.grove-name-row input{min-width:0;width:225px;border:1.5px solid #84956b;border-radius:8px;padding:12px 15px;background:#fffbee;color:#2e472f;min-height:50px;font-size:15px;box-shadow:none}
+.grove-name-row input::placeholder{color:#65704f;opacity:1}
+.grove-name-row button{background:#315c3e;color:#fff8dd;font-size:15px;min-height:50px;padding:13px 21px;box-shadow:0 5px 15px #2c50312b}
+.grove-name-row button:hover:not(:disabled){background:#264e32;color:white}
+.grove-intro form small{display:block;margin-top:9px;font-size:11px;color:#57654a}
+.grove-intro-copy .grove-intro-controls{display:flex;gap:9px;align-items:center;font-size:12px;font-weight:800;margin-top:23px}
+.grove-intro-controls .icon{width:22px;height:22px}
+.grove-loading{position:absolute;left:5vw;bottom:26px;width:290px;font-size:11px;color:#4e6346}
+.grove-loading progress{display:block;margin-top:6px;width:100%;height:4px;border:0;border-radius:3px;accent-color:#658541}
+.grove-loading progress::-webkit-progress-bar{background:#cbd3af;border-radius:3px}.grove-loading progress::-webkit-progress-value{background:#668842;border-radius:3px}
+.grove-gate-panel{position:absolute;bottom:143px;left:50%;transform:translateX(-50%);width:min(750px,calc(100% - 48px));background:#fff9e8fa;box-shadow:0 8px 35px #1d3b2f30;border-radius:18px;padding:20px 24px;z-index:8}
+.grove-gate-panel h2{font:400 25px/1.1 'Lilita One',Nunito,sans-serif;letter-spacing:0}
+.grove-gate-panel p{font-size:13px;margin-top:7px}
+.grove-gate-actions{display:flex;align-items:center;gap:8px;margin-top:15px;flex-wrap:wrap}
+.grove-gate-actions>span{font-size:13px;font-weight:900;min-width:160px;text-align:center}
+.grove-gate-actions button{box-shadow:none;background:#e2e9ce;min-height:42px;padding:10px 13px;font-size:13px}
+#grove-turn-left .icon{transform:rotate(180deg)}
+#grove-release{background:#315f41;color:#fff9e8;margin-left:9px}
+#grove-release:hover:not(:disabled){background:#254d33;color:white}
+#grove-leave{background:transparent;text-decoration:underline;text-underline-offset:3px;margin-left:auto;padding:6px 2px;min-height:32px;font-size:12px}
+.grove:has(.grove-gate-panel:not([hidden])) .grove-message{bottom:345px}
+.grove-success{position:absolute;bottom:153px;left:50%;transform:translateX(-50%);background:#fff9e8fa;border-radius:20px;padding:23px 28px;box-shadow:0 8px 35px #1d3b2f33;display:flex;align-items:center;gap:20px;z-index:8;max-width:calc(100% - 40px);width:max-content}
+.grove-earned{width:59px;height:59px;border-radius:50%;background:#e1edbf;color:#477241;display:grid;place-items:center;flex-shrink:0}
+.grove-earned .icon{width:31px;height:31px}
+.grove-success h2{font:400 36px/1.1 'Lilita One',Nunito,sans-serif;letter-spacing:0}
+.grove-success p{font-size:15px;margin-top:5px}.grove-success span{font-size:11px;color:#5e6b4c;display:block;margin-top:8px}
+.grove-discovery{position:absolute;z-index:10;left:50%;top:50%;transform:translate(-50%,-50%);width:min(575px,calc(100% - 36px));max-height:calc(100dvh - 175px);overflow:auto;background:#fff9e8fa;border-radius:22px;box-shadow:0 15px 60px #1c3b3e44;padding:27px 35px;text-align:center;scrollbar-width:thin;scrollbar-color:#829969 #fff9e8}
+.grove-discovery-art{margin:auto auto 14px;display:grid;place-items:center;width:62px;height:62px;background:#e6edcd;border-radius:50%;color:#5d843f}
+.grove-discovery-art .icon{width:38px;height:38px}
+.grove-discovery h2{font:400 37px/1.1 'Lilita One',Nunito,sans-serif;letter-spacing:0}
+.grove-discovery h2:focus{outline:none}
+.grove-discovery p{font-size:15px;line-height:1.6;margin-top:15px}
+.grove-needs{display:flex;justify-content:center;gap:12px 20px;flex-wrap:wrap;margin:21px auto;max-width:420px}
+.grove-needs span{display:flex;align-items:center;gap:5px;font-size:12px;font-weight:850;color:#4b5941}
+.grove-needs .restored{color:#285d45}
+.grove-needs .icon{width:20px;height:20px}
+.grove-discovery .grove-prototype-note{font-size:11px;color:#5c694e;border-top:1px solid #cfd7b9;padding-top:14px;margin-top:15px}
+#grove-replay{min-height:40px;background:transparent;box-shadow:none;text-decoration:underline;text-underline-offset:4px;font-size:12px;padding:8px;margin-top:12px}
+.grove dialog{background:#fff9e8;color:#294632;border:0;border-radius:20px;padding:34px;width:min(380px,calc(100% - 36px));box-shadow:0 15px 70px #17342d44}
+.grove dialog::backdrop{background:#203d3575}
+.grove dialog h2{font:400 34px/1.1 'Lilita One',Nunito,sans-serif;letter-spacing:0}
+.grove dialog p{font-size:14px;margin:12px 0 25px}
+.grove dialog button{display:flex;width:100%;margin:10px 0;background:#e4eccc;box-shadow:none;font-size:14px}
+#grove-resume{background:#315f41;color:#fff9e8}
+.grove dialog a{display:block;text-align:center;font-size:13px;margin-top:21px;text-underline-offset:4px}
+.grove-failure{position:absolute;z-index:20;inset:0;background:#e9eed7;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:25px;text-align:center}
+.grove-failure h2{font:400 38px 'Lilita One',sans-serif;letter-spacing:0}
+.grove-failure p{max-width:48ch;font-size:16px;margin:15px 0 25px}
+.grove-failure a{margin-top:20px;font-size:14px;text-underline-offset:4px}
+.grove-touch{display:none}
+.grove-touch button .icon{width:19px;height:19px}
+.grove-touch [data-walk=up] .icon{transform:rotate(-90deg)}
+.grove-touch [data-walk=left] .icon{transform:rotate(180deg)}
+.grove-touch [data-walk=down] .icon{transform:rotate(90deg)}
+.explorer-welcome{margin-top:19px!important;max-width:385px}
+.explorer-welcome label{display:block;font-size:13px;font-weight:900;margin-bottom:6px}
+.explorer-welcome input{width:100%;max-width:310px;padding:9px 12px;border:1.5px solid #596e4d;background:#fffbee;border-radius:7px;font:inherit;font-size:15px;min-height:42px}
+.explorer-welcome small{display:block;font-size:11px;color:#4f6048;margin:5px 0 13px}
+.explorer-welcome .adventure-button{margin-top:0}
+.cover-copy .illustrated-start{font-size:13px;font-weight:850;display:block;margin-top:14px;text-underline-offset:4px}
+@media(max-width:1000px){.grove-mission{width:285px;left:22px;padding:17px 20px}.grove-top{left:22px;right:22px}.grove-compass{right:22px}.grove-controls{gap:10px;left:22px;font-size:10px}.grove-controls kbd{font-size:10px}.grove-intro-copy{max-width:450px}.grove-intro{background:linear-gradient(90deg,#eef0d5f5 0%,#eff1d5dd 34%,#f0f2d455 65%,transparent)}.grove-name-row input{width:205px}.grove-bottom{padding-left:22px;padding-right:22px}}
+@media(max-height:700px) and (min-width:761px){.grove-intro{padding-top:90px;padding-bottom:50px}.grove-intro h1{font-size:56px}.grove-intro-copy>p{font-size:16px;margin-top:14px}.grove-intro form{margin-top:18px}.grove-intro-copy .grove-intro-controls{margin-top:13px}.grove-mission{top:85px}.grove-compass{top:85px}.grove-gate-panel{bottom:125px}.grove-context{bottom:140px}}
+@media(max-width:760px){.grove-top{top:14px;left:16px;right:16px}.grove-brand{font-size:22px}.grove-brand>.icon{width:33px;height:33px}.grove-tools button{min-height:36px;padding:8px}.grove-tools button span{display:none}.grove-mission{top:67px;left:16px;width:calc(100% - 32px);padding:13px 17px;border-radius:4px 17px 17px 17px}.grove-chapter{font-size:10px;margin-bottom:4px}.grove-mission h1{font-size:23px}.grove-mission p{font-size:12px;margin-top:5px}.grove-milestones{margin-top:10px;font-size:10px}.grove-compass{top:212px;right:16px;padding:8px 10px;gap:0 7px;grid-template-columns:29px auto}.grove-compass>span{width:29px;height:29px}.grove-compass .icon{width:19px;height:19px}.grove-compass b{font-size:11px}.grove-compass small{font-size:9px}.grove-controls{display:none}.grove-intro{padding:105px 24px 65px;align-items:flex-start;background:linear-gradient(180deg,#eaf0d6f7,#edf1d9e6 45%,#eff2d440 80%,transparent)}.grove-intro-copy{max-width:400px}.grove-location{font-size:22px;margin-bottom:8px}.grove-intro h1{font-size:51px}.grove-intro-copy>p{font-size:16px;margin-top:15px}.grove-intro form{margin-top:20px}.grove-name-row{gap:8px}.grove-name-row input{width:100%;max-width:340px}.grove-name-row button{width:100%;max-width:340px}.grove-intro-copy .grove-intro-controls{font-size:10px;max-width:270px;margin-top:15px}.grove-loading{left:24px;bottom:22px;width:calc(100% - 48px)}.grove-bottom{padding:10px 16px max(10px,env(safe-area-inset-bottom));gap:10px}.grove-bottom>span{font-size:10px;max-width:125px}.grove-bottom button{min-width:0;min-height:44px;padding:10px 12px;font-size:12px;gap:7px}.grove-bottom .icon{width:16px;height:16px}.grove-context{bottom:145px;left:auto;right:16px;transform:none}.grove-context button{padding:8px 13px 8px 8px;min-height:43px;font-size:12px}.grove-context kbd{width:28px;height:28px;min-width:28px;font-size:14px}.grove-touch:not([hidden]){display:grid;grid-template-columns:repeat(3,38px);grid-template-rows:repeat(2,38px);gap:4px;position:absolute;bottom:100px;left:16px;z-index:6}.grove-touch button{min-height:38px;padding:0;font-size:18px;background:#fff9e8ec;box-shadow:0 3px 10px #29403022;touch-action:none}.grove-touch [data-walk=up]{grid-column:2}.grove-touch [data-walk=left]{grid-row:2;grid-column:1}.grove-touch [data-walk=down]{grid-row:2;grid-column:2}.grove-touch [data-walk=right]{grid-row:2;grid-column:3}.grove-message{bottom:202px!important;font-size:12px;padding:12px 15px;width:calc(100% - 32px);max-width:400px}.grove-gate-panel{bottom:195px;width:calc(100% - 32px);padding:17px}.grove-gate-panel h2{font-size:23px}.grove-gate-panel p{font-size:12px}.grove-gate-actions{justify-content:center;gap:7px;margin-top:12px}.grove-gate-actions>span{min-width:155px;font-size:12px}.grove-gate-actions button{min-height:38px}.grove-gate-actions .icon{width:20px;height:20px}#grove-release{margin:2px 0 0;width:100%}#grove-leave{margin:0 auto;min-height:30px}.grove:has(.grove-gate-panel:not([hidden])) .grove-message{bottom:475px!important}.grove-success{bottom:203px;padding:20px;gap:12px;width:calc(100% - 32px)}.grove-earned{width:43px;height:43px}.grove-success h2{font-size:28px}.grove-success p{font-size:12px}.grove-success span{font-size:10px}.grove-discovery{padding:23px 22px;top:49%}.grove-discovery h2{font-size:30px}.grove-discovery p{font-size:13px}.grove-needs{gap:10px 12px}.grove-needs span{font-size:11px}.grove-discovery-art{width:50px;height:50px}.grove-discovery .grove-prototype-note{font-size:10px}.grove:has(.grove-discovery:not([hidden])) .grove-touch{display:none}}
+@media(prefers-reduced-motion:reduce){.grove *{transition:none!important;animation:none!important}}
+body.reduce-motion .grove *{transition:none!important;animation:none!important}
+
+.grove:has(.grove-intro:not([hidden])) .grove-compass,.grove:has(.grove-intro:not([hidden])) .grove-marker{display:none}

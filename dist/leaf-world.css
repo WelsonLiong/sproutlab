@@ -31,3 +31,39 @@
 .svg-workshop[data-focus=water] .plant-panel .scene-heading,.svg-workshop[data-focus=air] .leaf-panel .scene-heading,.svg-workshop[data-focus=light] .leaf-panel .scene-heading,.svg-workshop[data-focus=make] .scene-heading,.svg-workshop[data-focus=gifts] .leaf-panel .scene-heading{background-color:#fff0b9;box-shadow:inset 0 -3px #aa7710}
 .svg-workshop[data-focus=gifts] .leaf-products{outline:3px solid #aa7710;outline-offset:-4px}
 .science-status{font-size:14px;font-weight:800}
+
+/* Guided demonstration: cues share diagram coordinates, so pointers stay on target. */
+.demo-intro{padding:clamp(28px,5vw,64px);text-align:center;background:var(--scene-warm,#fff0b3)}
+.demo-intro h2{font-size:clamp(28px,4vw,44px);margin:0 0 16px}
+.demo-intro p{max-width:52ch;margin:12px auto;font-size:18px}
+.demo-intro .btn{margin:16px 12px 8px}
+.demo-intro .text-btn{display:block;margin:12px auto}
+.demo-controls{padding:18px 24px;background:#fff0b3;border-block:1px solid #a9b69c;display:flex;align-items:center;gap:20px;scroll-margin-top:12px}
+.demo-controls h2{font-size:clamp(22px,2.2vw,30px);margin:0 0 7px}
+.demo-controls p{font-size:16px;font-weight:800;margin:0;max-width:65ch;line-height:1.45}
+.demo-buttons{display:flex;align-items:center;gap:16px;flex-shrink:0;margin-left:auto}
+.demo-buttons .btn{white-space:nowrap}
+.demo-buttons button:disabled{opacity:.6;cursor:default}
+.demo-cue{display:none;pointer-events:none}
+.science-drawing .demo-cue rect:not(.target-ring){fill:#fffdf4;stroke:#b53727;stroke-width:2}
+.science-drawing .demo-cue text{fill:#26362d;font-size:20px;font-weight:950}
+.target-ring{fill:none;stroke:#b53727;stroke-width:5;stroke-dasharray:9 5}
+.cue-pointer{fill:none;stroke:#b53727;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+.demonstrating[data-focus=water] .cue-water,.demonstrating[data-focus=air] .cue-air,.demonstrating[data-focus=air] .cue-connection,.demonstrating[data-focus=light] .cue-sun,.demonstrating[data-focus=chlorophyll] .cue-chlorophyll,.demonstrating[data-focus=make] .cue-making,.demonstrating[data-focus=gifts] .cue-products{display:block}
+.demonstrating .science-drawing{outline:none!important;opacity:1!important;filter:none!important}
+.demonstrating[data-focus=water] .leaf-panel,.demonstrating[data-focus=make] .plant-panel,.demonstrating[data-focus=gifts] .plant-panel{opacity:.45}
+.demonstrating .plant-actions,.demonstrating .air-action{display:none}
+.demonstrating[data-focus=water] .route-note{opacity:.4}
+.demonstrating[data-focus=light] .chlorophyll-callout{opacity:.15}
+.demonstrating[data-focus=air] .vein-label{opacity:.15}
+.demonstrating[data-focus=water] .water-stream{stroke:#087fad;stroke-width:6}
+.demo-controls h2:focus,.demo-intro h2:focus{outline:none}
+@media(max-width:1000px){.demo-controls{align-items:flex-start;flex-direction:column;gap:12px}.demo-buttons{margin-left:0}.demo-controls p{font-size:15px}}
+@media(max-width:720px){.demo-controls{padding:16px}.demo-buttons{width:100%;justify-content:space-between;gap:10px}.demo-buttons .btn{font-size:14px;padding:10px 12px}.demo-buttons .text-btn{font-size:14px}.demonstrating[data-focus=water] .leaf-panel,.demonstrating[data-focus=air] .plant-panel,.demonstrating[data-focus=make] .plant-panel,.demonstrating[data-focus=gifts] .plant-panel{display:none}.demonstrating .leaf-panel{border:0}.demonstrating[data-focus=light] .science-scenes{grid-template-columns:1fr 1fr}.demonstrating[data-focus=light] .scene-heading{display:none}.demonstrating[data-focus=light] .science-drawing{height:auto;max-height:none}.demonstrating[data-focus=light] .science-drawing .demo-cue text{font-size:22px}.demo-intro p{font-size:16px}.demo-intro .btn{margin-inline:0}.demo-intro{padding:24px 18px}}
+
+.demonstrating[data-focus=light] .leaf-panel,.demonstrating[data-focus=chlorophyll] .plant-panel{opacity:.45}
+.demonstrating[data-focus=chlorophyll] .chlorophyll-callout{opacity:.15}
+@media(max-width:720px){.demonstrating[data-focus=light] .science-scenes{grid-template-columns:1fr}.demonstrating[data-focus=light] .scene-heading{display:flex}.demonstrating[data-focus=light] .leaf-panel,.demonstrating[data-focus=chlorophyll] .plant-panel{display:none}.demonstrating[data-focus=light] .science-drawing{max-height:470px}.demonstrating[data-focus=light] .science-drawing .demo-cue text{font-size:20px}}
+
+.demo-buttons [hidden]{display:none}
+@media(max-width:720px){.demo-buttons{flex-wrap:wrap}.demo-buttons .text-btn{padding-inline:0}.demo-buttons .btn{margin-left:auto}}

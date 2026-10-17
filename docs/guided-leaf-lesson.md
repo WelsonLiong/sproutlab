@@ -1,0 +1,11 @@
+# Video and guided leaf lesson
+
+The second adventure now embeds the owner's YouTube cartoon, DJnnWQehI50, without autoplay. The player has native controls and fullscreen, plus a direct YouTube link. Moving to the lesson removes the iframe, stopping playback. The former locally animated lunch cartoon and separate demonstration/practice versions are removed from this route.
+
+One sequence covers water transport, carbon dioxide entry, sunlight, chlorophyll, food production and products. Inside the leaf starts with one paused ready state. Start reveals the first caption and starts its animation. The local Next button sits to the right of Replay and becomes available immediately, including during animation and narration. Next cancels current playback and immediately starts the following step. Only the first step needs Start. During these steps the bottom bar does not duplicate Next; normal bottom adventure navigation returns after completion. Nothing advances on a timer; after the animation settles, text and diagrams remain until the pupil chooses Next. Replay and Pause/Resume are available. Reduced-motion preferences show clear end states.
+
+The last step leads to a summary, records the story discovery and unlocks the existing Next adventure action to the leaf lab. Guest/named introductions retain the learner-voice distinction. Picture notes at #story remain an optional reference, rather than another automatic/practice version.
+
+Verification: tmp/verify-guided-factory.cjs exercised all six starts, immediate skipping, waiting without auto-advance, pause/resume, full sunlight, completion, navigation cleanup and desktop/390px layouts with zero JavaScript errors. Captures are in .impeccable/review/guided-factory/. A separate browser check loaded the actual YouTube embed with HTTP 200 and displayed the owner's PHOTOSYNTHESIS video title; the video was not watched through or transcribed.
+
+Follow-up verification: local Next stayed to the right of Replay at 1440px, 390px and 320px; all five following steps started immediately after Next; waiting did not advance the last step; completion restored bottom navigation and reached the lab without JavaScript errors. Captures: .impeccable/review/guided-inline/.

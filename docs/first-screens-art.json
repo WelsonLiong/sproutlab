@@ -1,0 +1,14 @@
+{
+  "tool": "Built-in imagegen",
+  "date": "2026-10-15",
+  "assets": [
+    {
+      "file": "dist/assets/adventure-cover.webp",
+      "prompt": "Use case: illustration-story. Create original polished children's science comic artwork for the Sprout Lab web learning adventure, landscape 1536x1024. A joyous hand-inked and gouache printed picture-book garden in saturated coral orange, buttery yellow, pale sky blue and spring green, dark charcoal imperfect confident ink contours and visible subtle paper texture. Flat editorial cartoon illustration, not glossy 3D, not anime, no beige interface. Two memorable cartoon characters: Sprout is a small cheerful rooted green plant with a round face on the stem and two giant expressive leaves, visibly growing from earth; Beep is a charming little coral-red boxy robot with pale yellow face screen, dark eyes, antenna and blue shoes, holding a magnifying glass and crouching beside Sprout. Oversized garden leaves and tiny daisies surround them. Characters fill the right half, centered around x=72%, y=60%. A friendly sun near upper right and one small butterfly. LEFT HALF / upper left 55% is quiet pale buttery yellow open sky for live HTML heading and button overlay, do not put any objects there. Bottom 20% is a lively strip of grass, earth, winding path and oversized wildflowers spanning width. Composition one continuous panoramic illustration full bleed, not isolated rectangular artwork, lively asymmetry. No lettering, no words, no UI, no labels, no speech balloons, no watermark. This is an illustration asset, not a website mockup."
+    },
+    {
+      "file": "dist/assets/mystery-garden.webp",
+      "prompt": "Use case: illustration-story. Create a second illustration for the Sprout Lab children's science adventure. The attached image is a character and art style reference. Preserve EXACT same green Sprout character, coral robot Beep, warm hand-inked gouache on paper style, bright flat picture-book palette. Landscape 1536x1024. Now a close-up comic scene: Sprout planted in a little mound of dark earth with a visible thin stem and two giant leaves, lower center-left at x=40%, face at y=55%. Beep peeks from behind a giant blue-green leaf at far lower right, curious, holding a closed little lunchbox. Happy yellow sun tiny upper-left. The ground is a colourful cottage garden of daisies and orange flowers along bottom edge. Sky is clear light powder blue. Leave the upper-right quadrant very calm empty powder-blue sky for a live HTML speech bubble overlay. Big expressive faces, rustic print texture, irregular elegant black ink. No text, no speech bubbles, no panel frames, no website controls, no watermarks. Art fills whole image. A small pale root system visible in the soil beneath Sprout. Friendly curious atmosphere, composition feels like a close-up panel in a children's comic. Do not show plant eating or moving, no food in roots."
+    }
+  ]
+}

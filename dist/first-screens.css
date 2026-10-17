@@ -1,0 +1,129 @@
+@font-face{font-family:'Lilita One';src:url('assets/lilita-one.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:Caveat;src:url('assets/caveat.ttf') format('truetype');font-weight:400 700;font-display:swap}
+body[data-route]{--ink:#26362d;--cream:#fffdf4;--green:#285745;--coral:#b53727;background:#fffdf4;color:var(--ink);scrollbar-color:#285745 #fff0b3}
+body[data-route] ::selection{background:#f9bf37;color:#26362d}
+body[data-route] :focus-visible{outline:3px solid #a32e22;outline-offset:5px}
+body[data-route] .app-header{max-width:none;min-height:90px;padding:18px 4.5%;border-bottom:2px solid #26362d;background:#fffdf4;gap:20px}
+body[data-route] .brand{font-family:'Lilita One',Nunito,sans-serif;font-size:34px;font-weight:400;letter-spacing:-.03em}
+body[data-route] .brand-light{color:#b53727}
+body[data-route] .brand small{font-family:Nunito,sans-serif;font-size:8px;letter-spacing:.09em;font-weight:900}
+body[data-route] .brand-mark{background:#f5be35;color:#26362d;border:2px solid #26362d;border-radius:50% 45% 48% 42%;width:43px;height:43px}
+body[data-route] .main-nav a{border:0;border-radius:0;box-shadow:none;font-size:14px;padding:10px 5px;margin:0 12px}
+body[data-route] .main-nav a.active{background:none;text-decoration:underline;text-decoration-color:#b53727;text-decoration-thickness:3px;text-underline-offset:9px}
+body[data-route] .header-tools .icon-btn{border:1.5px solid #26362d;background:none;width:38px;height:38px}
+body[data-route] .header-tools .icon-btn[aria-pressed=true]{background:#f5be35}
+body[data-route] .collection{background:none;border:0;font-size:14px;padding:8px}
+body[data-route] .site-footer{max-width:1500px;padding:22px 4.5%;border-top:1px solid #c7c9ae;color:#374b3c;font-size:12px}
+body[data-route=map] main{padding:0;max-width:none}
+.adventure-cover{position:relative;isolation:isolate;min-height:650px;height:min(55vw,760px);border-bottom:2px solid #26362d;overflow:hidden;background:#ffec94}
+.cover-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 54%;z-index:-1}
+.cover-copy{position:relative;margin-left:7%;padding-top:5%;width:51%;max-width:710px}
+.cover-copy h1{font-family:'Lilita One',Nunito,sans-serif;font-weight:400;font-size:clamp(62px,6.3vw,96px);line-height:1.01;letter-spacing:-.025em;transform:rotate(-2deg)}
+.cover-copy h1 span{color:#b53727;display:inline-block}
+.cover-copy p{font-size:19px;line-height:1.6;margin:25px 0 26px;max-width:400px;font-weight:650}
+.cover-copy p strong{font-weight:850}
+.adventure-button{display:inline-flex;align-items:center;justify-content:center;gap:25px;min-height:57px;padding:14px 24px;border:2px solid #26362d;background:#285745;color:#fffdf4;font-size:18px;font-weight:950;border-radius:9px;text-decoration:none;box-shadow:2px 5px 9px #293a3024}
+.adventure-button:hover{background:#193f30;transform:translateY(-3px) rotate(-1deg);box-shadow:2px 7px 12px #293a3038}
+.adventure-button .icon{width:27px;height:27px}
+.cover-note{font-family:Caveat,cursive;font-size:23px;font-weight:700;display:block;margin-top:14px;transform:rotate(-2deg)}
+.character-hello{position:absolute;right:11%;bottom:8%;padding:6px 15px;background:#fffdf4;border:2px solid #26362d;font:700 25px Caveat,cursive;transform:rotate(-5deg);box-shadow:2px 4px 8px #26362d24}
+.cover-page-turn{position:absolute;right:0;bottom:0;background:#fffdf4;width:67px;height:65px;border-top:2px solid #26362d;border-left:2px solid #26362d;border-radius:35px 0 0 0;display:grid;place-items:center}
+.cover-page-turn:hover{background:#f5be35;transform:none}
+.discovery-trail{padding:38px 5% 28px;max-width:1600px;margin:auto}
+.trail-heading{display:flex;justify-content:space-between;align-items:baseline;gap:20px}
+.trail-heading h2{font-family:'Lilita One',sans-serif;font-weight:400;font-size:30px;letter-spacing:0}
+.trail-heading p{margin:0;font-size:14px;font-weight:750}
+.discovery-trail ol{display:grid;grid-template-columns:repeat(7,1fr);list-style:none;padding:0;margin:30px 0 23px;gap:12px}
+.discovery-trail li{position:relative;text-align:center}
+.discovery-trail li:not(:last-child):after{content:'';position:absolute;left:65%;top:25px;width:75%;border-top:2px dashed #8e9b75;z-index:-1}
+.discovery-trail li a{display:flex;align-items:center;flex-direction:column;text-decoration:none;gap:9px}
+.trail-marker{background:#fffdf4;border:2px solid #26362d;border-radius:50%;width:50px;height:50px;display:grid;place-items:center;font-family:'Lilita One',sans-serif;font-size:23px}
+.trail-current .trail-marker{background:#f5be35;transform:rotate(-8deg);outline:2px solid #b53727;outline-offset:5px}
+.trail-done .trail-marker{background:#285745;color:white}
+.discovery-trail strong{font-size:14px;max-width:130px;line-height:1.3}
+.discovery-trail small{font-size:12px}
+.trail-goals{font-size:14px;max-width:650px}
+.trail-goals summary{text-decoration:underline;text-underline-offset:4px}
+body[data-route=mystery] main{max-width:1500px;padding:24px 4.5% 10px}
+.comic-heading{display:flex;justify-content:space-between;gap:15px;font-weight:850;font-size:13px;margin-bottom:13px}
+.comic-heading a{display:flex;align-items:center;gap:8px;text-decoration:none}
+.comic-heading a .icon{transform:rotate(180deg);width:18px}
+.opening-mystery>h1{font:400 clamp(38px,4.5vw,64px)/1.1 'Lilita One',sans-serif;letter-spacing:-.02em;margin:0 0 24px}
+.opening-mystery>h1 span{color:#b53727}
+.mystery-spread{display:grid;grid-template-columns:1.22fr 1fr;gap:38px;align-items:start}
+.comic-panel{position:relative;min-height:595px;height:100%;border:2px solid #26362d;background:#b7e3f6;overflow:hidden;border-radius:3px 17px 5px 4px}
+.comic-panel>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:40% center}
+.sprout-question{position:absolute;top:25px;right:20px;width:fit-content;max-width:47%;margin:0;background:#fffdf4;padding:13px 16px;border:2px solid #26362d;border-radius:44% 38% 40% 8% / 20% 24% 20% 10%;font-size:18px;font-weight:800;line-height:1.4;transform:rotate(3deg);box-shadow:2px 5px 10px #26362d18}
+.sprout-question strong{font-weight:1000}
+.sprout-question cite{display:block;font:700 23px Caveat,cursive;margin-top:4px;text-align:right}
+.comic-caption{position:absolute;bottom:20px;left:16px;right:16px;margin:0 auto;padding:10px 15px;width:fit-content;background:#fff1b8;border:2px solid #26362d;font:700 23px Caveat,cursive;transform:rotate(-2deg);text-align:center}
+.mystery-investigation{padding:4px 0 0}
+.handwritten{font:700 26px Caveat,cursive;color:#a32e22;display:block;margin-bottom:9px}
+.mystery-investigation h2{font:400 clamp(28px,2.7vw,38px)/1.12 'Lilita One',sans-serif;letter-spacing:0}
+.mystery-investigation>p{font-size:16px;margin:14px 0 22px;max-width:33ch}
+.mystery-choices{display:flex;flex-direction:column;gap:12px}
+.mystery-choices button{width:100%;display:flex;align-items:center;text-align:left;gap:15px;background:#fffdf4;border:2px solid #26362d;border-radius:12px 6px 13px 7px;padding:13px 16px;font-size:18px;font-weight:950;min-height:82px;box-shadow:none}
+.mystery-choices button:nth-child(2){background:#ffefb9}
+.mystery-choices button:nth-child(3){background:#e5f3f8}
+.mystery-choices button:hover{background:#f8e3bb;transform:translateX(3px)}
+.mystery-choices button.selected{background:#d9edb6;outline:2px solid #285745;outline-offset:3px}
+.answer-art{width:43px;flex-shrink:0;display:grid;place-items:center}
+.answer-art .icon{width:35px;height:35px;stroke-width:1.7}
+.mystery-choices small{display:block;font-size:13px;font-weight:650;margin-top:2px}
+.answer-check{margin-left:auto;visibility:hidden;display:flex}
+.selected .answer-check{visibility:visible}
+.mystery-investigation .feedback{background:transparent;border:0;padding:0;font-size:14px;line-height:1.4;margin:20px 0 0}
+.mystery-investigation .feedback strong{color:#285745}
+.mystery-investigation .feedback p{margin:6px 0 0}
+.mystery-continue{margin-top:22px}
+.mystery-continue .adventure-button{width:100%;font-size:17px}
+.prediction-nudge{font:700 22px Caveat,cursive;display:block;text-align:center}
+.mystery-continue:has(a:not([hidden])) .prediction-nudge{display:none}
+.mystery-investigation>.audio-btn{font-size:13px;margin-top:12px;padding-left:0;min-height:44px}
+body.low-data .cover-art,body.low-data .comic-panel>img{display:none}
+body.low-data .comic-panel{min-height:320px}
+body.low-data .sprout-question{width:80%;right:10%}
+@media(min-width:1700px){.cover-copy{margin-left:max(7%,calc((100vw - 1450px)/2))}.adventure-cover{height:790px}.cover-art{object-position:center 58%}}
+@media(max-width:1100px){.cover-copy{margin-left:5%;padding-top:6%;width:54%}.cover-copy h1{font-size:70px}.cover-copy p{font-size:17px}.adventure-cover{min-height:620px}.mystery-spread{gap:25px;grid-template-columns:1.1fr 1fr}.sprout-question{font-size:16px;right:12px;top:18px;max-width:51%}.comic-panel{min-height:590px}.mystery-choices button{font-size:16px;padding:12px 10px;gap:8px}.mystery-choices small{font-size:12px}.character-hello{right:7%}}
+@media(max-width:760px){
+ body[data-route] .app-header{padding:15px 5% 10px;gap:13px;min-height:0;flex-wrap:wrap}
+ body[data-route] .brand{font-size:30px}
+ body[data-route] .brand small{display:none}
+ body[data-route] .brand-mark{width:36px;height:36px}
+ body[data-route] .main-nav{order:3;border:0;padding:0;justify-content:space-between;width:100%}
+ body[data-route] .main-nav a{margin:0;flex:initial;padding:7px 0;font-size:13px}
+ body[data-route] .main-nav a.active{text-underline-offset:6px}
+ body[data-route] .collection{font-size:12px;padding:0 3px}
+ body[data-route] .header-tools{gap:7px}
+ body[data-route] .header-tools .icon-btn{width:32px;height:32px}
+ .adventure-cover{height:auto;min-height:740px;background:#ffec94}
+ .cover-art{height:455px;top:auto;bottom:0;object-fit:cover;object-position:100% center}
+ .cover-copy{margin:0;padding:30px 6% 0;width:100%;max-width:none}
+ .cover-copy h1{font-size:clamp(49px,10.7vw,76px);line-height:1.03;max-width:620px}
+ .cover-copy p{font-size:16px;margin:17px 0 20px;line-height:1.5}
+ .cover-copy p br:first-child{display:none}
+ .cover-copy .adventure-button{font-size:16px;min-height:51px;position:relative;z-index:1}
+ .cover-note{font-size:20px;position:relative;z-index:1;margin-top:9px}
+ .character-hello{bottom:30px;right:75px;font-size:22px}
+ .discovery-trail{padding:27px 6%}
+ .trail-heading{display:block}.trail-heading h2{font-size:27px}.trail-heading p{font-size:12px;margin-top:8px}
+ .discovery-trail ol{grid-template-columns:1fr;margin:27px 0;gap:20px;padding-left:4px}
+ .discovery-trail li a{display:grid;grid-template-columns:45px 1fr auto;gap:18px;text-align:left;align-items:center}
+ .trail-marker{width:43px;height:43px;font-size:21px}
+ .discovery-trail strong{font-size:15px;max-width:none}.discovery-trail small{font-size:12px}
+ .discovery-trail li:not(:last-child):after{top:43px;left:21px;width:0;height:25px;border-top:0;border-left:2px dashed #8e9b75}
+ body[data-route=mystery] main{padding:19px 5% 8px}
+ .comic-heading{font-size:11px;gap:8px}.comic-heading a{gap:5px}
+ .opening-mystery>h1{font-size:42px;margin-bottom:20px}
+ .mystery-spread{grid-template-columns:1fr;gap:25px}
+ .comic-panel{min-height:350px;height:350px}
+ .comic-panel>img{object-position:65% center}
+ .sprout-question{max-width:54%;top:15px;right:10px;padding:11px 12px;font-size:14px;line-height:1.4}
+ .sprout-question cite{font-size:20px}
+ .comic-caption{font-size:19px;padding:8px 10px;bottom:13px;left:10px;right:10px}
+ .mystery-investigation{padding:0 2px}.handwritten{font-size:25px}.mystery-investigation h2{font-size:33px}.mystery-investigation h2 br{display:none}
+ .mystery-investigation>p{max-width:none;font-size:16px}
+ .mystery-choices button{font-size:18px;padding:13px;gap:12px}.mystery-choices small{font-size:13px}
+ body[data-route] .site-footer{margin-top:15px}
+}
+@media(max-width:370px){body[data-route] .brand{font-size:26px}.cover-copy h1{font-size:45px}.cover-note{font-size:18px}.comic-heading{font-size:10px}.opening-mystery>h1{font-size:37px}.sprout-question{font-size:13px}.mystery-choices small{font-size:12px}}

@@ -1,0 +1,7 @@
+# Top progression controls — 16 October 2026
+
+All lesson onward links now sit above the activity in a sticky navigation bar. Required tasks keep those links visible with aria-disabled and blocked navigation until completion. The first prediction, leaf lab, and reflection use the same behavior. Stage controls for picture notes, demonstrations, creek rescues, detective missions and quiz questions have stable top buttons that follow their source activity’s validation state. Source handlers still own progression; the observer only mirrors readiness and labels. Repeated onward actions in success sections are suppressed. The in-game creek success message remains.
+
+A resize observer reserves scrolling space for the navigation bar, including when phone text wraps. Both observers disconnect on route changes. Disabled links are excluded from keyboard tab order and their clicks are blocked. Disabled stage controls use native button semantics.
+
+Verified all eight learning routes, disabled click blocking, mystery completion, all detective missions and privacy completion, all five quiz questions, both creek rescues, demonstration step progression, valid and missing-condition lab trials, and spoken reflection completion. Desktop 1440×1000, phone 390×844 and 320×844 checks cover sticky position and horizontal overflow. JavaScript syntax checks and changed-file whitespace checks passed. Desktop and mobile views were inspected. The design detector’s findings were reviewed against existing styles.

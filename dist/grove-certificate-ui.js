@@ -1,0 +1,24 @@
+import {icon,escapeHTML,state,save} from './app.js?v=8';
+import {activeProfile,attemptScore,canSave} from './grove-progress.js';
+import {drawCertificate,certificateName,updateCertificateName,downloadCertificate,printCertificate,certificateAttempts} from './grove-certificate.js';
+
+export function mountCertificate(host,initialAttempt,{onRetake}={}){
+ let dead=false,attempt=initialAttempt,renderId=0;const life=new AbortController();
+ host.innerHTML=`<div class="certificate-sheet"><h2 tabindex="-1">Your discovery certificate</h2><p>Made for <strong id="certificate-pupil"></strong>. Your mark belongs to this completed attempt.</p><div class="certificate-toolbar"><label>Completed attempt <select id="certificate-attempt"></select></label><form id="certificate-name-form"><label for="certificate-name">Name on the certificate</label><div><input id="certificate-name" maxlength="40" autocomplete="off"><button type="submit">Update name</button></div></form></div><div id="certificate-preview" class="certificate-preview" role="img" aria-label="Certificate preview"></div><p id="certificate-status" role="status" aria-live="polite"></p><div class="certificate-actions"><button id="certificate-download">${icon('download')} Download PDF</button><button id="certificate-print">${icon('book')} Print</button>${onRetake?`<button id="certificate-retake">${icon('play')} Start a new attempt</button>`:''}</div><p class="certificate-local-note">Names and results stay on this computer. Download your certificate to keep a copy. This is an adventure result, not a formal DSKP mastery level.</p></div>`;
+ const $=s=>host.querySelector(s),listen=(s,type,fn)=>$(s).addEventListener(type,fn,{signal:life.signal});
+ const choices=certificateAttempts();$('#certificate-attempt').innerHTML=choices.map(a=>`<option value="${escapeHTML(a.id)}" ${a.id===attempt.id?'selected':''}>Attempt ${(activeProfile()?.attempts.indexOf(a)||0)+1} · ${escapeHTML(new Date(a.completedAt).toLocaleString('en-MY',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}))} · ${attemptScore(a)}/10</option>`).join('');
+ // File actions stay before the large preview, so download never depends on
+ // discovering controls beneath an A4-sized certificate.
+ const actions=$('.certificate-actions');host.querySelector('.certificate-toolbar').before(actions);
+ async function paint(){const token=++renderId;$('#certificate-download').disabled=true;$('#certificate-print').disabled=true;$('#certificate-status').textContent='Preparing your certificate…';$('#certificate-pupil').textContent=certificateName(attempt);$('#certificate-name').value=certificateName(attempt);try{const canvas=await drawCertificate(attempt);if(dead||token!==renderId)return;canvas.setAttribute('aria-label',`${certificateName(attempt)}, ${attemptScore(attempt)} out of 10, ${attemptScore(attempt)*10} percent, completed ${new Date(attempt.completedAt).toLocaleDateString('en-MY')}`);$('#certificate-preview').replaceChildren(canvas);$('#certificate-preview').setAttribute('aria-label',canvas.getAttribute('aria-label'));$('#certificate-download').disabled=false;$('#certificate-print').disabled=false;$('#certificate-status').textContent=canSave()?'Your PDF is ready.':'Progress cannot be saved here. Download your certificate before leaving.'}catch{$('#certificate-status').textContent='The certificate could not be drawn. Update the name to try again.'}}
+ listen('#certificate-attempt','change',()=>{const next=choices.find(a=>a.id===$('#certificate-attempt').value);if(next){attempt=next;paint()}});
+ listen('#certificate-name-form','submit',e=>{e.preventDefault();updateCertificateName(attempt,$('#certificate-name').value);paint()});
+ listen('#certificate-download','click',async()=>{try{await downloadCertificate(attempt);if(!dead)$('#certificate-status').textContent='PDF downloaded. Your recorded mark has not changed.'}catch{if(!dead)$('#certificate-status').textContent='Download did not finish. Try again or choose Print.'}});
+ listen('#certificate-print','click',async()=>{try{await printCertificate(attempt)}catch{if(!dead)$('#certificate-status').textContent='Printing could not start. Download the PDF instead.'}});
+ if(onRetake)listen('#certificate-retake','click',onRetake);
+ paint();return()=>{dead=true;life.abort()};
+}
+export function certificatePage(){return `<section class="certificate-page"><a href="#map">${icon('map')} Back to adventures</a><div id="saved-certificate"></div></section>`}
+let cleanupPage;
+export function cleanupCertificate(){cleanupPage?.();cleanupPage=null}
+export function bindCertificatePage(){cleanupCertificate();const host=document.querySelector('#saved-certificate'),attempt=certificateAttempts()[0];if(!attempt){host.innerHTML=`<h1>Your certificate is waiting</h1><p>Complete all ten forest discoveries to generate your name and mark.</p><a class="btn" href="#grove">${icon('play')} Enter Greenhaven</a>`;return}cleanupPage=mountCertificate(host,attempt);}

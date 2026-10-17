@@ -1,0 +1,97 @@
+/* Expanded forest interactions inherit Greenhaven's approved materials and type. */
+/* Keep welcome controls on paper, clear of the detailed garden artwork. */
+.adventure-cover:has(.explorer-entry){height:auto;min-height:max(650px,min(55vw,760px))}
+.adventure-cover:has(.explorer-entry) .cover-copy{padding-bottom:36px}
+.explorer-entry{width:410px;max-width:100%;margin-top:32px;padding:22px 24px;background:#fffdf4;border:2px solid #26362d;border-radius:16px;color:#26362d}
+.explorer-entry .explorer-welcome{margin:0!important;max-width:none}
+.explorer-entry .explorer-welcome label{font-size:18px;line-height:1.4;margin-bottom:9px}
+.explorer-entry .explorer-welcome input,.explorer-entry .explorer-welcome select{width:100%;max-width:none;min-height:48px;font-size:18px;color:#26362d;background:#fffdf4;border-color:#596e4d}
+.explorer-entry input::placeholder{color:#4f6048;opacity:1}
+.explorer-entry .explorer-welcome small{font-size:16px;line-height:1.5;color:#374b3c;max-width:none;margin:10px 0 17px}
+.explorer-entry .explorer-welcome .adventure-button{width:100%;min-height:54px;font-size:18px;margin-top:18px}
+.explorer-entry .guest-entry{display:block;width:100%;min-height:44px;margin:5px 0 -8px;padding:8px;border:0;background:transparent;color:#285745;font:800 15px Nunito,sans-serif;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:4px;cursor:pointer}
+.explorer-entry .guest-entry:hover{color:#193f30;text-decoration-thickness:2px}
+.explorer-entry .guest-entry:focus-visible{outline:3px solid #a32e22;outline-offset:2px;border-radius:5px}
+.cover-copy .explorer-entry .illustrated-start{font-size:16px;line-height:1.5;margin-top:16px;min-height:32px;text-decoration-thickness:2px;color:#285745}
+@media(max-width:760px){.adventure-cover:has(.explorer-entry) .cover-copy{padding-bottom:355px}.explorer-entry{padding:20px}.explorer-entry .explorer-welcome label{font-size:18px}.explorer-entry .explorer-welcome small{font-size:16px}}
+.grove-name-row{align-items:end}
+.grove-name-row>div{flex-basis:100%}
+.grove-name-row label{margin-bottom:6px}
+.grove-name-row select,.explorer-welcome select{font:800 14px Nunito,sans-serif;color:#2d4b35;min-height:44px;max-width:100%;padding:9px 13px;border:1.5px solid #84956b;border-radius:8px;background:#fffbee;accent-color:#315f41}
+.grove-name-row>label{flex-basis:100%;margin:0}
+.grove-name-row>div input{width:310px;max-width:100%}
+.grove-name-row>select{max-width:300px}
+.explorer-welcome select{width:310px;margin-bottom:8px}
+.explorer-welcome:has(select) .adventure-button{min-height:54px;font-size:18px;padding:12px 20px}
+.grove-milestones:has(.forest-chapter-progress){display:block;line-height:1.5}
+.grove-milestones .forest-chapter-progress{display:block;font-size:11px;font-weight:750}
+.grove-milestones .forest-chapter-progress:before{display:none}
+.grove-milestones>b{display:block;font-size:12px;margin-top:2px;color:#315f41}
+.grove-quest{position:absolute;inset:0;pointer-events:none;z-index:8}
+.forest-task,.forest-results,.forest-certificate{pointer-events:auto}
+.forest-task{position:absolute;left:50%;bottom:136px;transform:translateX(-50%);width:min(740px,calc(100% - 48px));max-height:43vh;overflow:auto;padding:21px 25px;background:#fff9e8fa;border-radius:18px;box-shadow:0 8px 35px #1d3b2f30;scrollbar-width:thin;scrollbar-color:#829969 #fff9e8}
+.forest-task h2{font:400 26px/1.1 'Lilita One',Nunito,sans-serif;letter-spacing:0}
+.forest-task:not([data-type=dialogue]){max-height:32vh}
+.forest-task h2:focus{outline:none}
+.forest-task>p{font-size:14px;line-height:1.5;margin-top:8px;max-width:69ch}
+.forest-object-controls{display:flex;align-items:center;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:16px}
+.forest-object-controls button{box-shadow:none;background:#e4ebd1;font-size:13px;min-height:43px;padding:10px 15px}
+.forest-object-controls button[aria-pressed=true],.forest-dialogue button[aria-pressed=true]{background:#ecd386;color:#2d4b35;outline:2px solid #7d6b37;outline-offset:1px}
+.forest-object-controls button .icon{width:20px;height:20px}
+.forest-object-controls strong{font-size:13px;min-width:100px;text-align:center}
+.forest-object-controls [data-forest-action=left] .icon{transform:rotate(180deg)}
+.forest-control-note{font-size:12px;line-height:1.45;color:#56654b;text-align:center;margin-top:10px}
+.forest-dialogue{display:grid;gap:8px;margin-top:15px}
+.forest-dialogue button{box-shadow:none;background:#e7ecd8;font-size:14px;min-height:43px;padding:10px 15px;text-align:left;justify-content:flex-start;line-height:1.45}
+#forest-test{margin-top:16px;background:#315f41;color:#fff9e8;box-shadow:none;min-height:44px;font-size:14px}
+#forest-test:disabled{background:#d5dbce;color:#55604f}
+#forest-close{margin:8px 0 0 16px;box-shadow:none;background:transparent;text-decoration:underline;text-underline-offset:3px;padding:5px 0;min-height:32px;font-size:12px}
+#forest-task-feedback:empty{display:none}
+#forest-task-feedback{font-size:13px;line-height:1.55;margin-top:14px;padding-top:12px;border-top:1px solid #c5cead;color:#654b2a}
+#forest-task-feedback.correct{color:#315f41}
+.grove:has(#forest-task:not([hidden])) .grove-context{bottom:100px;left:auto;right:32px;transform:none}
+.grove:has(#forest-task:not([hidden])) .grove-message{bottom:auto;top:280px}
+.grove:has(#forest-task:not([hidden])) #grove-success{bottom:auto;top:280px}
+.grove #grove-success:has(+.grove-discovery[hidden]) p{max-width:55ch}
+.forest-results{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);max-height:calc(100dvh - 180px);overflow:auto;width:min(610px,calc(100% - 40px));padding:26px 32px;background:#fff9e8fa;border-radius:22px;box-shadow:0 15px 60px #1c3b3e44;text-align:center;scrollbar-width:thin;scrollbar-color:#829969 #fff9e8}
+.forest-results-medal{width:66px;height:66px;border-radius:50%;background:#e2ebc6;display:grid;place-items:center;margin:0 auto 14px}
+.forest-results-medal .icon{width:39px;height:39px;color:#4e7947}
+.forest-results h2{font:400 35px/1.07 'Lilita One',Nunito,sans-serif;letter-spacing:0;text-wrap:balance}
+.forest-results h2:focus{outline:none}
+.forest-results p{font-size:14px;line-height:1.5}
+.forest-result-mark strong{display:block;font:400 56px/1.1 'Lilita One',Nunito,sans-serif;color:#315f41;margin-top:12px}
+.forest-result-mark span{font-size:12px;color:#57674a}
+.forest-results details{text-align:left;margin-top:21px;border-top:1px solid #ccd5b7;padding-top:14px}
+.forest-results summary{font-weight:900;font-size:14px;cursor:pointer;text-underline-offset:3px}
+.forest-results ol{margin:14px 0;padding-left:21px}
+.forest-results li{font-size:13px;margin-bottom:15px;padding-bottom:12px;border-bottom:1px solid #d6ddc4}
+.forest-results li>span{display:block;font-size:11px;color:#5c694e;margin-top:3px}
+.forest-results li p{font-size:12px;margin-top:5px}
+#forest-retake{background:transparent;box-shadow:none;text-decoration:underline;text-underline-offset:4px;font-size:12px;min-height:38px;margin-top:10px}
+.forest-certificate{position:absolute;inset:84px 30px 93px;overflow:auto;background:#fff9e8fa;border-radius:20px;box-shadow:0 12px 45px #203a302b;scrollbar-width:thin;scrollbar-color:#829969 #fff9e8}
+.certificate-sheet{padding:25px 32px;max-width:1120px;margin:auto}
+.certificate-sheet h2{font:400 34px/1.1 'Lilita One',Nunito,sans-serif;letter-spacing:0}
+.certificate-sheet>p{font-size:13px;line-height:1.5;margin-top:9px}
+.certificate-toolbar{display:flex;align-items:end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:18px 0}
+.certificate-toolbar label{display:block;font-size:12px;font-weight:850}
+.certificate-toolbar select,.certificate-toolbar input{display:block;font:700 13px Nunito,sans-serif;background:#fffbee;color:#294632;border:1px solid #84956b;border-radius:7px;min-height:40px;padding:8px 10px;max-width:100%;margin-top:6px;accent-color:#315f41;caret-color:#315f41}
+.certificate-toolbar select{min-width:200px}
+.certificate-toolbar form>div{display:flex;align-items:end;gap:8px}
+.grove .certificate-toolbar button,.certificate-toolbar button{font:850 12px Nunito,sans-serif;border:0;border-radius:7px;background:#e2eacd;color:#294632;min-height:40px;padding:9px 13px;box-shadow:none}
+.certificate-preview{width:min(100%,800px);margin:auto;background:#fff9e8;box-shadow:0 6px 25px #3a49211c}
+.certificate-preview canvas{width:100%;height:auto;display:block}
+.certificate-actions{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:16px}
+.forest-certificate .certificate-actions{position:sticky;top:0;background:#fff9e8;padding:10px 0;z-index:2;justify-content:flex-start}
+.certificate-toolbar select{width:290px}
+.grove .certificate-actions button,.certificate-actions button{font:900 13px Nunito,sans-serif;border:0;border-radius:9px;background:#e2ebcf;color:#2d4b35;box-shadow:none;min-height:44px;padding:11px 16px;display:inline-flex;align-items:center;gap:8px;cursor:pointer}
+.grove #certificate-download,#certificate-download{background:#315f41;color:#fff9e8}
+.certificate-actions .icon{width:19px;height:19px}
+.certificate-actions button:disabled{background:#d5dbce!important;color:#55604f!important;cursor:default}
+.certificate-local-note{font-size:11px!important;color:#526448;text-align:center;margin-top:15px!important}
+#certificate-status{font-size:12px;color:#526448;min-height:18px;text-align:center;margin-top:12px}
+.certificate-page{max-width:1180px;margin:auto}.certificate-page>a{display:inline-flex;align-items:center;gap:8px;font-weight:850;font-size:14px;text-underline-offset:4px;margin-bottom:24px}
+.certificate-page .certificate-sheet{background:#fff9e8;border-radius:18px;box-shadow:0 8px 35px #29432a15}
+.grove:has(#forest-results:not([hidden])) .grove-touch,.grove:has(#forest-results:not([hidden])) .grove-context,.grove:has(#forest-certificate:not([hidden])) .grove-touch,.grove:has(#forest-certificate:not([hidden])) .grove-context,.grove:has(#forest-certificate:not([hidden])) .grove-compass,.grove:has(#forest-certificate:not([hidden])) .grove-mission{display:none}
+@media(max-width:760px){.grove:has(#forest-task:not([hidden]):not([data-type=dialogue])) .grove-mission{display:none}.forest-task:not([data-type=dialogue]){max-height:34vh}}
+@media(max-width:1000px){.certificate-toolbar{gap:12px}.certificate-toolbar input{width:190px}.certificate-sheet{padding:23px 25px}.grove:has(#forest-task:not([hidden])) .grove-context{right:22px}}
+@media(max-width:760px){.grove-name-row>div input,.grove-name-row>select{width:100%;max-width:340px}.grove-name-row>select{flex-basis:100%}.grove-name-row>div>label{font-size:13px}.grove-milestones .forest-chapter-progress{font-size:10px}.grove-milestones>b{font-size:11px}.forest-task{bottom:195px;max-height:43vh;width:calc(100% - 32px);padding:17px 18px}.forest-task h2{font-size:24px}.forest-task>p{font-size:12px;line-height:1.5}.forest-object-controls{gap:7px;margin-top:12px}.forest-object-controls button{font-size:12px;min-height:41px;padding:8px 12px}.forest-object-controls strong{font-size:12px}.forest-dialogue button{font-size:12px;padding:10px 12px}.forest-control-note{font-size:11px}#forest-test{font-size:12px;min-height:41px}#forest-close{font-size:11px;margin-left:10px}#forest-task-feedback{font-size:12px}.grove:has(#forest-task:not([hidden])) .grove-context{right:16px;bottom:132px}.grove:has(#forest-task:not([hidden])) .grove-message{top:210px;bottom:auto!important}.grove:has(#forest-task:not([hidden])) #grove-success{top:210px;bottom:auto;width:calc(100% - 32px);padding:13px 16px;z-index:10}.grove:has(#forest-task:not([hidden])) #grove-success p{font-size:11px}.grove:has(#forest-task:not([hidden])) #grove-success h2{font-size:25px}.grove:has(#forest-task:not([hidden])) #grove-success .grove-earned{display:none}.forest-results{padding:24px 21px;max-height:calc(100dvh - 160px)}.forest-results h2{font-size:30px}.forest-result-mark strong{font-size:49px}.forest-results p{font-size:12px}.forest-certificate{inset:66px 12px 90px;border-radius:15px}.certificate-sheet{padding:22px 17px}.certificate-sheet h2{font-size:28px}.certificate-sheet>p{font-size:12px}.certificate-toolbar{display:block;margin:16px 0}.certificate-toolbar>label{margin-bottom:13px}.certificate-toolbar form>div{gap:6px}.certificate-toolbar input{width:100%;min-width:0;flex:1}.certificate-toolbar select{width:100%;min-width:0}.certificate-toolbar button{flex-shrink:0;font-size:11px!important;padding:9px!important}.certificate-actions{gap:8px}.grove .certificate-actions button,.certificate-actions button{font-size:12px;padding:10px 12px}.certificate-local-note{font-size:10px!important}.certificate-page .certificate-sheet{padding:20px 15px}.explorer-welcome:has(select){margin-top:12px!important}.explorer-welcome select{min-height:39px;font-size:13px}.explorer-welcome:has(select) small{font-size:10px;max-width:260px}}
