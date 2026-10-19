@@ -4,3 +4,10 @@ submission/*.zip
 submission/*.tar.gz
 .sites-checkout/
 __pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example
+node_modules/
+.DS_Store
+Thumbs.db

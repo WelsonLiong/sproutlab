@@ -1,0 +1,13 @@
+{
+  "sourceSha256": "62d06ca7e123b82ce14bbcfa1f75545dc18932ef8c5a89877b16a21afeef497a",
+  "browserSha256": "a6ed8573fa9da426a862fa2b8e31c7064aaa570bbbf4440fde9aaf9b2c2f97a5",
+  "clips": [
+    "Idle",
+    "Jumping",
+    "Picking Up",
+    "Putting Down",
+    "Running",
+    "Victory",
+    "Walking"
+  ]
+}

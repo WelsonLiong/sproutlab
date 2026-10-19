@@ -6,7 +6,7 @@ The owner approved the first 3D creek scene and requested expansion on 17 Octobe
 
 Mode: Experience. One character, one forest, three connected clearings. The renderer, imported nature, Nico animation, rooted Sprout, lighting, parchment HUD, local Nunito/Lilita and single persistent bottom forward action are inherited from the approved scene. No new art-direction round or generic quiz-card collection. The original design seed is c3676cd0, corroborated in docs/greenhaven-direction-seed.txt; the owner explicitly pinned the Zelda-inspired environmental exploration direction and then approved the implementation. The full-stage work extends that contract rather than rerolling it.
 
-An ungraded creek rescue introduces movement, pickup, repair and routing. Then ten assessed discoveries use eight world interactions and two short dialogue choices. The child walks to a marked discovery stone, interacts, changes objects and explicitly tests an idea. Deliveries are tested by carrying an object to the marked destination and pressing E. The world remains visible above the controls. Food-chain figures and other new puzzle props are authored procedural 3D geometry, not downloaded models attributed to the student.
+A three-beat storm conversation explains why Sprout needs Nico to repair the creek and investigate the leaf workshop. An ungraded creek rescue introduces movement, pickup, repair and routing. Then ten assessed discoveries use eight world interactions and two short dialogue choices. Each mission opens directly. The child clicks the actual equipment or walks up and presses E to use it, changes objects and explicitly tests an idea. Deliveries are tested by carrying an object to the marked destination and pressing E. The world remains visible above the controls. Food-chain figures and other new puzzle props are authored procedural 3D geometry, not downloaded models attributed to the student.
 
 ## Exact assessment coverage
 
@@ -17,10 +17,10 @@ An ungraded creek rescue introduces movement, pickup, repair and routing. Then t
 | 3 | Sunlit meadow / 4.2.2 | Water is required; roots absorb it | Pick up water, soil or food; carry and deliver to a soil bed |
 | 4 | Sunlit meadow / 4.2.2 | Carbon dioxide enters leaves from air | Select and route a gas molecule into the leaf opening |
 | 5 | Sunlit meadow / 4.2.2 | Chlorophyll in green areas absorbs light | Compare green/white leaf areas with the other conditions held equal |
-| 6 | Leaf clearing / 4.2.3 | Some glucose is stored as starch | Carry a chosen crate into the food store |
-| 7 | Leaf clearing / 4.2.3 | Photosynthesis releases oxygen | Move the collecting cart to identify the leaf model's released gas |
+| 6 | Leaf clearing / 4.2.3 | Some glucose is stored as starch | Carry an open food-storage sample vessel to the store |
+| 7 | Leaf clearing / 4.2.3 | Photosynthesis releases oxygen | Collect bubbles from a water plant, observe a glowing splint relight, then identify the released gas |
 | 8 | Living grove / 4.2.4 | Photosynthesis supplies food through living things | Arrange plant, rabbit and fox figures into a food chain |
-| 9 | Living grove / 4.2.4 | Photosynthesis adds oxygen used in breathing | Connect the rabbit shelter to green plants rather than rocks |
+| 9 | Living grove / 4.2.4 | Photosynthesis adds oxygen used in breathing | Choose a planted patch beside the shelter that adds oxygen to the shared air |
 | 10 | Living grove / 4.2.4 | Photosynthesis helps maintain gas balance | Reason about less oxygen added and less carbon dioxide used if photosynthesis stops |
 
 Primary content: supplied DSKP Science Year 4, printed page 54 (PDF page 66); supplied textbook printed pages 76–81. Products distinguish glucose production from starch storage, as in the prior curriculum review. 4.2.5 is excluded at the owner's request. Air movement is not taught as a requirement. Water alone does not produce food. The breathing model is a connection over time, not an instant oxygen meter. Plants respire during day and night. The activity does not award a formal DSKP performance level.
@@ -55,7 +55,7 @@ PDF generation is entirely browser-local. A high-resolution 2380×1684 canvas pr
 - app.js / first-screens.js: profiles, welcome and routing; #check now opens Greenhaven.
 - Older quiz-game.js / quiz-minigames.js sources are preserved but no longer linked as the pupil-facing assessment.
 
-Nico and 17 nature assets, preparation scripts and licenses are unchanged. See docs/greenhaven-scene.md for original source/optimization/provenance. No more models were needed. No publishing was requested.
+The 17 nature assets and their licenses are unchanged. Nico was refreshed from the owner’s replacement on 18 October 2026; all seven supplied clips are retained and pickup/placement now use their matching animations. See docs/nico-animation-update.md. See docs/greenhaven-scene.md for original source/optimization/provenance. No more models were needed. No publishing was requested.
 
 ## Verification evidence
 
@@ -66,3 +66,5 @@ Nico and 17 nature assets, preparation scripts and licenses are unchanged. See d
 - Fresh full-adventure design review: ship, with no material fixes. The supplied detector reported zero primary findings and 40 advisory token differences. The review sampled source and supplied captures; it did not establish classroom hardware performance or pupil usability.
 
 Classroom hardware frame rates, pupil usability and teacher assessment judgment are not inferred from software-WebGL automation. Retain the existing adult/pupil verification process for classroom/submission evidence.
+
+Current gameplay rework and review: docs/greenhaven-gameplay-rework.md. The arbitrary gas cart, discovery-stone gate and implied oxygen pipe are removed. The new apparatus uses self-authored low-poly geometry; no additional downloaded model is needed.

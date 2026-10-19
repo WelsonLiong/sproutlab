@@ -1,10 +1,13 @@
 // Greenhaven: free creek practice, then three chapters and ten assessed decisions.
+import {createCharacterMotion} from './grove-animation.js';
+import {NICO_MODEL} from './nico-version.js';
+import {createSurfaces,createFootContact} from './grove-surfaces.js';
 import {learnerLine} from './learner-voice.js';
 import * as THREE from './vendor/three/three.module.js';
 import {GLTFLoader} from './vendor/three/GLTFLoader.js';
 import {icon, state, save, escapeHTML,adoptExplorer} from './app.js?v=8';
 
-import {explorerFields,bindExplorerFields,ensureAttempt} from './grove-progress.js';
+import {explorerFields,bindExplorerFields,ensureAttempt,persist} from './grove-progress.js';
 import {createForestQuest} from './grove-quest.js';
 
 let disposeScene;
@@ -24,6 +27,7 @@ export function grove(){
   <div class="grove-touch" aria-label="Movement controls" hidden><button data-walk="up" aria-label="Walk forward">${svg('arrow')}</button><button data-walk="left" aria-label="Walk left">${svg('arrow')}</button><button data-walk="down" aria-label="Walk backward">${svg('arrow')}</button><button data-walk="right" aria-label="Walk right">${svg('arrow')}</button></div>
   <div class="grove-bottom" hidden><span id="grove-bottom-note">First rescue · practice without marks</span><button id="grove-next" disabled>${svg('lock')}<span>Next: discovery</span>${svg('arrow')}</button></div>
   <section class="grove-intro" aria-labelledby="grove-title"><div class="grove-intro-copy"><h1 id="grove-title">Little roots.<br><em>Big adventure.</em></h1><p>A quiet creek. A thirsty little plant.<br>Welcome to Greenhaven, explorer.</p><form id="grove-start-form"><div class="grove-name-row">${explorerFields('grove',escapeHTML,state.learnerName)}<button id="grove-begin" disabled>Preparing forest…</button></div><small>A nickname is enough. It stays on this computer.</small></form><p class="grove-intro-controls">${svg('game')} Walk with WASD or arrow keys. Press E to explore.</p></div><div class="grove-loading"><span id="grove-load-label">Growing your little corner of the forest…</span><progress id="grove-load" max="100" value="0" aria-label="Loading forest"></progress></div></section>
+  <section id="grove-story" class="grove-story" aria-labelledby="grove-story-title" hidden><div id="grove-story-face"></div><div><span id="grove-story-speaker"></span><h2 id="grove-story-title" tabindex="-1"></h2><p id="grove-story-copy"></p><span id="grove-story-count"></span></div><button id="grove-story-next">Next ${svg('arrow')}</button></section>
   <section id="grove-gate-panel" class="grove-gate-panel" aria-labelledby="gate-title" hidden><div><h2 id="gate-title">Where should the water go?</h2><p>Turn the channel. Then lift the gate to test your route.</p></div><div class="grove-gate-actions"><button id="grove-turn-left" aria-label="Turn channel left">${svg('arrow')}</button><span id="grove-outlet">Toward the pond</span><button id="grove-turn-right" aria-label="Turn channel right">${svg('arrow')}</button><button id="grove-release">${svg('drop')} Let it flow</button><button id="grove-leave">Back to exploring</button></div></section>
   <section id="grove-success" class="grove-success" aria-labelledby="grove-success-title" hidden><div class="grove-earned">${svg('check')}</div><div><h2 id="grove-success-title">Water restored!</h2><p id="grove-success-copy">You brought water to Sprout’s roots.</p><span>Creek rescue complete · ungraded practice</span></div></section>
   <section id="grove-discovery" class="grove-discovery" aria-labelledby="grove-discovery-title" hidden><div class="grove-discovery-art">${svg('sprout')}</div><h2 id="grove-discovery-title">A drink for the roots.</h2><p>Roots absorb water. It travels through the stem to the leaves.</p><p>Water is only one need for photosynthesis. Sprout also needs <strong>sunlight, carbon dioxide and chlorophyll</strong> to make its own food.</p><div class="grove-needs"><span class="restored">${svg('drop')} Water restored</span><span>${svg('sun')} Sunlight</span><span>${svg('wind')} Carbon dioxide</span><span>${svg('leaf')} Chlorophyll</span></div><p class="grove-prototype-note">Next: ten science discoveries in three forest clearings. Each correct first test earns one mark. You can correct mistakes and finish. Moving, collecting and changing your plan are free. There is no timer.</p><button id="grove-replay">${svg('play')} Play this rescue again</button></section>
@@ -36,24 +40,39 @@ export async function bindGrove(){
  cleanupGrove();
  const $=s=>document.querySelector(s), host=$('#grove-view');
  const life=new AbortController(), events={signal:life.signal};
- let quest,markerId="", dead=false, raf=0, renderer, world, camera, mixer, nico, currentAction, audioContext;
+ let motion,approach=null,rightHand,seatNico=()=>{},storyStep=0,storyAttempt,quest,markerId="", dead=false, raf=0, renderer, world, camera, mixer, nico, audioContext;
  let stage='intro', handleFound=false, handleFitted=false, won=false, flowing=false, outlet=0, flowStart=0, wonTime=0, time=0, target=null, messageTimeout;
  let low=!!state.settings.low, muted=!state.settings.sound, paused=false, inputKeys=new Set(), pointerTarget=null, slowFrames=0, qualityAdjusted=false;
  const reduced=()=>state.settings.motion||matchMedia('(prefers-reduced-motion: reduce)').matches;
- const assets=new Map(), disposables=new Set(), colliders=[], interactables=[], actions={}, plants=[], motes=[], waterSurfaces=[];
+ const assets=new Map(), disposables=new Set(), colliders=[], interactables=[], plants=[], motes=[], waterSurfaces=[];
  const player=new THREE.Group(), focus=new THREE.Vector3(-1,0,0), cameraGoal=new THREE.Vector3(), lookGoal=new THREE.Vector3();
  const dummy=new THREE.Object3D(), raycaster=new THREE.Raycaster(), ndc=new THREE.Vector2();
  const listener=(el,type,fn)=>el.addEventListener(type,fn,events);
  const tell=text=>{const box=$('#grove-message');box.textContent=text;box.classList.add('visible');clearTimeout(messageTimeout);messageTimeout=setTimeout(()=>box.classList.remove('visible'),6500)};
  const show=(s,on)=>{$(s).hidden=!on};
  const tone=(success=false)=>{if(muted)return;try{audioContext ||= new (window.AudioContext||window.webkitAudioContext)();audioContext.resume();(success?[523,659,784,1047]:[440,660]).forEach((f,i)=>{const o=audioContext.createOscillator(),g=audioContext.createGain();o.type='sine';o.frequency.value=f;o.connect(g);g.connect(audioContext.destination);const t=audioContext.currentTime+i*.13;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.045,t+.025);g.gain.exponentialRampToValueAtTime(.0001,t+.45);o.start(t);o.stop(t+.5)})}catch{}};
- const setAction=name=>{const action=actions[name];if(action&&action!==currentAction){currentAction?.fadeOut(.2);action.reset().fadeIn(.2).play();currentAction=action}};
+ const isInteractionBusy=()=>!!approach||!!motion?.busy;
+ const setAction=name=>{if(['Picking Up','Putting Down','Victory','Jumping'].includes(name))return motion?.playOnce(name,{reduced:reduced()});motion?.locomotion(name)};
+ function cancelInteraction(){approach?.onCancel?.();approach=null;pointerTarget=null;motion?.cancel();inputKeys.clear()}
+ function performAt(x,z,name,{onContact=()=>{},onComplete=()=>{},onCancel=()=>{}}={}){
+  if(dead||isInteractionBusy())return false;
+  inputKeys.clear();pointerTarget=null;
+  const begin=()=>{player.rotation.y=Math.atan2(x-player.position.x,z-player.position.z);return motion.playOnce(name,{contact:name==='Picking Up'?.48:.52,onContact,onComplete,reduced:reduced()})};
+  if(Math.hypot(player.position.x-x,player.position.z-z)>1.5){approach={begin,onCancel};pointerTarget=new THREE.Vector3(x,0,z+.95)}else begin();
+  return true;
+ }
+ function carryPoint(out=new THREE.Vector3()){
+  if(rightHand){rightHand.updateWorldMatrix(true,false);rightHand.getWorldPosition(out);out.y-=.36;out.x+=Math.sin(player.rotation.y)*.12;out.z+=Math.cos(player.rotation.y)*.12}
+  else out.copy(player.position).add(new THREE.Vector3(.55,1,0));return out;
+ }
  const materials=new Map();
  const mat=(color,options={})=>{const k=color+JSON.stringify(options);if(!materials.has(k))materials.set(k,new THREE.MeshStandardMaterial({color,roughness:.88,...options}));return materials.get(k)};
  const mesh=(geo,material,parent=world)=>{const m=new THREE.Mesh(geo,material);m.castShadow=true;m.receiveShadow=true;parent.add(m);return m};
  const cube=(x,y,z,w,h,d,color,parent=world)=>{const m=mesh(new THREE.BoxGeometry(w,h,d),mat(color),parent);m.position.set(x,y,z);return m};
  const cylinder=(x,y,z,r,h,color,parent=world)=>{const m=mesh(new THREE.CylinderGeometry(r,r,h,12),mat(color),parent);m.position.set(x,y,z);return m};
  const groundHeight=(x,z)=> -.12+Math.sin(x*.24)*Math.cos(z*.2)*.15 + Math.max(0,-z-9)*.14;
+ const surfaces=createSurfaces(groundHeight);
+ const inClearing=(x,z)=>[[-4,2],[5,-6.6],[1,5]].some(([a,b])=>Math.hypot(x-a,z-b)<4.7);
  const normalize=(object,height)=>{const box=new THREE.Box3().setFromObject(object), size=box.getSize(new THREE.Vector3());object.scale.multiplyScalar(height/Math.max(size.y,.001));const b=new THREE.Box3().setFromObject(object);object.position.y-=b.min.y;return object};
  const place=(name,x,z,height,rotation=0,parent=world)=>{const object=normalize(assets.get(name).scene.clone(true),height);const root=new THREE.Group();root.add(object);root.position.set(x,groundHeight(x,z),z);root.rotation.y=rotation;parent.add(root);return root};
  const sign=(label,position,width=2.1)=>{const c=document.createElement('canvas');c.width=512;c.height=128;const ctx=c.getContext('2d');ctx.fillStyle='#fff7dc';ctx.beginPath();ctx.roundRect(5,5,502,118,28);ctx.fill();ctx.strokeStyle='#756b44';ctx.lineWidth=5;ctx.stroke();ctx.font='bold 48px Nunito, sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillStyle='#2d4533';ctx.fillText(label,256,64);const tex=new THREE.CanvasTexture(c);tex.colorSpace=THREE.SRGBColorSpace;const sprite=new THREE.Sprite(new THREE.SpriteMaterial({map:tex,depthTest:false}));sprite.position.copy(position);sprite.scale.set(width,width/4,1);world.add(sprite);return sprite};
@@ -71,6 +90,9 @@ export async function bindGrove(){
   if(routeWater){world.remove(routeWater);routeWater.geometry.dispose();routeWater.material.dispose()}
   routeWater=makeWater(routePoints[outlet],.29);routeWater.visible=false;
   channel.rotation.y=[-.62,0,.7][outlet];
+  surfaces.remove('creek-channel');const angle=channel.rotation.y,c=Math.cos(angle),n=Math.sin(angle);
+  surfaces.box('creek-channel',-2.2+.3*c,-1-.3*n,2.5,.9,.08,angle);
+  for(const side of [-1,1])surfaces.box('creek-channel',-2.2+.3*c+side*.39*n,-1-.3*n+side*.39*c,2.5,.15,.3,angle);
   $('#grove-outlet').textContent=['Toward the pond','Toward Sprout’s roots','Toward the old stump'][outlet];
   $('#grove-gate-panel').dataset.outlet=String(outlet);
  }
@@ -84,14 +106,15 @@ export async function bindGrove(){
   refreshMilestones();
  }
  function interact(){
+  if(isInteractionBusy())return;
   if(quest?.active){if(!paused)quest.interact();return}
   if(paused||flowing||stage!=='explore'||!target)return;
   if(target.id==='handle'){
-   handleFound=true;handle.visible=false;heldHandle.visible=true;setAction('Picking Up');setTimeout(()=>{if(!dead)setAction('Idle')},950);tone();tell('Found it! Take the handle to the wooden creek gate.');updateObjective();
+   performAt(-8,3,'Picking Up',{onContact:()=>{handleFound=true;handle.visible=false;heldHandle.visible=true;tone();updateObjective()},onComplete:()=>tell('Found it! Take the handle to the wooden creek gate.')});
   }else if(target.id==='gate'){
    if(!handleFound){tell('The gate is missing its handle. Look for a golden glimmer beside the path.');return}
-   if(!handleFitted){handleFitted=true;wheel.visible=true;heldHandle.visible=false;tone();updateObjective();tell('Handle fitted! Turn the channel, then lift the gate.')}
-   stage='gate';inputKeys.clear();pointerTarget=null;show('#grove-gate-panel',true);show('#grove-context',false);$('#grove-turn-right').focus({preventScroll:true});
+   const openGate=()=>{stage='gate';inputKeys.clear();pointerTarget=null;show('#grove-gate-panel',true);show('#grove-context',false);$('#grove-turn-right').focus({preventScroll:true})};
+   if(!handleFitted){performAt(-3.7,-1,'Putting Down',{onContact:()=>{handleFitted=true;wheel.visible=true;heldHandle.visible=false;tone();updateObjective()},onComplete:()=>{tell('Handle fitted! Turn the channel, then lift the gate.');openGate()}})}else openGate();
   }else if(target.id==='sprout'){
    tell(won?'Water is reaching the roots. Open your discovery below to find out what happens next.':'Sprout’s roots are dry. Can you bring water from the creek?')
   }
@@ -107,6 +130,7 @@ export async function bindGrove(){
   heldHandle.visible=false;
  }
  function restart(){
+  cancelInteraction();
   if(quest?.active){quest.resetCurrent();$('#grove-pause-dialog').close();paused=false;host.focus({preventScroll:true});return}
   handleFound=handleFitted=won=flowing=false;stage='explore';handle.visible=true;heldHandle.visible=false;wheel.visible=false;gate.userData.open=false;outlet=0;updateRoute();player.position.set(-6,0,6);player.rotation.y=Math.PI;pointerTarget=null;inputKeys.clear();show('#grove-success',false);show('#grove-discovery',false);show('#grove-gate-panel',false);$('#grove-pause-dialog').close();paused=false;$('#grove-next').disabled=true;$('#grove-next').innerHTML=`${svg('lock')}<span>Next: discovery</span>${svg('arrow')}`;$('#grove-bottom-note').textContent='First rescue · practice without marks';$('#grove-release').disabled=false;$('#grove-turn-left').disabled=false;$('#grove-turn-right').disabled=false;rootRipple.visible=false;updateObjective();setAction('Idle');host.focus({preventScroll:true});
  }
@@ -117,7 +141,15 @@ export async function bindGrove(){
  listener($('#grove-replay'),'click',restart);
  listener($('#grove-next'),'click',()=>{if(quest?.active){quest.next();return}if(!won)return;if(stage==='discovery'){quest.start();return}stage='discovery';show('#grove-success',false);show('#grove-discovery',true);$('#grove-next').innerHTML=`${svg('unlock')}<span>Begin 10 discoveries</span>${svg('arrow')}`;$('#grove-bottom-note').textContent='Practice complete · your marked adventure starts next';$('#grove-discovery-title').tabIndex=-1;$('#grove-discovery-title').focus({preventScroll:true})});
  const chooseExplorer=bindExplorerFields('grove');
- listener($('#grove-start-form'),'submit',e=>{e.preventDefault();if(!nico)return;adoptExplorer(chooseExplorer());const attempt=ensureAttempt();stage='explore';show('.grove-intro',false);show('.grove-mission',true);show('.grove-controls',true);show('.grove-bottom',true);show('.grove-touch',true);host.focus({preventScroll:true});if(attempt.practiceDone){quest.start();return}tell(learnerLine('Welcome, {name}! This creek rescue is free practice. Follow the golden glimmer.','Welcome! This creek rescue is free practice. Follow the golden glimmer.'));updateObjective()});
+ const storyBeats=[
+  ['Sprout','The storm at Greenhaven',()=>learnerLine('{name}, the storm knocked our creek gate loose. My roots are dry. Will you help Nico bring the water back?','The storm knocked our creek gate loose. My roots are dry. Will you help Nico bring the water back?')],
+  ['Beep','A leaf workshop to restore','Water is only the beginning. Plants make food in their leaves. After the creek rescue, help Nico repair the sunlight route and investigate what goes into and comes out of a leaf.'],
+  ['Sprout','Find out how the forest stays alive','Then rebuild the forest model to see how plants support animals and the air we share. Use the actual equipment and observe what changes. You can keep trying; there is no timer.']
+ ];
+ function continueAdventure(){stage='explore';show('#grove-story',false);show('.grove-mission',true);show('.grove-controls',true);show('.grove-bottom',true);show('.grove-touch',true);host.focus({preventScroll:true});if(storyAttempt.practiceDone){quest.start();return}tell(learnerLine('Ready, {name}? Find the missing gate handle beside the path.','Find the missing gate handle beside the path.'));updateObjective()}
+ function showStory(){stage='briefing';inputKeys.clear();pointerTarget=null;show('#grove-story',true);show('.grove-mission',false);show('.grove-controls',false);show('.grove-bottom',false);show('.grove-touch',false);const [speaker,title,copy]=storyBeats[storyStep];$('#grove-story-face').innerHTML=svg(speaker==='Beep'?'search':'sprout');$('#grove-story-speaker').textContent=speaker;$('#grove-story-title').textContent=title;$('#grove-story-copy').textContent=typeof copy==='function'?copy():copy;$('#grove-story-count').textContent=`${storyStep+1} of ${storyBeats.length}`;$('#grove-story-next').innerHTML=`${storyStep===storyBeats.length-1?'Let’s help Nico':'Next'} ${svg('arrow')}`;$('#grove-story-title').focus({preventScroll:true})}
+ listener($('#grove-story-next'),'click',()=>{if(storyStep<storyBeats.length-1){storyStep++;showStory()}else{storyAttempt.storySeen=true;persist();continueAdventure()}});
+ listener($('#grove-start-form'),'submit',e=>{e.preventDefault();if(!nico)return;adoptExplorer(chooseExplorer());storyAttempt=ensureAttempt();show('.grove-intro',false);if(!storyAttempt.storySeen&&!storyAttempt.completedAt){storyStep=0;showStory()}else continueAdventure()});
  listener($('#grove-leave'),'click',()=>{stage='explore';show('#grove-gate-panel',false);host.focus({preventScroll:true})});
  listener($('#grove-turn-left'),'click',()=>{if(flowing)return;outlet=(outlet+2)%3;updateRoute();tone()});
  listener($('#grove-turn-right'),'click',()=>{if(flowing)return;outlet=(outlet+1)%3;updateRoute();tone()});
@@ -130,9 +162,9 @@ export async function bindGrove(){
  listener(window,'keyup',e=>inputKeys.delete(e.key.toLowerCase()));listener(window,'blur',()=>inputKeys.clear());
  listener(document,'visibilitychange',()=>{inputKeys.clear();if(document.hidden&&['explore','gate','success','quest'].includes(stage))pause()});
  document.querySelectorAll('[data-walk]').forEach(button=>{const key={up:'w',down:'s',left:'a',right:'d'}[button.dataset.walk];listener(button,'pointerdown',e=>{e.preventDefault();button.setPointerCapture(e.pointerId);if(!paused)inputKeys.add(key)});for(const type of ['pointerup','pointercancel','lostpointercapture'])listener(button,type,()=>inputKeys.delete(key))});
- listener(host,'pointerdown',e=>{if(!['explore','quest'].includes(stage)||paused)return;const rect=host.getBoundingClientRect();ndc.set((e.clientX-rect.left)/rect.width*2-1,-(e.clientY-rect.top)/rect.height*2+1);raycaster.setFromCamera(ndc,camera);if(quest?.pick(raycaster))return;const plane=new THREE.Plane(new THREE.Vector3(0,1,0),0),point=new THREE.Vector3();if(raycaster.ray.intersectPlane(plane,point)){pointerTarget=point;host.focus({preventScroll:true})}});
+ listener(host,'pointerdown',e=>{if(!['explore','quest'].includes(stage)||paused||motion?.busy)return;if(approach){approach.onCancel?.();approach=null;pointerTarget=null}const rect=host.getBoundingClientRect();ndc.set((e.clientX-rect.left)/rect.width*2-1,-(e.clientY-rect.top)/rect.height*2+1);raycaster.setFromCamera(ndc,camera);if(quest?.pick(raycaster))return;const plane=new THREE.Plane(new THREE.Vector3(0,1,0),0),point=new THREE.Vector3();if(raycaster.ray.intersectPlane(plane,point)){pointerTarget=point;host.focus({preventScroll:true})}});
 
- disposeScene=()=>{dead=true;quest?.cleanup();life.abort();cancelAnimationFrame(raf);clearTimeout(messageTimeout);inputKeys.clear();audioContext?.close();if(world)world.traverse(object=>{if(object.geometry)disposables.add(object.geometry);const list=object.material?Array.isArray(object.material)?object.material:[object.material]:[];for(const m of list){disposables.add(m);for(const value of Object.values(m))if(value?.isTexture)disposables.add(value)}});for(const d of disposables)d.dispose?.();mixer?.stopAllAction();renderer?.dispose();renderer?.forceContextLoss();renderer?.domElement.remove()};
+ disposeScene=()=>{dead=true;cancelInteraction();quest?.cleanup();life.abort();cancelAnimationFrame(raf);clearTimeout(messageTimeout);inputKeys.clear();audioContext?.close();if(world)world.traverse(object=>{if(object.geometry)disposables.add(object.geometry);const list=object.material?Array.isArray(object.material)?object.material:[object.material]:[];for(const m of list){disposables.add(m);for(const value of Object.values(m))if(value?.isTexture)disposables.add(value)}});for(const d of disposables)d.dispose?.();mixer?.stopAllAction();renderer?.dispose();renderer?.forceContextLoss();renderer?.domElement.remove()};
  try{
   renderer=new THREE.WebGLRenderer({antialias:true,powerPreference:'high-performance'});renderer.setClearColor(0xbcd8cb);renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.02;renderer.shadowMap.type=THREE.PCFSoftShadowMap;host.append(renderer.domElement);renderer.domElement.setAttribute('aria-label','Greenhaven forest with Nico, a creek gate and Sprout');
   listener(renderer.domElement,'webglcontextlost',e=>{if(dead)return;e.preventDefault();paused=true;show('#grove-failure',true);$('#grove-failure-copy').textContent='The graphics connection paused. Try loading again, or use the illustrated leaf story.'});
@@ -142,7 +174,7 @@ export async function bindGrove(){
   const sun=new THREE.DirectionalLight(0xffe1a0,2.5);sun.position.set(-10,24,8);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);sun.shadow.camera.left=-26;sun.shadow.camera.right=26;sun.shadow.camera.top=24;sun.shadow.camera.bottom=-24;sun.shadow.camera.far=70;sun.shadow.normalBias=.06;sun.shadow.bias=-.0002;sun.shadow.radius=3;world.add(sun);world.add(sun.target);quality();
   const manager=new THREE.LoadingManager();manager.onProgress=(url,loaded,total)=>{if(dead)return;$('#grove-load').value=loaded/Math.max(total,1)*100};
   const loader=new GLTFLoader(manager), names=['CommonTree_1','CommonTree_3','CommonTree_5','Pine_1','TwistedTree_1','DeadTree_1','Rock_Medium_1','Rock_Medium_2','Pebble_Round_1','RockPath_Round_Small_1','Bush_Common','Bush_Common_Flowers','Grass_Common_Short','Fern_1','Flower_3_Group','Flower_4_Group','Plant_1'];
-  await Promise.all([...names.map(async name=>{const model=await loader.loadAsync(`assets/grove/${name}.gltf`);assets.set(name,model)}),(async()=>assets.set('Nico',await loader.loadAsync('assets/grove/nico.glb')))()]);
+  await Promise.all([...names.map(async name=>{const model=await loader.loadAsync(`assets/grove/${name}.gltf`);assets.set(name,model)}),(async()=>assets.set('Nico',await loader.loadAsync(NICO_MODEL)))()]);
   if(dead){for(const a of assets.values())a.scene.traverse(o=>{o.geometry?.dispose();const ms=o.material?Array.isArray(o.material)?o.material:[o.material]:[];ms.forEach(m=>{for(const v of Object.values(m))if(v?.isTexture)v.dispose();m.dispose()})});return}
   for(const a of assets.values())a.scene.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true;const ms=Array.isArray(o.material)?o.material:[o.material];ms.forEach(m=>{m.roughness=.92;m.metalness=0;if(m.map)m.map.anisotropy=Math.min(renderer.capabilities.getMaxAnisotropy(),4);if(m.name?.toLowerCase().includes('leav')){m.side=THREE.DoubleSide;m.alphaTest=.35}})}});
   // Sculpted meadow, with a pale path painted into the ground rather than a board.
@@ -157,10 +189,10 @@ export async function bindGrove(){
   const trees=[[-16,-10,8],[-12,-12,10],[-7,-13,9],[-2,-14,11],[4,-13,8],[10,-12,10],[16,-10,9],[18,-4,8],[17,3,8],[14,9,8],[-17,7,8],[-15,12,7],[-19,1,9],[-18,-5,9],[10,-8,6],[-10,-8,6],[13,0,6],[-13,5,5]];
   trees.forEach(([x,z,h],i)=>{const tr=place(['CommonTree_1','CommonTree_3','CommonTree_5','Pine_1','TwistedTree_1'][i%5],x,z,h,rand()*6.28);colliders.push({x,z,r:h*.085});tr.userData.tree=true});
   for(let i=0;i<20;i++){const angle=rand()*6.28,r=22+rand()*10,x=Math.cos(angle)*r,z=Math.sin(angle)*r;place(i%3===0?'Pine_1':'CommonTree_3',x,z,7+rand()*6,rand()*6.28)}
-  for(let i=0;i<30;i++){const x=rand()*32-16,z=rand()*25-13;if(Math.abs(z)<2&&x<7)continue;if(Math.hypot(x+5,z-3)<3)continue;place(i%3?'Rock_Medium_1':'Rock_Medium_2',x,z,.3+rand()*.9,rand()*6.28)}
-  for(let i=0;i<30;i++){const x=rand()*30-15,z=rand()*22-11;if(Math.abs(z+1)<1.5||Math.hypot(x-2,z-6)<2||Math.hypot(x+6,z-6)<2.6||Math.hypot(x+8,z-3)<2.2)continue;place(i%3?'Bush_Common':'Bush_Common_Flowers',x,z,.5+rand()*.6,rand()*6.28)}
+  for(let i=0;i<30;i++){const x=rand()*32-16,z=rand()*25-13;if(inClearing(x,z)||Math.abs(z)<2&&x<7)continue;if(Math.hypot(x+5,z-3)<3)continue;place(i%3?'Rock_Medium_1':'Rock_Medium_2',x,z,.3+rand()*.9,rand()*6.28)}
+  for(let i=0;i<30;i++){const x=rand()*30-15,z=rand()*22-11;if(inClearing(x,z)||Math.abs(z+1)<1.5||Math.hypot(x-2,z-6)<2||Math.hypot(x+6,z-6)<2.6||Math.hypot(x+8,z-3)<2.2)continue;place(i%3?'Bush_Common':'Bush_Common_Flowers',x,z,.5+rand()*.6,rand()*6.28)}
   const vegetation=[['Grass_Common_Short',1100,.42],['Flower_3_Group',72,.48],['Flower_4_Group',60,.45],['Fern_1',35,.65]];
-  for(const[name,count,height]of vegetation){const model=normalize(assets.get(name).scene.clone(true),height);model.updateMatrixWorld(true);model.traverse(o=>{if(!o.isMesh)return;const inst=new THREE.InstancedMesh(o.geometry,o.material,count);inst.receiveShadow=true;inst.castShadow=false;let j=0;while(j<count){const x=rand()*36-18,z=rand()*28-14;if((Math.abs(z+1)<1.25&&x>-15&&x<8)||Math.hypot(x-2,z-6)<2||Math.hypot(x+8,z-3)<1.7)continue;dummy.position.set(x,groundHeight(x,z),z);dummy.rotation.set(0,rand()*6.28,0);dummy.scale.setScalar(.7+rand()*.8);dummy.updateMatrix();inst.setMatrixAt(j++,dummy.matrix.clone().multiply(o.matrixWorld))}world.add(inst);plants.push(inst)})}
+  for(const[name,count,height]of vegetation){const model=normalize(assets.get(name).scene.clone(true),height);model.updateMatrixWorld(true);model.traverse(o=>{if(!o.isMesh)return;const inst=new THREE.InstancedMesh(o.geometry,o.material,count);inst.receiveShadow=true;inst.castShadow=false;let j=0;while(j<count){const x=rand()*36-18,z=rand()*28-14;if(inClearing(x,z)||(Math.abs(z+1)<1.25&&x>-15&&x<8)||Math.hypot(x-2,z-6)<2||Math.hypot(x+8,z-3)<1.7)continue;dummy.position.set(x,groundHeight(x,z),z);dummy.rotation.set(0,rand()*6.28,0);dummy.scale.setScalar(.7+rand()*.8);dummy.updateMatrix();inst.setMatrixAt(j++,dummy.matrix.clone().multiply(o.matrixWorld))}world.add(inst);plants.push(inst)})}
   // Creek gate: timber posts, a sliding gate, and a wheel fitted by the player.
   for(const z of [-2.05,.05]){cube(-3.7,.65,z,.25,1.7,.25,0x66513b);cylinder(-3.7,1.55,z,.21,.15,0xd2b572)}
   cube(-3.7,1.45,-1, .32,.22,2.4,0x796141);gate=cube(-3.7,.4,-1,.18,.9,1.8,0x967a51);gate.userData.open=false;
@@ -171,7 +203,7 @@ export async function bindGrove(){
   heldHandle=handle.clone();heldHandle.scale.setScalar(.6);heldHandle.position.set(.6,1,0);heldHandle.visible=false;player.add(heldHandle);
   const haloGeo=new THREE.RingGeometry(.55,.65,48),haloMat=new THREE.MeshBasicMaterial({color:0xffe196,transparent:true,opacity:.8,side:THREE.DoubleSide,depthWrite:false});targetHalo=mesh(haloGeo,haloMat);targetHalo.rotation.x=-Math.PI/2;targetHalo.position.set(-8,.12,3);targetHalo.castShadow=false;
   // Sprout stays attached to a visible soil bed, stem and roots.
-  const bed=cylinder(6,.05,-1,1.25,.2,0x806548);bed.scale.z=.85;
+  const bed=cylinder(6,.05,-1,1.25,.2,0x806548);bed.scale.z=.85;surfaces.disc('sprout-bed',6,-1,1.15,.15);
   sprout=new THREE.Group();sprout.position.set(6,.15,-1);world.add(sprout);const stem=mesh(new THREE.CylinderGeometry(.065,.09,.85,10),mat(0x5b8a40),sprout);stem.position.y=.48;
   const leafShape=new THREE.Shape();leafShape.moveTo(0,0);leafShape.bezierCurveTo(-.55,.2,-.55,1.05,0,1.3);leafShape.bezierCurveTo(.55,1.05,.55,.2,0,0);
   for(const side of [-1,1]){const leaf=mesh(new THREE.ExtrudeGeometry(leafShape,{depth:.045,bevelEnabled:true,bevelSegments:2,steps:1,bevelSize:.035,bevelThickness:.035}),mat(side===1?0x8cba46:0x74a83d),sprout);leaf.position.set(side*.02,.75,0);leaf.rotation.set(-.2,side*.35,side*-.78);const vein=mesh(new THREE.CylinderGeometry(.012,.017,.95,6),mat(0xcde18c),leaf);vein.position.set(0,.65,.08)}
@@ -185,11 +217,11 @@ export async function bindGrove(){
   // Fireflies and creek highlights are small 3D elements, not screen confetti.
   for(let i=0;i<32;i++){const m=mesh(new THREE.SphereGeometry(.025+rand()*.02,6,6),new THREE.MeshBasicMaterial({color:i%2?0xffeaaa:0xe6fac4,transparent:true,opacity:.7}));m.position.set(rand()*26-13,.5+rand()*4,rand()*20-10);m.castShadow=false;m.userData.phase=rand()*6.28;motes.push(m)}
   for(let i=0;i<22;i++){const m=mesh(new THREE.SphereGeometry(.055,7,7),new THREE.MeshBasicMaterial({color:0xc2fbef,transparent:true,opacity:.8}));m.castShadow=false;flowBeads.push(m)}
-  nico=assets.get('Nico').scene;normalize(nico,2.05);player.add(nico);player.position.set(-6,0,6);player.rotation.y=Math.PI;world.add(player);mixer=new THREE.AnimationMixer(nico);assets.get('Nico').animations.forEach(clip=>actions[clip.name]=mixer.clipAction(clip));setAction('Idle');
+  nico=assets.get('Nico').scene;normalize(nico,2.05);player.add(nico);player.position.set(-6,0,6);player.rotation.y=Math.PI;world.add(player);mixer=new THREE.AnimationMixer(nico);motion=createCharacterMotion(mixer,assets.get('Nico').animations);nico.traverse(o=>{if(o.isBone&&/RightHand$/.test(o.name))rightHand=o});mixer.update(0);seatNico=createFootContact(THREE,nico);
   interactables.push({id:'handle',x:-8,z:3,label:'Pick up handle',radius:2.1},{id:'gate',x:-4.1,z:-1,label:'Fit the handle',radius:2.6},{id:'sprout',x:6,z:-1,label:'Look at Sprout',radius:2.5});
   const shadow=mesh(new THREE.CircleGeometry(.42,24),new THREE.MeshBasicMaterial({color:0x344b2d,transparent:true,opacity:.19,depthWrite:false}),player);shadow.rotation.x=-Math.PI/2;shadow.position.y=.025;shadow.castShadow=false;
   const resize=()=>{const w=host.clientWidth,h=host.clientHeight;renderer.setSize(w,h);camera.aspect=w/h;camera.fov=w/h<1?57:43;camera.updateProjectionMatrix()};listener(window,'resize',resize);resize();
-  quest=createForestQuest({world,player,tell,tone,setAction,focusPlayer:()=>host.focus({preventScroll:true}),setStage:value=>{stage=value;inputKeys.clear();pointerTarget=null},hidePractice:()=>{won=true;handleFound=true;handleFitted=true;handle.visible=false;heldHandle.visible=false;wheel.visible=true;outlet=1;updateRoute();rootRipple.visible=true;show('#grove-discovery',false);show('#grove-success',false);show('#grove-gate-panel',false);show('#grove-restart',true);$('#grove-restart').textContent='Reset this puzzle';gate.userData.open=true;routeWater.visible=true;routeWater.geometry.setDrawRange(0,Infinity);},restoreForest:level=>{sprout.scale.setScalar(1+level*.2);sun.intensity=2.5+level*.12;hemi.intensity=1.35+level*.15;}});
+  quest=createForestQuest({world,player,tell,tone,setAction,surfaces,groundHeight,performAt,isInteractionBusy,cancelInteraction,carryPoint,focusPlayer:()=>host.focus({preventScroll:true}),setStage:value=>{stage=value;inputKeys.clear();pointerTarget=null},hidePractice:()=>{won=true;handleFound=true;handleFitted=true;handle.visible=false;heldHandle.visible=false;wheel.visible=true;outlet=1;updateRoute();rootRipple.visible=true;show('#grove-discovery',false);show('#grove-success',false);show('#grove-gate-panel',false);show('#grove-restart',true);$('#grove-restart').textContent='Reset this puzzle';gate.userData.open=true;routeWater.visible=true;routeWater.geometry.setDrawRange(0,Infinity);},restoreForest:level=>{sprout.scale.setScalar(1+level*.2);sun.intensity=2.5+level*.12;hemi.intensity=1.35+level*.15;}});
 
   $('#grove-load').value=100;$('#grove-load-label').textContent='Your forest is ready.';$('#grove-begin').disabled=false;$('#grove-begin').innerHTML=`Enter the forest ${svg('arrow')}`;
   $('#grove-sound').setAttribute('aria-pressed',String(!muted));
@@ -203,16 +235,18 @@ export async function bindGrove(){
      let dx=(inputKeys.has('d')||inputKeys.has('arrowright')?1:0)-(inputKeys.has('a')||inputKeys.has('arrowleft')?1:0),dz=(inputKeys.has('s')||inputKeys.has('arrowdown')?1:0)-(inputKeys.has('w')||inputKeys.has('arrowup')?1:0);
      // Screen-relative movement matches the fixed elevated camera.
      let movement=new THREE.Vector3(dx,0,dz);movement.applyAxisAngle(new THREE.Vector3(0,1,0),.55);
-     if(pointerTarget&&!dx&&!dz){movement.copy(pointerTarget).sub(player.position);movement.y=0;if(movement.length()<.22){pointerTarget=null;movement.set(0,0,0)}}else if(dx||dz)pointerTarget=null;
-     const moving=movement.lengthSq()>.001;if(moving){movement.normalize();const step=movement.multiplyScalar(delta*(inputKeys.has('shift')?5.7:3.4));const nx=THREE.MathUtils.clamp(player.position.x+step.x,-12,11),nz=THREE.MathUtils.clamp(player.position.z+step.z,-9,8.5);const block=(x,z)=>colliders.some(c=>Math.hypot(x-c.x,z-c.z)<c.r+.35)||(x<-4.5&&Math.abs(z+3)<.65);if(!block(nx,player.position.z))player.position.x=nx;if(!block(player.position.x,nz))player.position.z=nz;const angle=Math.atan2(step.x,step.z);player.rotation.y+=Math.atan2(Math.sin(angle-player.rotation.y),Math.cos(angle-player.rotation.y))*Math.min(1,delta*12);setAction(inputKeys.has('shift')?'Running':'Walking')}else setAction('Idle');
-     player.position.y=groundHeight(player.position.x,player.position.z)+.1;
+     if((dx||dz)&&approach){approach.onCancel?.();approach=null;pointerTarget=null}
+     if(motion?.busy){movement.set(0,0,0);pointerTarget=null}
+     if(pointerTarget&&!dx&&!dz){movement.copy(pointerTarget).sub(player.position);movement.y=0;if(movement.length()<.22){pointerTarget=null;movement.set(0,0,0);if(approach){const job=approach;approach=null;job.begin()}}}else if(dx||dz)pointerTarget=null;
+     const moving=movement.lengthSq()>.001;if(moving){movement.normalize();const step=movement.multiplyScalar(delta*(inputKeys.has('shift')?5.7:3.4));const nx=THREE.MathUtils.clamp(player.position.x+step.x,-12,11),nz=THREE.MathUtils.clamp(player.position.z+step.z,-9,8.5);const block=(x,z)=>surfaces.heightAt(x,z)-player.position.y>.48||colliders.some(c=>Math.hypot(x-c.x,z-c.z)<c.r+.35)||(x<-4.5&&Math.abs(z+3)<.65);if(!block(nx,player.position.z))player.position.x=nx;if(!block(player.position.x,nz))player.position.z=nz;const angle=Math.atan2(step.x,step.z);player.rotation.y+=Math.atan2(Math.sin(angle-player.rotation.y),Math.cos(angle-player.rotation.y))*Math.min(1,delta*12);setAction(inputKeys.has('shift')?'Running':'Walking')}else setAction('Idle');
+     player.position.y=surfaces.heightAt(player.position.x,player.position.z);
      const available=quest?.active?[quest.desired()].filter(Boolean):interactables;target=available.filter(t=>!(t.id==='handle'&&handleFound)).map(t=>({...t,d:Math.hypot(player.position.x-t.x,player.position.z-t.z)})).filter(t=>t.d<t.radius).sort((a,b)=>a.d-b.d)[0]||null;
      show('#grove-context',!!target);if(target)$('#grove-context-label').textContent=quest?.active?target.label:target.id==='gate'?(handleFitted?'Turn the channel':handleFound?'Fit the handle':'Inspect creek gate'):target.label;
     }else show('#grove-context',false);
-    mixer.update(delta);quest?.update(delta,time,reduced());
-    const desired=(quest?.active?quest.desired():null)||(!handleFound?interactables[0]:!won?interactables[1]:interactables[2]);destination=new THREE.Vector3(desired.x,1.25,desired.z);targetHalo.position.set(desired.x,.14,desired.z);targetHalo.visible=(stage==='explore'||stage==='quest')&&!quest?.finished;if(!reduced())targetHalo.scale.setScalar(1+Math.sin(time*2.5)*.09);
+    mixer.update(delta);motion.update(delta);player.position.y=surfaces.heightAt(player.position.x,player.position.z);seatNico(player.position.y);if(heldHandle.visible){player.updateWorldMatrix(true,true);heldHandle.position.copy(player.worldToLocal(carryPoint()))}quest?.update(delta,time,reduced());
+    const desired=(quest?.active?quest.desired():null)||(!handleFound?interactables[0]:!won?interactables[1]:interactables[2]);destination=new THREE.Vector3(desired.x,1.25,desired.z);targetHalo.position.set(desired.x,surfaces.heightAt(desired.x,desired.z)+.025,desired.z);targetHalo.visible=(stage==='explore'||stage==='quest')&&!quest?.finished;if(!reduced())targetHalo.scale.setScalar(1+Math.sin(time*2.5)*.09);
     const projected=destination.clone().project(camera);const px=(projected.x*.5+.5)*host.clientWidth,py=(-projected.y*.5+.5)*host.clientHeight;$('#grove-marker').style.transform=`translate(${Math.max(25,Math.min(host.clientWidth-40,px))}px,${Math.max(120,Math.min(host.clientHeight-170,py))}px)`;$('#grove-marker').hidden=!['explore','quest'].includes(stage)||!!quest?.finished;if(markerId!==desired.id){markerId=desired.id;$('#grove-marker').innerHTML=`<span>${svg(desired.icon||(desired.id==='handle'?'search':desired.id==='gate'?'drop':'sprout'))}</span>`;}
-    const distance=Math.hypot(player.position.x-desired.x,player.position.z-desired.z);$('#grove-distance').textContent=`${quest?.active?(desired.id==='delivery'?'Delivery':'Discovery stone'):desired.id==='handle'?'Lost handle':desired.id==='gate'?'Creek gate':'Sprout'} · ${Math.round(distance)} m`;$('#grove-direction').textContent=distance<2.6?'You’re close. Press E.':'Follow the golden marker';
+    const distance=Math.hypot(player.position.x-desired.x,player.position.z-desired.z);$('#grove-distance').textContent=`${quest?.active?(desired.id==='delivery'?'Delivery':desired.label||'Equipment'):desired.id==='handle'?'Lost handle':desired.id==='gate'?'Creek gate':'Sprout'} · ${Math.round(distance)} m`;$('#grove-direction').textContent=distance<2.6?'You’re close. Press E.':'Follow the golden marker';
     if(!reduced()){handle.rotation.y=time*.65;handle.position.y=groundHeight(-8,3)+.65+Math.sin(time*2)*.06;motes.forEach(m=>{m.position.y+=Math.sin(time*.7+m.userData.phase)*delta*.08;m.material.opacity=.25+(Math.sin(time+m.userData.phase)+1)*.22});}
     const openTarget=gate.userData.open?1.2:.4;gate.position.y=THREE.MathUtils.lerp(gate.position.y,openTarget,delta*3);wheel.rotation.x=handleFitted&&flowing?time*.8:0;
     if(flowing){const progress=Math.min((time-flowStart)/3,1);routeWater.geometry.setDrawRange(0,Math.floor(routeWater.geometry.index.count*progress/3)*3);if(progress>=1){flowing=false;if(outlet===1){rootRipple.visible=true;win()}else{gate.userData.open=false;$('#grove-release').disabled=false;$('#grove-turn-left').disabled=false;$('#grove-turn-right').disabled=false;tell(outlet===0?'The pond has water, but Sprout’s roots are still dry. Turn the channel and try another route.':'The water went toward the old stump. Sprout’s roots are in the other soil bed. Try another route.')}}}
@@ -224,6 +258,7 @@ export async function bindGrove(){
    if(questCamera){lookGoal.set(...questCamera.look);cameraGoal.set(...questCamera.position)}
    else if(stage==='gate'){lookGoal.set(0,0,-.4);cameraGoal.set(7,14,15)}
    else if(stage==='success'||stage==='discovery'){lookGoal.set(3,0,-1);cameraGoal.set(14,17,21)}
+   else if(stage==='briefing'){const points=[[-3.7,-1],[6,-1],[1,5]],p=points[storyStep];lookGoal.set(p[0],.5,p[1]);cameraGoal.set(p[0]+10,15,p[1]+17)}
    else if(stage==='intro'){lookGoal.set(-1,0,-1);cameraGoal.set(13,18,22)}
    else{lookGoal.set(player.position.x*.45,0,player.position.z*.4-1);cameraGoal.set(11+player.position.x*.45,13.5,17+player.position.z*.4)}
    const easing=reduced()?1:1-Math.exp(-delta*2.1);camera.position.lerp(cameraGoal,easing);focus.lerp(lookGoal,easing);camera.lookAt(focus);renderer.render(world,camera);

@@ -15,6 +15,23 @@
 .cover-copy .explorer-entry .illustrated-start{font-size:16px;line-height:1.5;margin-top:16px;min-height:32px;text-decoration-thickness:2px;color:#285745}
 @media(max-width:760px){.adventure-cover:has(.explorer-entry) .cover-copy{padding-bottom:355px}.explorer-entry{padding:20px}.explorer-entry .explorer-welcome label{font-size:18px}.explorer-entry .explorer-welcome small{font-size:16px}}
 .grove-name-row{align-items:end}
+.grove-story{position:absolute;z-index:25;left:50%;bottom:8%;transform:translateX(-50%);width:min(820px,calc(100% - 48px));padding:28px 32px;background:#fff9e8;border-radius:16px;box-shadow:0 14px 46px #253c2c38;display:grid;grid-template-columns:60px 1fr;gap:16px 22px;align-items:start;color:#2d4b35}
+#grove-story-face{width:60px;height:60px;background:#e5ebcd;border-radius:50%;display:grid;place-items:center}
+#grove-story-face .icon{width:34px;height:34px}
+#grove-story-speaker{font-size:16px;font-weight:900}
+.grove-story h2{font:400 34px/1.15 'Lilita One',sans-serif;margin:6px 0 14px;letter-spacing:0}
+.grove-story p{font-size:18px;line-height:1.6;margin:0;max-width:58ch}
+#grove-story-count{display:block;margin-top:14px;font-size:14px;font-weight:800}
+#grove-story-next{grid-column:2;justify-self:end;border:0;border-radius:10px;padding:13px 22px;min-height:50px;background:#315f41;color:#fffbee;display:flex;align-items:center;gap:14px;font:900 17px Nunito,sans-serif}
+.grove .forest-task{left:auto;right:28px;top:92px;bottom:auto;transform:none;width:350px;max-height:calc(100dvh - 215px);padding:23px;overflow:auto}
+.grove .forest-task h2{font-size:29px}
+.grove .forest-task>p{font-size:16px;line-height:1.55}
+.grove .forest-task .forest-object-controls{gap:8px}
+.grove .forest-task .forest-object-controls button,.grove .forest-task .forest-dialogue button,.grove #forest-test{font-size:15px;min-height:44px;line-height:1.35;padding:10px 13px}
+.grove .forest-task .forest-control-note{font-size:14px;line-height:1.5}
+.grove .forest-task #forest-task-feedback{font-size:14px;line-height:1.5}
+.grove:has(.forest-task:not([hidden])) .grove-context{right:auto;left:30px;bottom:150px}
+@media(max-width:760px){.grove-story{width:calc(100% - 28px);bottom:6%;padding:22px;grid-template-columns:1fr;gap:12px;max-height:80dvh;overflow:auto}#grove-story-face{display:none}.grove-story h2{font-size:29px}.grove-story p{font-size:16px}#grove-story-next{grid-column:1}.grove .forest-task{top:auto;bottom:164px;left:16px;right:16px;width:auto;max-height:35dvh;padding:16px}.grove .forest-task h2{font-size:24px}.grove .forest-task>p{font-size:15px}.grove .forest-task .forest-object-controls button,.grove .forest-task .forest-dialogue button,.grove #forest-test{font-size:14px}.grove:has(.forest-task:not([hidden])) .grove-context{left:auto;right:16px;bottom:126px}}
 .grove-name-row>div{flex-basis:100%}
 .grove-name-row label{margin-bottom:6px}
 .grove-name-row select,.explorer-welcome select{font:800 14px Nunito,sans-serif;color:#2d4b35;min-height:44px;max-width:100%;padding:9px 13px;border:1.5px solid #84956b;border-radius:8px;background:#fffbee;accent-color:#315f41}
@@ -95,3 +112,17 @@
 @media(max-width:760px){.grove:has(#forest-task:not([hidden]):not([data-type=dialogue])) .grove-mission{display:none}.forest-task:not([data-type=dialogue]){max-height:34vh}}
 @media(max-width:1000px){.certificate-toolbar{gap:12px}.certificate-toolbar input{width:190px}.certificate-sheet{padding:23px 25px}.grove:has(#forest-task:not([hidden])) .grove-context{right:22px}}
 @media(max-width:760px){.grove-name-row>div input,.grove-name-row>select{width:100%;max-width:340px}.grove-name-row>select{flex-basis:100%}.grove-name-row>div>label{font-size:13px}.grove-milestones .forest-chapter-progress{font-size:10px}.grove-milestones>b{font-size:11px}.forest-task{bottom:195px;max-height:43vh;width:calc(100% - 32px);padding:17px 18px}.forest-task h2{font-size:24px}.forest-task>p{font-size:12px;line-height:1.5}.forest-object-controls{gap:7px;margin-top:12px}.forest-object-controls button{font-size:12px;min-height:41px;padding:8px 12px}.forest-object-controls strong{font-size:12px}.forest-dialogue button{font-size:12px;padding:10px 12px}.forest-control-note{font-size:11px}#forest-test{font-size:12px;min-height:41px}#forest-close{font-size:11px;margin-left:10px}#forest-task-feedback{font-size:12px}.grove:has(#forest-task:not([hidden])) .grove-context{right:16px;bottom:132px}.grove:has(#forest-task:not([hidden])) .grove-message{top:210px;bottom:auto!important}.grove:has(#forest-task:not([hidden])) #grove-success{top:210px;bottom:auto;width:calc(100% - 32px);padding:13px 16px;z-index:10}.grove:has(#forest-task:not([hidden])) #grove-success p{font-size:11px}.grove:has(#forest-task:not([hidden])) #grove-success h2{font-size:25px}.grove:has(#forest-task:not([hidden])) #grove-success .grove-earned{display:none}.forest-results{padding:24px 21px;max-height:calc(100dvh - 160px)}.forest-results h2{font-size:30px}.forest-result-mark strong{font-size:49px}.forest-results p{font-size:12px}.forest-certificate{inset:66px 12px 90px;border-radius:15px}.certificate-sheet{padding:22px 17px}.certificate-sheet h2{font-size:28px}.certificate-sheet>p{font-size:12px}.certificate-toolbar{display:block;margin:16px 0}.certificate-toolbar>label{margin-bottom:13px}.certificate-toolbar form>div{gap:6px}.certificate-toolbar input{width:100%;min-width:0;flex:1}.certificate-toolbar select{width:100%;min-width:0}.certificate-toolbar button{flex-shrink:0;font-size:11px!important;padding:9px!important}.certificate-actions{gap:8px}.grove .certificate-actions button,.certificate-actions button{font-size:12px;padding:10px 12px}.certificate-local-note{font-size:10px!important}.certificate-page .certificate-sheet{padding:20px 15px}.explorer-welcome:has(select){margin-top:12px!important}.explorer-welcome select{min-height:39px;font-size:13px}.explorer-welcome:has(select) small{font-size:10px;max-width:260px}}
+
+/* The mission workbench stays readable without covering its equipment. */
+.grove .forest-task:not([data-type=dialogue]){max-height:calc(100dvh - 215px)}
+.grove:has(#forest-task:not([hidden])) .grove-compass{display:none}
+.grove:has(#forest-task:not([hidden])) .grove-mission{width:255px;padding:15px 20px}
+.grove:has(#forest-task:not([hidden])) .grove-mission h1,.grove:has(#forest-task:not([hidden])) .grove-mission>p{display:none}
+.grove:has(#forest-task:not([hidden])) .grove-message{top:auto;bottom:155px;left:32px;transform:none;max-width:calc(100% - 450px);text-align:left}
+.grove:has(#forest-task:not([hidden])) .grove-context{left:32px;right:auto;bottom:100px;transform:none}
+.grove:has(#grove-story:not([hidden])) .grove-compass,.grove:has(#grove-story:not([hidden])) .grove-marker{display:none}
+@media(max-width:760px){.grove .forest-task:not([data-type=dialogue]){max-height:35dvh}.grove:has(#forest-task:not([hidden])) .grove-message{display:none}.grove:has(#forest-task:not([hidden])) .grove-context{left:auto;right:16px;bottom:122px}.grove .forest-task #forest-test{position:sticky;bottom:0;z-index:2;box-shadow:0 -4px 14px #fff9e8}}
+/* Keep the gas-identification action in normal flow, below its choices. */
+.grove .forest-gas-choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;align-items:stretch}
+.grove .forest-gas-choices button{min-width:0;white-space:normal;text-align:center;justify-content:center;padding:10px 7px}
+@media(max-width:760px){.grove .forest-task #forest-test{position:static;box-shadow:none}.grove .forest-task[data-type=gaslab]{max-height:37dvh}.grove .forest-task[data-type=gaslab] h2{font-size:22px}.grove .forest-task[data-type=gaslab]>p{font-size:14px;line-height:1.45}.grove .forest-task .forest-gas-choices button{font-size:13px;line-height:1.3}.grove .forest-task[data-type=gaslab] #forest-test{margin-top:12px;min-height:42px}}

@@ -127,3 +127,15 @@ body.low-data .sprout-question{width:80%;right:10%}
  body[data-route] .site-footer{margin-top:15px}
 }
 @media(max-width:370px){body[data-route] .brand{font-size:26px}.cover-copy h1{font-size:45px}.cover-note{font-size:18px}.comic-heading{font-size:10px}.opening-mystery>h1{font-size:37px}.sprout-question{font-size:13px}.mystery-choices small{font-size:12px}}
+
+/* Learning intentions revealed after the opening prediction. */
+.mystery-goals{margin:38px 0 24px;padding:28px clamp(18px,4vw,40px);background:#f3f6df;border:1px solid #a9b69c;border-radius:5px 18px 5px 4px;scroll-margin-top:24px}
+.mystery-goals[hidden]{display:none}
+.mystery-goals h2{font:400 clamp(30px,3vw,40px)/1.12 'Lilita One',Nunito,sans-serif;margin:0 0 12px}
+.mystery-goals>p{max-width:70ch;margin:0 0 24px;line-height:1.6}
+.mystery-goal-list{list-style:decimal;margin:0;padding-left:26px}
+.mystery-goal-list li{padding:18px 0 18px 8px;border-top:1px solid #a9b69c}
+.mystery-goal-list li::marker{font-weight:900;color:#285745}
+.mystery-goal-list h3{font:900 20px/1.35 Nunito,sans-serif;margin:0 0 6px}
+.mystery-goal-list p{font-size:17px;line-height:1.6;max-width:72ch;margin:0}
+.mystery-goals .mystery-goals-next{margin:22px 0 0;font-weight:850;color:#285745}

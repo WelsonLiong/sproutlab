@@ -40,5 +40,16 @@ export function openingMystery({icon, audio, escapeHTML}) {
         ${audio(learnerLine('{name}, I do not eat lunch, and I cannot move. So how do I grow? Where do you think my food comes from?','I do not eat lunch, and I cannot move. So how do I grow? Where do you think my food comes from?'))}
       </div>
     </div>
+    <section id="learning-goals" class="mystery-goals" aria-labelledby="learning-goals-title" hidden>
+      <h2 id="learning-goals-title" tabindex="-1">What you will learn</h2>
+      <p>Follow the leaf to explore these four goals. At the end, use the “I can” statements to check your learning.</p>
+      <ol class="mystery-goal-list">
+        <li><h3>Explain photosynthesis</h3><p>I can say that photosynthesis is the process by which plants make their own food.</p></li>
+        <li><h3>Identify what plants need</h3><p>I can name all four needs for photosynthesis: sunlight, water, carbon dioxide and chlorophyll.</p></li>
+        <li><h3>Identify what plants produce</h3><p>I can identify starch (stored food) and oxygen in the leaf animation or model.</p></li>
+        <li><h3>Explain why photosynthesis matters</h3><p>I can explain how photosynthesis provides food and oxygen for living things, and helps balance carbon dioxide and oxygen in the air.</p></li>
+      </ol>
+      <p class="mystery-goals-next">Ready to investigate? Choose Next adventure below.</p>
+    </section>
   </section>`;
 }
