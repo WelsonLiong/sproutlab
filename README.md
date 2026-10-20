@@ -1,6 +1,10 @@
 # Sprout Lab
 
-English Year 4 Unit 4 photosynthesis and AI-literacy module for EDUP3133 Task 3. The seven learning stations use flexible timing; the ten-challenge Greenhaven assessment uses eight world interactions and two short reasoning checks across three connected forest clearings. Desktop, tablet and mobile layouts; no pupil accounts.
+## Nico and the Dying Forest
+
+The revised environmental adventure is specified in [the game plan](docs/nico-dying-forest-revised-plan.md). The playable campaign now runs from Sprout’s clearing through the Sunless Woods, Lost Stream, green canopy, breathing pond, woodland pantry and return to Sprout. Nico moves branches, logs and rocks; turns shade screens and water conduits; guides a vine; climbs low natural steps; and inspects a close-up leaf model by moving its shade control. The older ten-discovery assessment modules and saved results remain in the repository for existing records, but are no longer in the Nico campaign path.
+
+English Year 4 Unit 4 photosynthesis and AI-literacy module for EDUP3133 Task 3. The seven learning stations use flexible timing. Nico’s forest campaign teaches the four photosynthesis outcomes through environmental puzzles and visual discoveries. Desktop, tablet and mobile layouts; no pupil accounts.
 
 ## Run locally
 
@@ -20,7 +24,15 @@ There is no application backend, tracker, API key or externally hosted script. T
 
 Complete the official cover template privately, obtain lecturer acceptance of a custom website if needed, test with at least two real adults, record observations and implemented improvements, and replace the pending section in the seven-page documentation draft. Do not invent evaluator feedback. Task 3 submission date in supplied TPB: 6 November 2026.
 
-The first Greenhaven 3D practice scene is now included at #grove using selected supplied assets. The approved first scene has been expanded into all three chapters, ten assessed decisions and named downloadable PDF certificates. Separate local explorer profiles, resume and retakes are included. See docs/greenhaven-scene.md.
+The current #grove route is the revised environmental campaign. Earlier Greenhaven assessment code and results are retained for historical records and certificates. Separate local explorer profiles and campaign saves are included. See docs/nico-dying-forest-revised-plan.md.
+
+## Third person play
+
+Greenhaven follows Nico from behind. Walk with WASD, arrow keys or the touch pad; drag open scenery to turn the camera. Drag branches, rocks and logs or grab them with E and walk them into place. Turn shade screens and the wooden water channel by dragging or by holding left/right while using them. Guide the canopy vine to its natural supports, climb the low stumps, and slide the shade in the leaf close-up to observe photosynthesis. Campaign progress is saved per local explorer profile. The former scored sequence and its rules in `docs/greenhaven-third-person-gameplay.md` are legacy content.
+
+## October 20 · Revised Nico campaign
+
+`dist/grove-campaign.js` adds the prologue, sunlight nursery, canopy, breathing pond, woodland pantry and return to Sprout around the existing Lost Stream puzzle in `dist/grove.js`. The clearings now sit in different parts of one walkable forest. Screen shadows, short water channels, the vine route and the animal habitat respond to their world positions; undoing a repair removes its effect. Completed clearings persist after reload. The new path has no laboratory chapter or scored quiz. Old attempts and certificates remain separate. Browser checks cover chapter states, keyboard carrying and turning, desktop and phone widths, save reload and syntax. A pupil playtest is still needed to judge puzzle clarity and actual play time.
 
 ## October 8 redesign
 The child-facing interface now uses cartoon scenes, a garden map, Beep’s three-stage evidence mission, word tiles and privacy shields. Technical verification is recorded in docs/verification.md. The website source is dependency-free ES modules; no build is required.

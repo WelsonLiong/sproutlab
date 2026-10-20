@@ -38,6 +38,7 @@ body[data-route=grove] main{position:fixed;inset:0;max-width:none;padding:0;min-
 .grove-compass b{font-size:13px}.grove-compass small{font-size:11px;color:#59634e}
 .grove-marker{position:absolute;left:0;top:0;pointer-events:none;z-index:2;will-change:transform}
 .grove-marker>span{display:grid;place-items:center;width:41px;height:41px;border-radius:50% 50% 50% 3px;transform:translate(-50%,-120%) rotate(-45deg);background:#ffe294;color:#4b4f2c;box-shadow:0 5px 18px #3c431c44;border:2px solid #fff6d6}
+.grove-marker>b{position:absolute;left:0;top:-104px;transform:translateX(-50%);width:max-content;max-width:185px;padding:8px 11px;border-radius:8px;background:#fff9e8;color:#294632;box-shadow:0 5px 18px #203c2833;font:900 14px/1.25 Nunito,sans-serif;text-align:center}
 .grove-marker .icon{transform:rotate(45deg);width:21px;height:21px}
 .grove-context{position:absolute;bottom:157px;left:50%;transform:translateX(-50%);z-index:8;white-space:nowrap}
 .grove-context button{background:#fff9e8;box-shadow:0 5px 20px #213d2944;padding:10px 22px 10px 10px}

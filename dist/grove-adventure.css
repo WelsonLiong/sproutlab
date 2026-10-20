@@ -33,6 +33,39 @@
 .grove:has(.forest-task:not([hidden])) .grove-context{right:auto;left:30px;bottom:150px}
 @media(max-width:760px){.grove-story{width:calc(100% - 28px);bottom:6%;padding:22px;grid-template-columns:1fr;gap:12px;max-height:80dvh;overflow:auto}#grove-story-face{display:none}.grove-story h2{font-size:29px}.grove-story p{font-size:16px}#grove-story-next{grid-column:1}.grove .forest-task{top:auto;bottom:164px;left:16px;right:16px;width:auto;max-height:35dvh;padding:16px}.grove .forest-task h2{font-size:24px}.grove .forest-task>p{font-size:15px}.grove .forest-task .forest-object-controls button,.grove .forest-task .forest-dialogue button,.grove #forest-test{font-size:14px}.grove:has(.forest-task:not([hidden])) .grove-context{left:auto;right:16px;bottom:126px}}
 .grove-name-row>div{flex-basis:100%}
+.grove-campaign-view{position:absolute;inset:0;z-index:18;display:grid;place-items:center;background:#1d35268a;pointer-events:auto;padding:20px}
+.grove-campaign-view[hidden]{display:none}
+.grove-transition{position:absolute;inset:0;z-index:16;display:grid;place-items:center;padding:20px;pointer-events:none}
+.grove-transition[hidden]{display:none}
+.grove-transition-card{pointer-events:auto;width:min(420px,100%);padding:27px 30px;background:#fff9e8;color:#294632;border:2px solid #e4e9cf;border-radius:18px;box-shadow:0 18px 55px #17342d63;text-align:center}
+.grove-transition-kicker{display:block;color:#587449;font:900 12px Nunito,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+.grove-transition h2{font:400 clamp(29px,4vw,37px)/1.1 'Lilita One',Nunito,sans-serif;margin:9px 0 11px}
+.grove-transition p{font:700 15px/1.5 Nunito,sans-serif;margin:0 0 19px}
+.grove #grove-next{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;min-height:52px;padding:12px 18px;border-radius:10px;background:#315f41;color:#fff9e8;font:900 16px Nunito,sans-serif}
+.grove #grove-next:hover:not(:disabled){background:#244e33}
+.grove #grove-next .icon{width:19px;height:19px}
+@media(max-width:600px){.grove-transition{padding:16px}.grove-transition-card{padding:22px}.grove-transition p{font-size:14px}}
+.campaign-science{position:relative;width:min(650px,100%);max-height:min(82dvh,720px);overflow:auto;background:#fff9e8;color:#294632;padding:30px 34px;border-radius:16px;box-shadow:0 20px 65px #132d2550}
+.campaign-science h2{font:400 clamp(27px,4vw,38px)/1.1 'Lilita One',Nunito,sans-serif;margin:0 48px 12px 0;text-wrap:balance}
+.campaign-science>p{font-size:16px;line-height:1.58;margin:12px 0;max-width:65ch}
+.grove .campaign-science .campaign-close{position:absolute;right:18px;top:16px;min-height:42px;padding:8px 12px;border-radius:8px;background:#e4ebd1;box-shadow:none;font-size:13px;line-height:1}
+.campaign-science-note{font-size:13px!important;color:#4f644b}
+#campaign-science-diagram{margin:22px 0;background:#ecf1dc;padding:21px;border-radius:12px}
+.leaf-model{display:grid;grid-template-columns:1fr 1.5fr 1fr;gap:12px;align-items:center;text-align:center;font-size:14px;font-weight:850}
+.leaf-model .model-leaf{grid-area:1/2/4/3;min-height:156px;display:grid;place-content:center;background:#85b95e;color:#1d4129;border-radius:52% 10% 52% 10%;transform:rotate(-12deg);font-size:21px;line-height:1.2;box-shadow:inset 0 -13px 0 #5f9f4b}
+.leaf-model .model-leaf small{font-size:11px;font-weight:800;max-width:120px;margin:7px auto 0}
+.leaf-model .source,.leaf-model .product{padding:9px 7px;background:#fff9e8;border-radius:8px}
+.leaf-model .sun{grid-area:1/1}.leaf-model .air{grid-area:2/1}.leaf-model .water{grid-area:3/1}.leaf-model .food{grid-area:2/3}.leaf-model .oxygen{grid-area:3/3}
+.leaf-model .model-leaf{filter:brightness(calc(.56 + var(--light-level)*.44));transition:filter .3s}
+.leaf-model .product{opacity:.18;transition:opacity .3s}
+.leaf-model[data-flow="true"] .product{opacity:1}
+.leaf-model .model-shutter{grid-column:1/-1;display:grid;gap:10px;text-align:left;font-size:13px;font-weight:900;margin-top:12px}
+.leaf-model .model-shutter input{width:100%;min-height:34px;cursor:ew-resize}
+.leaf-model .model-status{grid-column:1/-1;margin:0;font-size:13px;line-height:1.4;color:#34553e}
+.nature-chain,.pond-model,.roots-model{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;text-align:center;font-weight:850}
+.nature-chain span,.pond-model span,.roots-model span{padding:10px 14px;background:#fff9e8;border-radius:8px}.nature-chain small{flex-basis:100%;font-size:12px;font-weight:700;margin-top:5px}
+.pond-model b,.roots-model b{color:#377783}
+@media(max-width:600px){.campaign-science{padding:23px;max-height:82dvh}.campaign-science>p{font-size:15px}.campaign-science #campaign-science-diagram{padding:14px;margin:17px 0}.leaf-model{grid-template-columns:1fr 1fr;gap:7px;font-size:11px}.leaf-model .model-leaf{grid-area:1/1/2/3;min-height:92px;margin:4px 16px 8px;transform:rotate(-5deg)}.leaf-model .sun{grid-area:2/1}.leaf-model .air{grid-area:2/2}.leaf-model .water{grid-area:3/1/4/3}.leaf-model .food{grid-area:4/1}.leaf-model .oxygen{grid-area:4/2}.leaf-model .model-shutter{grid-area:5/1/6/3}.leaf-model .model-status{grid-area:6/1/7/3}.leaf-model .source,.leaf-model .product{padding:8px 5px}}
 .grove-name-row label{margin-bottom:6px}
 .grove-name-row select,.explorer-welcome select{font:800 14px Nunito,sans-serif;color:#2d4b35;min-height:44px;max-width:100%;padding:9px 13px;border:1.5px solid #84956b;border-radius:8px;background:#fffbee;accent-color:#315f41}
 .grove-name-row>label{flex-basis:100%;margin:0}
