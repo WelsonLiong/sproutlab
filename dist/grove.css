@@ -50,6 +50,8 @@ body[data-route=grove] main{position:fixed;inset:0;max-width:none;padding:0;min-
 .grove:has(.grove-context:not([hidden])) .grove-message{bottom:221px}
 .grove-bottom{position:absolute;left:0;right:0;bottom:0;padding:14px 32px max(14px,env(safe-area-inset-bottom));display:flex;justify-content:space-between;align-items:center;gap:18px;background:#fff9e8fa;z-index:15;border-top:1px solid #d3d8bd}
 .grove-bottom>span{font-size:13px;font-weight:800;color:#566349}
+.grove-bottom #grove-completion-link{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:9px 15px;border-radius:10px;background:#315f41;color:#fff9e8;text-decoration:none;font-size:14px;font-weight:900}
+.grove-bottom #grove-completion-link:focus-visible{outline:3px solid #8d4d28;outline-offset:3px}
 .grove-bottom button{background:#315f41;color:#fff9e8;box-shadow:0 3px 12px #223e2922;min-width:215px;min-height:46px;font-size:14px}
 .grove-bottom button:hover:not(:disabled){background:#244e33;color:white}
 .grove-bottom button:enabled{background:#315f41;color:#fff9e8;transition:transform .18s}
