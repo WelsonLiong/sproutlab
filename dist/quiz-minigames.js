@@ -1,4 +1,4 @@
-import {icon,cast,state} from './app.js?v=8';
+import {icon,cast,state} from './app.js?v=10';
 const $=s=>document.querySelector(s);
 const gameIds=new Set([1,2,3,5,6,7,8]);
 let generation=0,timers=[];

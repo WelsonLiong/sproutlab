@@ -1,0 +1,284 @@
+/* Sprout Lab: a living science garden. Controls stay quiet and clear.
+   Palette roles: mint ground, forest ink/action, sky experiments, yellow curiosity, pink reflection.
+   Shape: a leaf's rounded tip and tapered corner on media; pill controls; 16px form fields.
+   Layout: 1280px maximum with equal 32px gutters; explicit single-column layouts below 768px. */
+:root{--garden-ink:#163f32;--garden-green:#176246;--garden-ground:#edf7ee;--garden-paper:#fffef8;--garden-mint:#d5edcc;--garden-sky:#d9eff7;--garden-yellow:#ffdc66;--garden-pink:#f8dedb;--garden-line:#94b49c;--garden-radius:32px 32px 10px 32px}
+body[data-route]{--ink:var(--garden-ink);--green:var(--garden-green);--cream:var(--garden-ground);--paper:var(--garden-paper);background:var(--garden-ground);color:var(--garden-ink);isolation:isolate}
+html{scrollbar-color:#579572 #edf7ee}
+body[data-route] ::selection{background:var(--garden-yellow);color:var(--garden-ink)}
+body[data-route] :focus-visible{outline:3px solid #126b91;outline-offset:5px}
+body[data-route]:not([data-route=grove]) main{max-width:1344px;padding:24px 32px 32px;position:relative}
+body[data-route] .app-header{min-height:84px;max-width:none;padding:16px max(32px,calc((100vw - 1280px)/2));border:0;background:var(--garden-paper);gap:20px}
+body[data-route] .brand{font-size:36px;color:var(--garden-ink)}
+body[data-route] .brand-light{color:#28754e}
+body[data-route] .brand-mark{background:var(--garden-yellow);border:0;border-radius:50% 50% 12% 50%;width:48px;height:48px}
+body[data-route] .brand small{font-size:9px;letter-spacing:.04em}
+body[data-route] .main-nav{gap:10px}
+body[data-route] .main-nav a{padding:10px 16px;margin:0;border:0;border-radius:30px;font-size:15px;min-height:44px;text-decoration:none}
+body[data-route] .main-nav a.active{background:var(--garden-mint);text-decoration:none}
+body[data-route] .main-nav a:hover{background:#e9f4e5}
+body[data-route] .header-tools .icon-btn{border:0;background:#ecf4e8;width:44px;height:44px}
+body[data-route] .collection{background:var(--garden-yellow);border:0;padding:8px 13px;font-size:14px;gap:6px}
+body[data-route] .collection .icon{color:#745b0e;fill:#fff4b9;width:21px}
+.garden-topics{display:flex;justify-content:space-between;gap:4px;margin:0 0 28px;padding:7px;background:#dfeddf;border-radius:50px}
+.garden-topics a{display:flex;align-items:center;justify-content:center;gap:7px;min-height:44px;padding:8px 12px;border-radius:28px;font-size:13px;font-weight:900;text-decoration:none;white-space:nowrap;position:relative}
+.garden-topics a>.icon{width:19px;height:19px}
+.garden-topics a[aria-current]{background:var(--garden-paper);color:#155d3f}
+.garden-topics a:hover{background:#f7fcf4;transform:translateY(-2px)}
+.topic-done{display:grid;place-items:center;width:17px;height:17px;background:var(--garden-green);color:white;border-radius:50%}
+.topic-done .icon{width:12px;height:12px}
+.lesson-top{margin:0 0 12px;font-size:13px;color:#365f4a}
+.lesson-heading,.page-heading{position:relative;isolation:isolate;min-height:148px;padding:24px 180px 27px 32px;margin:0 0 28px;background:var(--garden-mint);border-radius:var(--garden-radius);display:block;overflow:hidden}
+.lesson-heading h1,.page-heading h1{font-size:clamp(34px,3.9vw,54px);line-height:1.08;max-width:950px;text-wrap:balance;letter-spacing:-.015em;color:var(--garden-ink)}
+.lesson-heading p,.page-heading p{font-size:17px;line-height:1.5;margin-top:12px;max-width:63ch}
+.heading-botany{position:absolute;right:18px;bottom:-15px;z-index:-1;width:150px;height:160px;transform:rotate(7deg);pointer-events:none}
+.heading-botany .cast{width:155px;height:165px}
+.page-heading>.btn{margin-top:18px}
+body[data-route=lab] .lesson-heading,body[data-route=creek] .lesson-heading{background:var(--garden-sky)}
+body[data-route=detective] .lesson-heading{background:var(--garden-yellow)}
+body[data-route=finish] .lesson-heading,body[data-route=journal] .page-heading{background:var(--garden-pink)}
+body[data-route] .btn,body[data-route] .adventure-button{background:var(--garden-green);color:white;border:0;border-radius:30px;box-shadow:none;font-weight:900;min-height:50px;padding:13px 23px;font-size:16px}
+body[data-route] .btn:hover,body[data-route] .adventure-button:hover{background:#104b36;box-shadow:none;transform:translateY(-2px)}
+body[data-route] .btn:active,body[data-route] .adventure-button:active{transform:scale(.98)}
+body[data-route] .btn.yellow{background:var(--garden-yellow);color:var(--garden-ink)}
+body[data-route] .btn.yellow:hover{background:#f8cd44}
+body[data-route] .btn.secondary{background:#e6f0e1;color:var(--garden-ink)}
+body[data-route] .btn.coral{background:var(--garden-pink);color:var(--garden-ink)}
+body[data-route] .btn:disabled{background:#dce4dc;color:#4c6154;opacity:1;box-shadow:none;transform:none}
+body[data-route] .icon-btn{border:0;background:#e3f1de}
+body[data-route] input:not([type=checkbox]):not([type=radio]):not([type=range]),body[data-route] select,body[data-route] textarea{border:2px solid #7c9f85;border-radius:16px;background:var(--garden-paper);color:var(--garden-ink);min-height:48px;caret-color:var(--garden-green)}
+body[data-route] input::placeholder,body[data-route] textarea::placeholder{color:#4b6554;opacity:1}
+body[data-route] input[type=checkbox],body[data-route] input[type=radio]{accent-color:var(--garden-green)}
+/* Welcome: the garden is a picture beside the invitation, never behind the form. */
+body[data-route=map] main{padding:24px 32px 32px;max-width:1400px}
+.adventure-cover:has(.explorer-entry){display:grid;grid-template-columns:1fr 1.05fr;align-items:stretch;min-height:580px;height:auto;background:#d9edce;border:0;border-radius:52px 52px 14px 52px;overflow:hidden}
+.adventure-cover .cover-copy{width:auto;max-width:none;margin:0;padding:44px 38px 36px;grid-column:1;grid-row:1;z-index:1}
+.adventure-cover .cover-copy h1{font-size:clamp(52px,5.2vw,76px);line-height:1.02;transform:none;color:var(--garden-ink);letter-spacing:-.02em;max-width:560px}
+.adventure-cover .cover-copy h1 span{color:inherit}
+.adventure-cover .cover-copy>p{font-size:18px;line-height:1.5;max-width:37ch;margin:22px 0 0}
+.adventure-cover .cover-art{position:relative;inset:auto;grid-column:2;grid-row:1;width:100%;height:100%;min-height:580px;object-fit:cover;object-position:69% center;z-index:0;border-radius:48% 0 0 12%}
+.adventure-cover .explorer-entry{border:0;background:none;margin-top:24px;padding:0;width:100%;max-width:390px}
+.adventure-cover .explorer-entry .explorer-welcome label{font-size:16px;margin-bottom:7px}
+.adventure-cover .explorer-entry .explorer-welcome small{font-size:13px;margin:7px 0 13px;line-height:1.4}
+.adventure-cover .explorer-entry .explorer-welcome input,.adventure-cover .explorer-entry .explorer-welcome select{font-size:16px;background:var(--garden-paper)}
+.adventure-cover .adventure-button{width:100%;font-size:17px;min-height:52px}
+.adventure-cover .guest-entry{font-size:14px;min-height:44px;color:var(--garden-ink)}
+.adventure-cover .character-hello{right:5%;bottom:28px;z-index:1;background:var(--garden-paper);border:0;box-shadow:none;border-radius:30px;font-family:Nunito,sans-serif;font-size:15px;font-weight:900;padding:10px 16px;transform:rotate(-3deg)}
+.discovery-trail{padding:44px 0 0;max-width:none}
+.trail-heading{align-items:baseline;margin-bottom:22px}
+.trail-heading h2{font-size:38px;color:var(--garden-ink)}
+.trail-heading p{font-size:16px}
+.discovery-trail ol{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin:0;list-style:none}
+.discovery-trail li{text-align:left;min-width:0}
+.discovery-trail li:first-child{grid-column:span 2}
+.discovery-trail li:after{display:none}
+.discovery-trail li a{position:relative;overflow:hidden;border-radius:28px 28px 9px 28px;background:var(--garden-paper);display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-content:end;align-items:end;padding:132px 22px 20px;min-height:236px;height:100%;isolation:isolate}
+.discovery-trail li a{grid-template-rows:150px auto auto;align-content:start;padding:0 22px 20px}
+.discovery-trail .activity-preview{position:relative;grid-column:1 / -1;grid-row:1;display:block;width:calc(100% + 44px);height:150px;max-width:none;margin:0 -22px 12px;object-fit:cover;object-position:center 57%;align-self:start}
+.discovery-trail li a:has(.activity-preview):before{display:none}
+.discovery-trail li a:before{content:'';position:absolute;inset:0 0 80px;z-index:-1;background:#cfeac1 url('assets/mystery-garden.webp') center 57%/cover}
+.discovery-trail li:nth-child(2) a:before{background-image:url('assets/adventure-cover.webp');background-position:70% 55%}
+.discovery-trail li:nth-child(3) a:before{background-image:url('assets/creek-garden.webp')}
+.discovery-trail li:nth-child(4) a:before{background-image:url('assets/creek-garden.webp');background-position:35% 70%}
+.discovery-trail li:nth-child(5) a:before{background-image:url('assets/mystery-garden.webp');background-position:80% 58%}
+.discovery-trail li:nth-child(6) a:before{background-image:url('assets/world.webp')}
+.discovery-trail li:nth-child(7) a:before{background-image:url('assets/celebration-garden.webp')}
+.discovery-trail strong{font-size:22px;line-height:1.15;font-family:'Lilita One',Nunito,sans-serif;font-weight:400;max-width:none;grid-column:1;grid-row:2;padding-top:12px}
+.discovery-trail small{font-size:13px;grid-column:1;grid-row:3}
+.discovery-trail .trail-marker{grid-row:2 / 4;grid-column:2;width:44px;height:44px;border:0;background:var(--garden-yellow);font-size:20px;outline:none;transform:none;border-radius:50% 50% 8px 50%}
+.discovery-trail .trail-marker .icon{width:24px;height:24px}
+.discovery-trail .trail-current a{outline:3px solid var(--garden-green);outline-offset:4px}
+.discovery-trail .trail-done .trail-marker{background:var(--garden-green);color:white}
+.trail-goals{max-width:none;background:#dfedda;padding:20px 24px;border-radius:20px;margin-top:24px;font-size:16px}
+.trail-goals p{max-width:65ch}
+.trail-next{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:0 0 24px;padding:16px 0;border-block:1px solid #a9b69c}
+.trail-next p{margin:0;font-size:16px;font-weight:750}
+.trail-next a{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:46px;padding:10px 18px;background:var(--garden-green);color:var(--garden-paper);border-radius:12px;font-weight:900;text-decoration:none}
+.trail-next a:hover{background:#193f30}
+.discovery-trail .trail-step{position:absolute;top:12px;left:12px;right:12px;display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap;z-index:1;font-size:15px;line-height:1.3;font-weight:900;color:var(--garden-ink)}
+.trail-step>span{padding:7px 11px;border-radius:10px;background:var(--garden-paper)}
+.trail-current .trail-step>span{background:var(--garden-yellow)}
+.trail-step .trail-step-cue{background:var(--garden-green);color:var(--garden-paper)}
+.trail-current .trail-step .trail-step-cue{background:var(--garden-green);color:var(--garden-paper)}
+/* The same leafy world, with each activity's own useful material and colour. */
+.opening-mystery>h1{position:relative;isolation:isolate;background:var(--garden-yellow);padding:26px 160px 28px 30px;border-radius:var(--garden-radius);font-size:clamp(36px,4vw,56px);overflow:hidden;min-height:112px;margin-bottom:26px}
+.opening-mystery>h1 span{color:inherit}
+.opening-mystery>h1 .heading-botany{bottom:-38px}
+.comic-heading{font-size:13px;margin-bottom:16px}
+.mystery-spread{gap:28px;grid-template-columns:1.15fr 1fr;background:var(--garden-paper);border-radius:var(--garden-radius);padding:22px}
+.comic-panel{border:0;border-radius:28px 28px 8px 28px;min-height:560px}
+.mystery-investigation{padding:12px 12px 10px 0}
+.mystery-investigation h2{font-size:34px}
+.mystery-choices button{border:0;border-radius:18px;background:#e9f3e2;min-height:82px;font-size:18px}
+.mystery-choices button:nth-child(2){background:#fff0ba}.mystery-choices button:nth-child(3){background:#dfeff7}
+.mystery-choices button.selected{outline:3px solid var(--garden-green);outline-offset:2px;background:#d2eabf}
+.sprout-question{border:0;box-shadow:none;border-radius:22px 22px 7px 22px;font-size:17px}
+.comic-caption{border:0;border-radius:15px;font-size:21px}
+.story-theatre,.lab-playground,.leaf-experience,.game-shell,.detective-play,.journal-sheet{border:0;border-radius:var(--garden-radius);background:var(--garden-paper);box-shadow:none;overflow:hidden}
+.story-copy,.lab-tools{border:0;background:var(--garden-paper);padding:28px}
+.lab-tools .lab-switch{border:0;border-radius:18px;background:#edf4e8;min-height:84px}
+.lab-tools .lab-switch:has(input:checked){background:#d4eac5;outline:2px solid #5b8c66;outline-offset:-2px}
+.lab-tools .lab-switch:has(input:checked){box-shadow:none}
+.world-sun small,.world-co2 small,.world-water small{font-size:12px;line-height:1.3}
+.lab-tools .lab-switch strong{font-size:14px;max-width:100px}
+.lab-tools .prediction-field label{border:0;background:#f0f5e9;padding:13px;border-radius:16px;font-size:16px}
+.lab-output{border:0;background:var(--garden-yellow);color:var(--garden-ink);font-size:16px}
+.lab-instruction{font-size:25px!important}.lab-subinstruction{font-size:15px}
+.feedback{border:0;background:#dfefd1;border-radius:16px;font-size:16px}
+.feedback:empty{display:none}.feedback.warning{background:#fff0bd;border:0}
+.under-scene{background:var(--garden-paper);padding:18px 22px;border-radius:20px;font-size:15px;margin-top:20px}
+details.transcript{border:0;border-radius:24px;padding:22px 26px;background:var(--garden-paper);margin-top:24px}
+details.transcript summary{min-height:28px;font-size:17px;cursor:pointer}
+details.transcript p{font-size:16px;line-height:1.65}
+.garden-lesson-welcome{display:flex;gap:20px;align-items:center;justify-content:space-between;padding:24px 28px;background:#dcebc9}
+.garden-lesson-welcome h2{font-size:31px;line-height:1.12}.garden-lesson-welcome p{font-size:16px;max-width:60ch}
+.garden-lesson-welcome>.cast{width:88px;height:88px}
+.experience-bar{border:0;background:#f4f8ed;padding:14px 24px;gap:15px}
+.episode-tags{gap:12px}.episode-tags span{background:none;border-radius:20px;padding:9px 16px;font-size:14px;color:#365b45}
+.episode-tags .active{background:var(--garden-green);color:white}
+.guided-factory #factory-visual:has(.lesson-video){display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:0;background:#e7f2e1;align-items:stretch}
+.guided-factory .lesson-video{width:100%;align-self:center;aspect-ratio:16/9}
+.garden-video-cover{display:grid;place-items:center;position:relative;isolation:isolate;overflow:hidden;width:100%;height:100%;min-height:100%;border:0;background:#c6e4c0;color:var(--garden-ink);padding:24px}
+.garden-video-cover>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:65% 65%;z-index:-1}
+.garden-video-cover .video-play{display:flex;align-items:center;justify-content:center;gap:14px;background:var(--garden-paper);border-radius:40px;padding:16px 24px;font-size:18px;font-weight:950;box-shadow:none}
+.garden-video-cover .video-play .icon{width:32px;height:32px;fill:var(--garden-green);stroke:var(--garden-green)}
+.garden-video-cover:hover{transform:none}.garden-video-cover:hover .video-play{background:var(--garden-yellow)}
+.garden-video-loading{margin:0;position:absolute;inset:auto 16px 16px;background:var(--garden-paper);padding:12px 16px;border-radius:16px;font-size:14px}
+.guided-factory .lesson-video-note{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:20px;background:#e7f2e1;padding:28px;font-size:16px;position:relative}
+.guided-factory .lesson-video-note:before{content:'';display:block;width:105px;height:108px;background:url('assets/storybook-cast.webp') 0 0/200% 187% no-repeat}
+.guided-factory .lesson-video-note p{font-size:17px;font-weight:800;line-height:1.5}
+.guided-factory .lesson-video-note a{font-size:14px}
+.guided-factory .episode-progress{height:7px;background:#d9e8d0}.guided-factory .episode-progress>span{background:var(--garden-green)}
+.guided-factory .factory-narrator{background:#fff1bb;border:0;padding:16px 22px}
+.guided-factory .narrator-caption p{background:transparent;border:0;box-shadow:none;padding:0;font-size:18px}
+.guided-factory .demo-controls{background:#f1f6e9;padding:22px;gap:20px;border:0}
+.guided-factory .science-scenes{background:#e2f1f6;gap:15px;padding:18px}
+.guided-factory .science-scenes>section{border:0;border-radius:24px;background:#fffef8}
+.guided-factory .science-status{background:#deecd0;border:0;border-radius:0;padding:18px 24px}
+.game-shell{padding:26px}.game-heading{padding:0 0 18px;border:0}
+.game-heading h2{font-size:30px}.puzzle-count,.move-counter{font-size:14px}
+.creek-play{border:0;border-radius:24px;background-color:#dcefe8}
+.game-controls{background:#e5f1df;border:0;border-radius:22px;padding:16px;margin-top:20px}
+.detective-play{padding:24px}.case-progress{background:#edf4e5;border:0;border-radius:30px;padding:7px;gap:6px}
+.case-progress span{border:0;border-radius:24px;font-size:15px;padding:11px 16px;flex:1;text-align:center}
+.case-progress .current{background:var(--garden-green);color:white}
+.robot-comic{background:var(--garden-yellow);border:0;border-radius:26px;padding:20px;margin-top:22px}
+.bubble{border:0;box-shadow:none;border-radius:24px 24px 24px 7px}
+.evidence-desk{gap:18px}.clue-object{border:0;border-radius:24px;background:#e2eed9;padding:22px}
+.clue-object:nth-child(2){background:#dceef5}.clue-object strong{font-size:18px}.clue-object small{font-size:13px}
+.clue-reading{border:0;background:#f1f5e8;border-radius:24px;padding:24px}.clue-reading p{font-size:16px}
+.case-actions{border:0;background:#e8f2e0;padding:18px 22px;border-radius:24px;margin-top:20px}
+.word-bank button,.repair-slot{border-radius:16px}.privacy-message{background:#f4f8ed;border:0;border-radius:24px}
+.closure-banner{border:0;border-radius:var(--garden-radius);background:var(--garden-mint);overflow:hidden}
+.closure-banner h2{font-size:36px}.closure-banner p{font-size:17px}
+.lesson-columns{gap:24px;margin-top:24px}.lesson-columns>.activity-panel{background:var(--garden-paper);border-radius:28px;padding:28px}
+.lesson-columns>.activity-panel:nth-child(2){background:#f8e8df}
+.lesson-columns textarea{margin-top:12px;line-height:1.6;min-height:150px;width:100%}
+.notice{background:#fff0bb;border-radius:24px;padding:24px}
+.journal-sheet{padding:30px;background:var(--garden-paper)}
+.journal-header{background:#e7f1dc;border:0;border-radius:24px;padding:20px 24px}
+.journal-header h2{font-size:30px}.journal-header p{font-size:16px}
+.badge-grid{gap:14px}.earned-badge{border:0;background:#eff3e9;border-radius:24px;padding:24px 12px;opacity:1}
+.earned-badge.earned{background:#d6ebc5}.earned-badge>span{border:0;box-shadow:none;background:#e0e9d7;color:#53694d}
+.earned-badge.earned>span{background:var(--garden-yellow);color:var(--garden-ink)}
+.earned-badge strong{font-size:16px}.earned-badge small{font-size:13px;color:#49613f}
+.journal-note{border:0;border-radius:24px;background:#fff0bd;padding:24px;margin:24px 0}
+.journal-note p{font-family:Nunito,sans-serif;font-size:19px;line-height:1.6}
+.teacher-section{background:var(--garden-paper);padding:28px 32px;border:0;border-radius:26px;margin:22px 0}
+.teacher-section h2{font-size:31px}.teacher-section p,.teacher-section li{font-size:16px;line-height:1.75}
+.teacher-section th{background:#dceccd}.teacher-section td{background:var(--garden-paper)}
+.safety-list>div{background:var(--garden-paper);border:0;border-radius:26px;padding:26px;margin:18px 0}
+.safety-list{border:0;padding:0}
+.safety-list h2{font-size:29px}.safety-list p{font-size:16px}
+.certificate-waiting{display:grid;grid-template-columns:1fr 1fr;align-items:center;background:var(--garden-paper);border-radius:var(--garden-radius);overflow:hidden}
+.certificate-waiting>img{width:100%;height:360px;object-fit:cover;object-position:65% center}
+.certificate-waiting>div{padding:32px}.certificate-waiting h2{font-size:36px}.certificate-waiting p{font-size:17px;line-height:1.6;margin:16px 0 24px}
+.certificate-page .certificate-sheet{border:0;background:var(--garden-paper);border-radius:28px;padding:30px}
+.certificate-page .certificate-actions button,.certificate-page .certificate-toolbar button{border:0;border-radius:28px;background:var(--garden-green);color:white;padding:13px 20px;min-height:48px}
+.certificate-local-note{font-size:13px!important}
+body[data-route] .lesson-nav.journey-nav{background:#fbfef7;border:0;box-shadow:none;padding-top:12px;padding-bottom:calc(12px + env(safe-area-inset-bottom,0px))}
+.journey-nav>a:first-child{font-size:15px}.journey-nav>p{font-size:13px;color:#365b45}
+.journey-actions .btn{min-width:220px}
+body[data-route] .site-footer{position:relative;max-width:1400px;margin:10px auto 0;padding:48px 32px;border:0;color:var(--garden-ink);font-size:14px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;isolation:isolate}
+.garden-footer-wordmark{flex-basis:100%;font-family:'Lilita One',Nunito,sans-serif;font-size:clamp(40px,4.5vw,60px);line-height:1.05;letter-spacing:-.02em;margin-bottom:8px}
+.site-footer>span,.site-footer>div:not(.garden-footer-wordmark){background:var(--garden-ground);padding:8px 12px;border-radius:16px}
+.site-footer a{min-height:36px;display:inline-flex;align-items:center}
+body[data-route] dialog{background:var(--garden-paper);border:0;border-radius:30px;box-shadow:0 20px 70px #1b4c3e30 /* taste-skill-ignore: a real modal floats above the page */;padding:30px;color:var(--garden-ink)}
+dialog::backdrop{background:#143e3370}.setting{padding:17px 0}.setting input{width:22px;height:22px}
+/* Forest: the game stays immersive; its readable overlays join the botanical system. */
+body[data-route=grove] .grove{--parchment:#f4fae9;--forest:var(--garden-ink)}
+body[data-route=grove]>.site-footer,body[data-route=grove]>.app-header{display:none!important}
+.grove-intro{background:none}
+.grove-intro-copy{background:#f2f8e9f5;border-radius:38px 38px 10px 38px;padding:30px;max-width:575px}
+.grove-intro h1,.grove-intro h1 em{color:var(--garden-ink);font-size:clamp(42px,4.5vw,66px);line-height:1.02}
+.grove-intro-copy>p{font-size:17px;margin-top:16px}
+.grove-intro-copy form{margin-top:20px}.grove button{border-radius:28px;box-shadow:none}
+.grove-intro form small{font-size:13px}.grove-intro-copy .grove-intro-controls{font-size:13px;line-height:1.5}
+.grove button#grove-begin{background:var(--garden-green);color:white}
+.grove-discovery,.grove-gate,.grove-dialog,.grove-story{border:0;background:#f4fae9;border-radius:30px}
+.grove-mission{border:0;background:#f4fae9;border-radius:24px}
+/* One calm reveal, plus tactile feedback. Visible defaults survive script or motion failure. */
+@media(prefers-reduced-motion:no-preference){body:not(.reduce-motion) .cover-art{animation:garden-open 850ms cubic-bezier(.16,1,.3,1) both}body:not(.reduce-motion) .heading-botany{animation:garden-greet 650ms cubic-bezier(.16,1,.3,1) both}}
+@keyframes garden-open{from{clip-path:inset(0 0 0 100%)}to{clip-path:inset(0)}}
+@keyframes garden-greet{from{transform:translateY(20px) rotate(12deg)}to{transform:translateY(0) rotate(7deg)}}
+@media(prefers-reduced-motion:no-preference){body:not(.reduce-motion) .garden-arrive{animation:garden-grow 600ms cubic-bezier(.16,1,.3,1) both}}
+@keyframes garden-grow{from{transform:translateY(16px)}to{transform:translateY(0)}}
+.low-data .discovery-trail li a:before{background-image:none}
+.low-data .garden-video-cover>img{display:none}
+.large-text .garden-topics a{font-size:15px}.large-text .lesson-heading p,.large-text .page-heading p{font-size:21px}
+.large-text .lesson-heading,.large-text .page-heading{padding-right:32px}.large-text .heading-botany{display:none}
+@media(max-width:1100px){
+ body[data-route] .app-header{padding-inline:24px;gap:12px}.brand small{display:none!important}.main-nav a{font-size:14px!important;padding-inline:10px!important}.header-tools{gap:7px}
+ .garden-topics{flex-wrap:wrap;justify-content:center;border-radius:24px}.garden-topics a{flex:1 0 auto;font-size:13px;padding:8px 10px}
+ .adventure-cover .cover-copy{padding:36px 28px}.adventure-cover .cover-copy h1{font-size:clamp(44px,5.5vw,58px)}.adventure-cover .cover-art{min-height:620px}
+ .discovery-trail ol{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .guided-factory #factory-visual:has(.lesson-video){grid-template-columns:minmax(0,1fr) 220px}.guided-factory .lesson-video-note{padding:20px}.guided-factory .lesson-video-note:before{width:75px;height:80px}
+ .discovery-trail strong{font-size:21px}.mystery-spread{gap:20px}.mystery-investigation h2{font-size:30px}
+ .garden-topics .topic-done{display:none}
+}
+@media(max-width:767px){
+ body[data-route] .app-header{min-height:120px;display:grid;grid-template-columns:1fr auto;padding:14px 18px 10px;gap:10px 12px}
+ body[data-route] .brand{font-size:30px;gap:8px}.brand-mark{width:40px!important;height:40px!important}.brand-mark .icon{width:28px;height:28px}
+ body[data-route] .header-tools{grid-column:2;grid-row:1;gap:6px}.header-tools .collection{font-size:12px!important;padding:6px 9px!important}.header-tools .icon-btn{width:36px!important;height:36px!important}.header-tools .icon-btn>.icon{width:22px;height:22px}
+ body[data-route] .main-nav{grid-row:2;grid-column:1 / -1;justify-content:center;gap:14px}.main-nav a{min-height:38px!important;padding:7px 16px!important;font-size:14px!important}.main-nav .icon{width:20px;height:20px}
+ body[data-route]:not([data-route=grove]) main{padding:18px 16px 24px;max-width:none}
+ .garden-topics{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:thin;border-radius:20px;margin-bottom:22px;padding:6px;gap:4px}.garden-topics a{min-height:42px;font-size:13px;padding:8px 12px}.garden-topics a>.icon{width:18px;height:18px}
+ .lesson-top{font-size:12px;gap:7px;flex-wrap:wrap;margin-bottom:12px}
+ .lesson-heading,.page-heading{padding:23px 24px 26px;min-height:0;border-radius:28px 28px 8px 28px;margin-bottom:22px}
+ .lesson-heading h1,.page-heading h1{font-size:36px;line-height:1.08;max-width:100%;padding:0;text-wrap:balance}
+ .lesson-heading p,.page-heading p{font-size:16px;margin-top:13px;padding-right:0;max-width:100%}
+ .heading-botany{display:none}
+ .adventure-cover:has(.explorer-entry){display:flex;flex-direction:column;min-height:0;border-radius:32px 32px 10px 32px}
+ .adventure-cover:has(.explorer-entry) .cover-copy{padding:30px 25px 26px;width:100%;margin:0}.adventure-cover .cover-copy h1{font-size:clamp(34px,11vw,48px);max-width:none}.adventure-cover .cover-copy>p{font-size:17px;margin-top:18px}
+ .adventure-cover .cover-art{height:300px;min-height:0;width:100%;object-position:68% 62%;border-radius:40% 0 0 0;order:2}
+ .adventure-cover .explorer-entry{margin-top:20px;max-width:none}.adventure-cover .character-hello{bottom:18px;right:18px;font-size:13px}
+ .discovery-trail{padding-top:30px}.trail-heading{display:block;margin-bottom:18px}.trail-heading h2{font-size:33px}.trail-heading p{font-size:15px;margin-top:9px}
+ .discovery-trail ol{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.discovery-trail li:first-child{grid-column:span 2}
+ .discovery-trail li a{grid-template-rows:116px auto auto;min-height:208px;padding:0 15px 17px;border-radius:24px 24px 7px 24px;gap:7px 6px}.discovery-trail .activity-preview{width:calc(100% + 30px);height:116px;margin:0 -15px 8px}.discovery-trail strong{font-size:21px;padding-top:5px}.discovery-trail small{font-size:12px}.discovery-trail .trail-marker{width:34px;height:34px}.discovery-trail .trail-marker .icon{width:21px;height:21px}
+ .discovery-trail li a:before{bottom:89px}.trail-goals{padding:18px;font-size:16px}
+ .opening-mystery>h1{padding:23px;font-size:37px;min-height:0;margin-bottom:22px}.comic-heading{font-size:12px;gap:12px}
+ .mystery-spread{grid-template-columns:1fr;padding:14px;gap:18px}.comic-panel{height:400px;min-height:400px}.mystery-investigation{padding:4px 8px 14px}.mystery-investigation h2{font-size:30px}.mystery-investigation h2 br{display:none}.mystery-investigation>p{font-size:16px;max-width:none}.sprout-question{max-width:58%;top:16px;right:12px;font-size:15px;padding:13px}.comic-caption{font-size:19px;padding:9px 12px;bottom:15px}
+ .mystery-choices button{min-height:84px;font-size:17px;padding:13px}.mystery-choices small{font-size:13px}
+ .story-theatre,.lab-playground{display:grid;grid-template-columns:1fr}.story-copy,.lab-tools{padding:24px 20px}.story-copy h2{font-size:31px}.story-copy #scene-copy{font-size:18px;line-height:1.6}.lab-scene .leaf-world{height:400px}.lab-tools .lab-switch strong{font-size:14px}.lab-instruction{font-size:25px!important}
+ .garden-lesson-welcome{padding:22px 20px;gap:12px}.garden-lesson-welcome h2{font-size:27px}.garden-lesson-welcome p{font-size:16px}.garden-lesson-welcome>.cast{display:none}
+ .experience-bar{padding:12px}.episode-tags{gap:5px}.episode-tags span{font-size:13px;padding:9px 11px}
+ .guided-factory #factory-visual:has(.lesson-video){grid-template-columns:1fr}.guided-factory .lesson-video-note{padding:20px;gap:12px;display:block}.guided-factory .lesson-video-note:before{display:none}.guided-factory .lesson-video-note p{font-size:16px}.guided-factory .lesson-video-note a{font-size:14px;margin-top:12px}
+ .garden-video-cover{padding:18px}.garden-video-cover .video-play{padding:12px 16px;font-size:15px;gap:10px}.garden-video-cover .video-play .icon{width:25px;height:25px}
+ .guided-factory .demo-controls{padding:18px;display:block}.guided-factory .demo-controls h2{font-size:23px}.guided-factory .demo-buttons{margin-top:16px;gap:10px}.guided-factory .demo-buttons .btn{font-size:14px;padding:10px 12px;min-height:48px}.guided-factory .science-scenes{padding:10px;gap:12px}.guided-factory .science-status{padding:16px;font-size:16px}
+ .guided-factory .factory-narrator{padding:14px 12px}.guided-factory .narrator-caption p{font-size:16px;line-height:1.5}.factory-narrator #guide-face,.factory-narrator #guide-face .cartoon-cast{width:45px;height:45px}
+ .game-shell{padding:18px 12px}.game-heading{gap:10px}.game-heading h2{font-size:26px}.puzzle-count,.move-counter{font-size:12px}.game-controls{padding:15px 10px;gap:10px;flex-wrap:wrap}.game-controls .text-btn{font-size:14px}.creek-play{border-radius:18px}
+ .detective-play{padding:16px}.case-progress{border-radius:20px;padding:5px;gap:3px}.case-progress span{font-size:12px;padding:10px 7px;line-height:1.3}.robot-comic{padding:15px 10px}.robot-comic .bubble{font-size:18px}.evidence-desk{gap:12px}.clue-object{padding:16px 10px}.clue-object strong{font-size:16px}.clue-object small{font-size:12px}.clue-reading{padding:20px}.case-actions{padding:15px;gap:12px}
+ .closure-banner h2{font-size:29px}.closure-banner p{font-size:16px}.lesson-columns{grid-template-columns:1fr;gap:18px}.lesson-columns>.activity-panel{padding:24px 20px}.activity-panel h2{font-size:29px}.notice{padding:22px}
+ .journal-sheet{padding:16px}.journal-header{padding:18px 12px;gap:12px}.journal-header h2{font-size:26px}.journal-header p{font-size:15px}.journal-header>.cast{width:65px;height:80px}.badge-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.earned-badge{padding:20px 10px;border-radius:20px}.earned-badge strong{font-size:15px}.earned-badge small{font-size:12px}.journal-note{padding:22px}.journal-note p{font-size:18px}
+ .teacher-section{padding:24px 20px;margin:18px 0}.teacher-section h2{font-size:28px}.teacher-section p,.teacher-section li{font-size:16px}.safety-list>div{padding:22px 18px}.safety-list h2{font-size:27px}.safety-list p{font-size:16px}
+ .certificate-waiting{grid-template-columns:1fr}.certificate-waiting>img{height:240px}.certificate-waiting>div{padding:24px}.certificate-waiting h2{font-size:29px}.certificate-waiting p{font-size:16px}
+ body[data-route] .lesson-nav.journey-nav{padding-inline:16px;gap:6px}.journey-nav>p{font-size:12px}.journey-actions .btn{min-width:0;width:100%;font-size:15px;min-height:48px}.journey-nav>a:first-child{font-size:13px}
+ body[data-route] .site-footer{padding:34px 18px;margin-top:0;font-size:13px;gap:12px}.garden-footer-wordmark{font-size:40px;margin-bottom:8px}.site-footer>div:not(.garden-footer-wordmark){flex-wrap:wrap;gap:6px 16px}
+ .grove-intro{padding:85px 18px 50px;align-items:center}.grove-intro-copy{padding:24px;max-width:100%;max-height:calc(100dvh - 150px);overflow:auto}.grove-intro h1,.grove-intro h1 em{font-size:44px}.grove-intro-copy>p{font-size:16px}.grove-intro-controls{font-size:12px!important}.grove-discovery{padding:24px}
+ .large-text .garden-topics a{font-size:15px}.large-text .lesson-heading h1{font-size:36px}.large-text .lesson-heading p{font-size:20px}
+}
+@media(max-width:360px){body[data-route] .brand{font-size:25px}.brand-mark{width:34px!important;height:34px!important}.header-tools .collection{padding:5px 7px!important;gap:3px}.header-tools .collection .icon{display:none}.header-tools .icon-btn{width:32px!important;height:32px!important}.adventure-cover .cover-copy h1{font-size:35px}.lesson-heading h1,.page-heading h1{font-size:32px}.discovery-trail strong{font-size:19px}.garden-footer-wordmark{font-size:36px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+.reduce-motion *,.reduce-motion *:before,.reduce-motion *:after{animation:none!important;transition:none!important}
+/* Printing keeps the useful worksheet and removes the decorative page frame. */
+@media print{body[data-route]{background:white!important}body[data-route]:before,.garden-topics,.garden-footer-wordmark,.heading-botany{display:none!important}.teacher-section,.journal-sheet{break-inside:avoid}body[data-route] .site-footer{padding:20px 0}body[data-route] .lesson-nav.journey-nav{display:none!important}}

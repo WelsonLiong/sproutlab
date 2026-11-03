@@ -1,6 +1,6 @@
 # Nico and the Dying Forest — revised game plan
 
-This plan supersedes the ten-discovery quiz and laboratory sequence. The first milestone was the Lost Stream water-routing slice. The playable route now includes the prologue, sunlight nursery, creek, canopy, pond, pantry and return to Sprout. The owner chose to omit the travelling companion. The chapter descriptions below remain design intent; the implementation status is recorded after them.
+This plan supersedes the ten-discovery quiz and laboratory sequence. The first milestone was the Lost Stream water-routing slice. The playable route now includes the prologue, sunlight nursery, creek and final return to Sprout. The pond and woodland-pantry puzzles have been removed at the owner’s request. Students adjust the final shade and wooden conduit, approach Sprout, then see oxygen bubbles and an explanation that some food is stored as starch. There is no final leaf-slider task. Story-save version 4 moves existing pond, pantry and canopy saves to the unsolved finale and excludes those removed scenes from restored history. The owner chose to omit the travelling companion. The chapter descriptions below remain design intent; the implementation status is recorded after them.
 
 ## Existing game and what can be reused
 
@@ -38,7 +38,9 @@ Nico walks with WASD, arrows or touch pad and turns the camera by dragging open 
 - **Success, failure and science:** Success requires a clear upstream path, fitted handle, channel aimed at roots and gate opened. Every wrong route is reversible. Water travels through roots and stem; water alone does not complete photosynthesis or instantly restore Sprout.
 - **Characters and transition:** Sprout shows a small, gradual improvement after a short passage-of-time beat, then remains vulnerable. The upstream bank leads toward the leaf canopy.
 
-## Chapter 3 — The Secret of Green Leaves
+## Chapter 3 — The Secret of Green Leaves (removed 2 November 2026)
+
+The owner removed this entire mission. The chapter description below is historical; its vine, rings, stump route and separate leaf comparison are no longer in the playable campaign. Creek completion now leads straight to the Breathing Pond. Saved canopy progress migrates to a fresh pond mission; other progress and completed records are retained.
 
 - **Story and map:** Fallen trunks make a short traversal route into an overgrown canopy. Green leaves in light contrast with pale shoots that grew in darkness.
 - **Actions and mechanics:** Traverse low natural supports, shift a fallen branch, and guide an existing vine along two support points to open a sunlit route. Inspect green and pale leaves up close, then control a layered leaf visualization by moving a light shutter and opening cross sections. No chlorophyll or carbon dioxide is collected.

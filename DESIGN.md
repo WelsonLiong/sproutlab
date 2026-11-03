@@ -1,6 +1,6 @@
 ---
-name: Sprout Lab — Illustrated Adventure and Greenhaven
-description: The established illustrated learning trail with a scoped, continuous Greenhaven 3D forest assessment.
+name: Sprout Lab — Living Science Garden
+description: A plant-filled children's science garden with playful learning activities and a scoped Greenhaven forest game.
 colors:
   ink: "#26362d"
   paper: "#fffdf4"
@@ -438,3 +438,35 @@ Grove controls have modest rounded corners, borderless parchment bodies and soft
 - **Don't** replace the comic compositions with repeated generic rounded panels.
 - **Don't** bake controls or learning text into illustration assets.
 - **Don't** replace live scientific diagrams with decorative character artwork.
+
+## Current garden interface · 28 October 2026
+
+The owner's latest direction is a lively, kid-friendly science garden across the whole website. Plants, flowers and familiar characters carry the personality; adventure framing is secondary. This section supersedes the older cream-page interface tokens above for the web shell, activity containers, forms and supporting pages. The scientific SVG geometry and its colour meanings remain intact.
+
+The implementation lives in `dist/garden.css`, loaded last, and `dist/garden-ui.js`. The established local fonts, illustrated cast and scene assets remain in use. Taste Skill v2 was read from the installed `design-taste-frontend` skill in the owner's other local Codex project. Its One motif direction (seed 1033123606) is interpreted through Sprout's leaf shape and real botanical artwork. The owner's explicit request for plant decoration and colour takes priority over generic marketing-page and business-dashboard styling rules.
+
+| Role | Value |
+| --- | --- |
+| Ground | `#edf7ee` |
+| Reading surface | `#fffef8` |
+| Ink | `#163f32` |
+| Primary action | `#176246` |
+| Leaf mint | `#d5edcc` |
+| Water and experiments | `#d9eff7` |
+| Curiosity yellow | `#ffdc66` |
+| Reflection pink | `#f8dedb` |
+| Keyboard focus | `#126b91` |
+
+Containers use a leaf corner: `32px 32px 10px 32px`; controls are fully rounded; fields use 16px corners. Display lettering is Lilita One; body and navigation are Nunito. Caveat is retained only in existing comic captions. Page headings are 34–54px, body copy 16–18px, supporting labels 12–15px. The logo's original small tagline remains part of its established mark.
+
+The welcome pairs an accessible live form with an illustrated leaf-shaped scene. Its activity links use real local image elements with separate text below. Other routes share a horizontal activity navigation, character-led heading, and activity-specific materials. The journal, teacher resources, sources, certificate and offline page all receive the same palette and control language. Forest menus use a readable pale botanical panel over the existing 3D environment; the main website header and footer are hidden during the game.
+
+`assets/garden-border.webp` is original AI-assisted gouache foliage generated with the built-in image tool. Full-strength plants are restricted to desktop outer margins and the footer's bottom strip. They never cover text, controls or diagrams. Mobile omits the side foliage and keeps the footer planting. Low-data mode removes the decorative image layers.
+
+Motion is limited to a one-time image opening, a small character greeting and gentle arrivals of the welcome content and activity links. All motion stops for either the system preference or the website's Reduce movement setting. Buttons provide hover and press feedback. No decorative background animates continuously.
+
+The cartoon initially displays a local illustrated cover. Pressing its play button mounts the original YouTube privacy-enhanced embed; the direct YouTube link remains available. The guided lesson retains its Start, Replay and Next behavior, science captions and completion gate.
+
+## Three-chapter learning surfaces · 2 November 2026
+
+The current chapter pathway is meaning → word-piece game → needs-only detailed leaf → Collect & Avoid → product observations → Product Post Office → unchanged forest for fun. The garden palette and existing illustrated cast govern these additions. chapters.css extends garden.css with sunshine word pieces, a painted garden catching field, sky/food observation surfaces and leaf-green post boxes. Existing garden token values (#163f32 ink, #176246 action, #fffef8 paper, #d5edcc mint, #d9eff7 sky, #ffdc66 yellow) remain authoritative for this scoped extension; earlier token tables predate the living-garden work. New activity text uses the existing 16/18/20px body scale and Lilita One headings. Controls retain visible focus, textual feedback, keyboard/touch input and reduced-motion alternatives. Products never appear in the needs diagram. The owner’s LO1–LO3 and SC1–SC3 replace the older four-goal and AI-literacy journey for these surfaces.

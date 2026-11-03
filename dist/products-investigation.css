@@ -1,0 +1,58 @@
+body[data-route=products] .lesson-heading{padding-right:32px}
+.greenhouse{margin:28px 0;background:var(--garden-paper);border-radius:24px;overflow:hidden}
+.greenhouse-tools{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 26px;color:var(--garden-ink);font-weight:800}
+.greenhouse-tools>span:last-child{display:flex;gap:8px;align-items:center;font-size:14px}
+.greenhouse-scene{position:relative;aspect-ratio:3/2;overflow:hidden;isolation:isolate;background:#e2edce;touch-action:pan-y}
+.greenhouse-art{display:block;width:100%;height:100%;object-fit:cover}
+.specimen-tag{position:absolute;left:5%;top:5%;background:var(--garden-paper);padding:8px 16px;border-radius:8px;color:var(--garden-ink);font-weight:900;box-shadow:0 3px 12px #163f3220}
+.fruit-lens{position:absolute;left:15%;top:60%;width:20%;aspect-ratio:1;border:0;padding:0;background:none;transform:translate(-50%,-50%);cursor:grab;touch-action:none;z-index:3;border-radius:50%}
+.fruit-lens:active{cursor:grabbing}.fruit-lens:focus-visible{outline:4px solid var(--garden-ink);outline-offset:7px}
+.lens-glass{position:absolute;inset:0;border:8px solid var(--garden-green);border-radius:50%;background-image:url('assets/greenhouse-investigation.webp');background-repeat:no-repeat;box-shadow:0 5px 12px #163f3240,inset 0 0 0 3px var(--garden-paper);overflow:hidden}
+.lens-handle{position:absolute;width:13%;height:44%;right:0;bottom:-30%;background:var(--garden-green);border:3px solid var(--garden-paper);border-radius:8px;transform:rotate(-40deg);transform-origin:top}
+.fruit-lens.is-focused .lens-glass{border-color:#a06417}.fruit-marker{position:absolute;left:30%;top:47%;width:10%;aspect-ratio:1;border:3px dashed var(--garden-paper);outline:2px solid #163f32;border-radius:50%;transform:translate(-50%,-50%);pointer-events:none}
+.fruit-found .fruit-marker,.tank-active .fruit-marker{display:none}
+.greenhouse-work{padding:28px;display:grid;grid-template-columns:1fr;gap:26px}
+.greenhouse-work:has(.greenhouse-finding:not([hidden])){grid-template-columns:1fr 1.15fr}
+.greenhouse h2{font:400 clamp(27px,3vw,36px)/1.15 'Lilita One',sans-serif;margin:0 0 12px;color:var(--garden-ink)}
+.greenhouse h3{font:400 28px/1.15 'Lilita One',sans-serif;margin:0 0 12px;color:var(--garden-ink)}
+.greenhouse p{font-size:18px;line-height:1.65;max-width:65ch;margin:0 0 14px}
+.greenhouse .greenhouse-hint,.greenhouse .finding-note{font-size:14px;line-height:1.55}
+.greenhouse-finding{padding:24px;background:var(--garden-mint);border-radius:16px}
+.greenhouse-finding .btn{margin-top:8px}
+#investigation-status{color:var(--garden-green);font-size:16px;font-weight:800;min-height:24px;margin-top:14px}
+.gas-apparatus{position:absolute;inset:0;pointer-events:none}
+.collector-tube{position:absolute;left:90%;top:47%;width:9%;height:23%;border:3px solid #265d70;border-bottom:0;border-radius:40px 40px 0 0;background:#e7faff65;transform:translateX(-50%);box-shadow:inset 6px 0 5px #fffef880;overflow:hidden;z-index:2}
+.tube-marks{position:absolute;inset:20% 6% 10% auto;width:25%;background:repeating-linear-gradient(to bottom,#265d70 0 2px,transparent 2px 17%)}
+.collected-gas{position:absolute;left:0;right:0;top:0;height:62%;clip-path:inset(0 0 100% 0);background:#fffef8db;border-bottom:2px solid #265d70;transition:clip-path .4s ease-out}
+.rising-bubbles{position:absolute;left:76%;top:64%;width:4%;height:17%;transform:translateX(-50%)}
+.rising-bubbles i{position:absolute;left:25%;bottom:0;width:14px;aspect-ratio:1;border:2px solid #265d70;border-radius:50%;background:#fffef885;animation:greenhouse-bubble 2.4s linear infinite}
+.rising-bubbles i:nth-child(2){animation-delay:-.6s;left:50%}.rising-bubbles i:nth-child(3){animation-delay:-1.2s}.rising-bubbles i:nth-child(4){animation-delay:-1.8s;left:0}
+@keyframes greenhouse-bubble{from{bottom:0;opacity:0}15%{opacity:1}85%{opacity:1}to{bottom:100%;opacity:0}}
+.collection-meter{position:absolute;right:4%;bottom:5%;display:flex;flex-direction:column;gap:6px;padding:12px 18px;background:var(--garden-paper);border-radius:12px;font-weight:900;color:var(--garden-ink)}
+#gas-name{font:400 28px 'Lilita One',sans-serif;color:var(--garden-green)}
+.tube-aligned .collector-tube{border-color:var(--garden-green)}
+.greenhouse-conclusion{margin:0 28px 28px;padding:24px 0 0;border-top:2px solid var(--garden-mint)}
+.greenhouse [hidden]{display:none!important}
+@media(max-width:760px){.greenhouse-tools{padding:16px;align-items:start;font-size:14px}.greenhouse-tools>span:last-child{max-width:140px;font-size:12px}.greenhouse-work{padding:22px 18px;gap:18px}.greenhouse-work:has(.greenhouse-finding:not([hidden])){grid-template-columns:1fr}.greenhouse p{font-size:17px}.greenhouse-finding{padding:20px}.specimen-tag{font-size:12px;padding:5px 9px}.lens-glass{border-width:5px}.lens-handle{border-width:2px}.collection-meter{font-size:11px;padding:6px 9px}.collector-tube{border-width:2px}.rising-bubbles i{width:9px}.greenhouse-conclusion{margin:0 18px 22px}.greenhouse-scene{aspect-ratio:3/2}#gas-name{font-size:22px}}
+@media(prefers-reduced-motion:reduce){.rising-bubbles i{animation:none}.rising-bubbles i:nth-child(2){bottom:30%}.rising-bubbles i:nth-child(3){bottom:60%}.rising-bubbles i:nth-child(4){bottom:90%}.collected-gas{transition:none}}
+.reduce-motion .rising-bubbles i{animation:none}.reduce-motion .collected-gas{transition:none}
+
+/* Keep the instructions beside the specimen at desktop sizes. */
+@media(min-width:1000px){
+ .greenhouse{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(300px,1fr);align-items:start}
+ .greenhouse-tools,.greenhouse-conclusion{grid-column:1/-1}
+ .greenhouse-scene{width:100%;align-self:start}
+ .greenhouse-work,.greenhouse-work:has(.greenhouse-finding:not([hidden])){display:block;padding:24px}
+ .greenhouse-finding{margin-top:22px;padding:20px}
+ .greenhouse p{font-size:17px}
+ .greenhouse h2{font-size:30px}
+ .greenhouse h3{font-size:27px}
+ .greenhouse-conclusion{margin-top:20px}
+}
+
+/* Drag handles retain their anchor on hover and press; global button motion must not apply. */
+.greenhouse button.fruit-lens,.greenhouse button.fruit-lens:hover:not(:disabled),.greenhouse button.fruit-lens:active:not(:disabled){transform:translate(-50%,-50%);transition:none}
+.greenhouse button.collector-tube,.greenhouse button.collector-tube:hover:not(:disabled),.greenhouse button.collector-tube:active:not(:disabled){transform:translateX(-50%);transition:none;padding:0;min-height:44px;pointer-events:auto;touch-action:none;cursor:grab}
+.greenhouse button.collector-tube:active:not(:disabled){cursor:grabbing}
+.collector-tube:focus-visible{outline:3px solid var(--garden-green);outline-offset:5px}
+#tube-control p{margin:12px 0}

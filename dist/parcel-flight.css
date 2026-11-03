@@ -1,0 +1,32 @@
+.parcel-flight{max-width:900px;margin:28px auto;background:var(--garden-paper);border-radius:24px;overflow:hidden;color:var(--garden-ink)}
+.flight-hud{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 26px 8px;font-weight:900}.flight-hud strong{font:400 30px 'Lilita One',sans-serif}.flight-hud span{font-size:15px}
+.flight-mission{margin:0;padding:0 26px 20px;font-size:16px;line-height:1.5}
+.flight-arena{position:relative;aspect-ratio:4/3;overflow:hidden;isolation:isolate;background:#d5edcc url('assets/world.webp') center/cover;touch-action:pan-y}
+.flight-arena:before{content:'';position:absolute;inset:0;background:#fffef825;z-index:-1}
+.flight-destination{position:absolute;top:9%;width:30%;height:24%;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;border:3px solid var(--garden-green);border-radius:16px;background:#fffef8eb;text-align:center;box-shadow:0 6px 12px #163f3226;pointer-events:none}
+.food-destination{left:7%;background:#fff0b3ed}.air-destination{left:63%;border-color:#265d70;background:#e7faffed}
+.flight-destination svg{width:clamp(40px,8vw,84px);height:55%;max-height:82px;flex-shrink:0}.flight-destination strong{font-weight:900;font-size:clamp(12px,1.5vw,20px);padding:0 8px;line-height:1.2}
+#flight-guide{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.launch-ring{position:absolute;left:50%;top:76%;width:20%;aspect-ratio:1;border:3px dashed var(--garden-ink);border-radius:50%;background:#fffef840;transform:translate(-50%,-50%);pointer-events:none}
+.parcel-flight button.flight-parcel,.parcel-flight button.flight-parcel:hover:not(:disabled),.parcel-flight button.flight-parcel:active:not(:disabled){position:absolute;left:50%;top:76%;width:17%;min-width:68px;max-width:132px;aspect-ratio:1;border:0;padding:0;background:none;color:var(--garden-ink);transform:translate(-50%,-50%);transition:none;touch-action:none;cursor:grab;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;filter:drop-shadow(0 5px 4px #163f3236)}
+.parcel-flight button.flight-parcel:active:not(:disabled){cursor:grabbing}.flight-parcel:focus-visible{outline:3px solid var(--garden-ink);outline-offset:5px;border-radius:12px}
+.cargo-art{display:block;width:64%;height:55%;background:#e2ad63;border:3px solid #664520;border-radius:5px;position:relative}
+.cargo-art:before{content:'';position:absolute;left:40%;top:0;bottom:0;width:20%;background:#fff0b3;border-inline:1px solid #664520}
+.is-oxygen .cargo-art{border:3px solid #265d70;border-radius:50%;background:#e7faffd9;width:58%;height:auto;aspect-ratio:1}
+.is-oxygen .cargo-art:before{left:20%;top:12%;width:17%;height:20%;background:var(--garden-paper);border:0;border-radius:50%}
+.flight-parcel strong{font:900 clamp(12px,1.6vw,20px)/1.2 'Nunito',sans-serif;background:var(--garden-paper);border-radius:6px;padding:3px 8px}
+.launch-label{position:absolute;top:88%;left:50%;transform:translateX(-50%);white-space:nowrap;background:var(--garden-paper);padding:5px 10px;border-radius:6px;font-size:12px;font-weight:900;pointer-events:none}
+.flight-help{padding:22px 26px 10px}.flight-help p{font-size:18px;line-height:1.5;max-width:65ch;margin:0 0 12px}.flight-help #flight-feedback{font-weight:800;min-height:54px}.flight-help .flight-keyboard{font-size:14px}
+.flight-model-note{font-size:13px;margin:0;padding:0 26px 22px;color:var(--garden-ink)}
+.flight-end{position:absolute;inset:12%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;background:#fffef8f5;border:2px solid var(--garden-green);border-radius:24px;text-align:center;padding:24px}
+.flight-end h2{font:400 clamp(28px,4vw,44px)/1.1 'Lilita One',sans-serif}.flight-end p{font-size:20px;line-height:1.6}
+.delivery-hit{background:#ffdc66;border-color:var(--garden-ink)}
+.parcel-flight [hidden]{display:none!important}
+body[data-route=products-game] .lesson-heading{padding-right:32px}
+@media(max-width:760px){.flight-arena{aspect-ratio:1}.flight-hud{padding:18px 18px 10px;gap:10px}.flight-hud strong{font-size:25px}.flight-hud span{font-size:12px}.flight-mission{padding:0 18px 18px;font-size:15px}.flight-help{padding:18px 18px 4px}.flight-help p{font-size:16px}.flight-model-note{padding:0 18px 20px;font-size:12px}.flight-end{inset:7%;padding:18px;gap:14px}.flight-end p{font-size:17px}.launch-label{font-size:10px}.flight-destination{border-width:2px;gap:2px}}
+
+/* Targets are objects in the playfield, rather than answer cards. */
+.flight-destination,.food-destination,.air-destination{border:0;background:none;box-shadow:none;gap:0}
+.flight-destination svg{width:100%;height:76%;max-height:none;filter:drop-shadow(0 4px 3px #163f3226)}
+.flight-destination strong{background:var(--garden-paper);border:2px solid var(--garden-ink);border-radius:6px;padding:5px 10px;max-width:100%;font-size:clamp(12px,1.4vw,18px)}
+.delivery-hit strong{background:var(--garden-yellow)}

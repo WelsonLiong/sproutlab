@@ -1,5 +1,11 @@
 # Sprout Lab
 
+## Science garden redesign · 28 October 2026
+
+The entire website now uses a lively botanical interface: mint and sky surfaces, original illustrated foliage in the margins, familiar plant characters, larger playful controls and illustrated activity links. The welcome and navigation emphasize a science garden, with lighter adventure framing. Lessons, experiments, creek rescue, AI detective, reflection, journal, teacher resources, sources, certificates and offline material share the system. The forest retains its existing game and receives matching readable menus.
+
+The final interface layer is `dist/garden.css` and shared navigation/decorations are in `dist/garden-ui.js`. The cartoon loads only after its local illustrated cover is pressed. No build step or new runtime dependency was added. Local preview remains separate from the published Vercel site. See `docs/garden-redesign-review.md` for review scope and verification.
+
 ## Nico and the Dying Forest
 
 The revised environmental adventure is specified in [the game plan](docs/nico-dying-forest-revised-plan.md). The playable campaign now runs from Sprout’s clearing through the Sunless Woods, Lost Stream, green canopy, breathing pond, woodland pantry and return to Sprout. Nico moves branches, logs and rocks; turns shade screens and water conduits; guides a vine; climbs low natural steps; and inspects a close-up leaf model by moving its shade control. The older ten-discovery assessment modules and saved results remain in the repository for existing records, but are no longer in the Nico campaign path.
@@ -66,3 +72,7 @@ Source: dist/grove.js and dist/grove.css. Models, prepared textures and the natu
 Profiles and attempts are stored locally under sprout-greenhaven-v1. A new explorer gets separate learning progress; no account or server is involved. Certificate names can be edited without changing recorded marks. The PDF is generated entirely in the browser as one A4-landscape image page, preserving browser-rendered Unicode names; it is printable but its text is not selectable.
 
 Modules: dist/grove-quest.js, grove-challenges.js, grove-progress.js, grove-certificate.js, grove-certificate-ui.js and grove-adventure.css. Source assets and the approved forest renderer are retained. Verification: docs/greenhaven-full-adventure.md.
+
+## 2 November 2026 · Three-chapter learning pathway
+
+The learning sequence now covers meaning (LS 4.2.1), needs (4.2.2), then products (4.2.3), each followed by a playable practice activity. The detailed leaf diagram stops after four needs. Separate animated observations introduce starch and oxygen. AI detective and the mixed lab/creek sequence are removed from the visible path. Nico’s forest is unchanged and reached last as bonus play. See docs/chapter-pathway.md for curriculum mapping, save migration and verification.

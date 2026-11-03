@@ -1,23 +1,27 @@
 // The two-screen illustrated preview. The remaining lessons retain their own UI.
 import {learnerLine} from './learner-voice.js';
 export function welcome({state, stations, icon, escapeHTML, explorerFields}) {
-  const current = stations.find(s => !state.done.includes(s[0])) || stations[0];
+  const current = stations.find(s => !state.done.includes(s[0]));
+  const currentIndex = stations.indexOf(current);
+  const hasProgress = stations.some(s => state.done.includes(s[0]));
   const route = id => id === 'story' ? 'factory' : id;
   return `<section class="adventure-cover" aria-labelledby="adventure-title">
     <img class="cover-art" src="assets/adventure-cover.webp" alt="Sprout and Beep investigate a sunny garden filled with oversized flowers." fetchpriority="high" width="1536" height="1024">
-    <div class="cover-copy"><h1 id="adventure-title">Little leaf.<br><span>Big adventure.</span></h1>
-      <div class="explorer-entry"><form id="explorer-form" class="explorer-welcome">${explorerFields('explorer',escapeHTML,state.learnerName)}<button class="adventure-button" type="submit">Enter the adventure ${icon('arrow')}</button><button class="guest-entry" id="guest-entry" type="button">Enter as a guest instead</button></form></div>
+    <div class="cover-copy"><h1 id="adventure-title">Little leaves.<br>Big ideas.</h1>
+      <p>Grow your science curiosity with Sprout and Beep. Watch, experiment, and discover how plants make food.</p>
+      <div class="explorer-entry"><form id="explorer-form" class="explorer-welcome">${explorerFields('explorer',escapeHTML,state.learnerName)}<button class="adventure-button" type="submit">Let’s grow! ${icon('arrow')}</button><button class="guest-entry" id="guest-entry" type="button">Explore as a guest</button></form></div>
     </div>
     <span class="character-hello">Meet Sprout & Beep!</span>
   </section>
   <section class="discovery-trail" aria-labelledby="trail-title">
-    <div class="trail-heading"><h2 id="trail-title">Your trail of discoveries</h2><p>7 stops · explore at your own pace</p></div>
-    <ol>${stations.map((s,i) => `<li class="${state.done.includes(s[0]) ? 'trail-done' : ''} ${current[0]===s[0]?'trail-current':''}"><a href="#${route(s[0])}" ${current[0]===s[0]?'aria-current="step"':''}><span class="trail-marker">${state.done.includes(s[0]) ? icon('check') : i+1}</span><strong>${s[1]}</strong><small>${state.done.includes(s[0])?'Discovered!':s[3]}</small></a></li>`).join('')}</ol>
-    <details class="trail-goals"><summary>What will I discover?</summary><p>Find out how plants make food, experiment with the four needs of photosynthesis, and help Beep check an AI claim. Try things, collect discoveries, and change your mind!</p></details>
+    <div class="trail-heading"><h2 id="trail-title">Your discovery trail</h2><p id="trail-instructions">Follow steps 1–${stations.length} in order. You can revisit any step.</p></div>
+    <div class="trail-next">${current ? `<p>${hasProgress ? 'Ready for your next discovery?' : 'Start with Sprout & Beep’s short video, then explore three chapters.'}</p><a href="#${route(current[0])}">${hasProgress ? 'Continue' : 'Start'} at step ${currentIndex+1} ${icon('arrow')}</a>` : `<p>All ${stations.length} discoveries complete! Pick a step to explore again.</p><a href="#journal">Open my journal ${icon('book')}</a>`}</div>
+    <ol aria-describedby="trail-instructions">${stations.map((s,i) => `<li class="${state.done.includes(s[0]) ? 'trail-done' : ''} ${current?.[0]===s[0]?'trail-current':''}"><a href="#${route(s[0])}" ${current?.[0]===s[0]?'aria-current="step"':''}><img class="activity-preview" src="assets/${['adventure-cover','mystery-garden','adventure-cover','mystery-garden','creek-garden','celebration-garden','adventure-cover','world'][i]}.webp" alt="" width="1536" height="1024" loading="lazy"><span class="trail-step"><span>Step ${i+1}</span>${current?.[0]===s[0]?`<span class="trail-step-cue">${hasProgress?'Next step':'Start here'}</span>`:''}</span><span class="trail-marker" aria-hidden="true">${icon(state.done.includes(s[0])?'check':s[2])}</span><strong>${s[0]==='check'?'Nico’s forest':s[1]}</strong><small>${state.done.includes(s[0])?'Discovered!':s[3]}</small></a></li>`).join('')}</ol>
+    <details class="trail-goals"><summary>What will I discover?</summary><p>Learn what photosynthesis means, name at least two of its four needs, and identify at least one product: starch or oxygen. Practise each chapter with a game. Nico’s forest is a bonus adventure for fun.</p></details>
   </section>`;
 }
 
-export function openingMystery({icon, audio, escapeHTML}) {
+export function openingMystery({icon, escapeHTML}) {
   return `<section class="opening-mystery" aria-labelledby="mystery-title">
     <div class="comic-heading"><a href="#map">${icon('arrow')} Back to the trail</a><span>Discovery 1 of 7 · 2 min</span></div>
     <h1 id="mystery-title">A leafy little <span>mystery.</span></h1>
@@ -37,7 +41,6 @@ export function openingMystery({icon, audio, escapeHTML}) {
         </div>
         <div id="prediction-feedback" class="feedback" aria-live="polite"></div>
         <div class="mystery-continue"><a class="adventure-button" href="#factory" aria-disabled="true" tabindex="-1" data-next-for="mystery">Follow the leaf! ${icon('arrow')}</a><span class="prediction-nudge">No marks. Just a curious mind.</span></div>
-        ${audio(learnerLine('{name}, I do not eat lunch, and I cannot move. So how do I grow? Where do you think my food comes from?','I do not eat lunch, and I cannot move. So how do I grow? Where do you think my food comes from?'))}
       </div>
     </div>
     <section id="learning-goals" class="mystery-goals" aria-labelledby="learning-goals-title" hidden>

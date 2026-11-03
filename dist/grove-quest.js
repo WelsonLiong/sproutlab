@@ -1,6 +1,6 @@
 import {learnerLine,learnerPrompt} from './learner-voice.js';
 import * as THREE from './vendor/three/three.module.js';
-import {icon,escapeHTML,state,save,complete} from './app.js?v=8';
+import {icon,escapeHTML,state,save,complete} from './app.js?v=10';
 import {challenges,chapters,correctConfiguration} from './grove-challenges.js';
 import {ensureAttempt,newAttempt,configFor,commitAnswer,advanceAttempt,attemptScore,persist,canSave} from './grove-progress.js';
 import {gasCollector} from './grove-apparatus.js';

@@ -1,4 +1,4 @@
-import {icon} from './app.js?v=8';
+import {icon} from './app.js?v=10';
 import {canSave} from './grove-progress.js';
 import {completedCampaign,updateCompletionName} from './grove-completion.js';
 import {drawCertificate,downloadCertificate,printCertificate} from './grove-certificate.js';
@@ -35,7 +35,7 @@ export function mountCertificate(host) {
 }
 
 export function certificatePage() {
-  return `<section class="certificate-page"><a href="#map">${icon('map')} Back to adventures</a><div id="saved-certificate"></div></section>`;
+  return `<section class="certificate-page"><div class="page-heading"><h1>My discovery certificate</h1><p>A little celebration of the science you have grown to know.</p></div><div id="saved-certificate"></div></section>`;
 }
 
 let cleanupPage;
@@ -44,7 +44,7 @@ export function bindCertificatePage() {
   cleanupCertificate();
   const host = document.querySelector('#saved-certificate');
   if (!completedCampaign()) {
-    host.innerHTML = `<h1>Your certificate is waiting</h1><p>Complete Nico and the Dying Forest to receive your certificate.</p><a class="btn" href="#grove">${icon('play')} Enter Greenhaven</a>`;
+    host.innerHTML = `<div class="certificate-waiting"><img src="assets/celebration-garden.webp" alt="Sprout and Beep share their discoveries in a sunny garden." width="1536" height="1024"><div><h2>Your certificate is waiting</h2><p>Complete Nico and the Dying Forest to receive your certificate.</p><a class="btn" href="#grove">${icon('play')} Enter Greenhaven</a></div></div>`;
     return;
   }
   cleanupPage = mountCertificate(host);

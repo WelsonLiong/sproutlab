@@ -1,3 +1,4 @@
+import {waterRibbon,liftObject,prepareLift} from './grove-water.js';
 // Nico's environmental forest campaign. Earlier scored attempts remain stored separately.
 import {createCharacterMotion} from './grove-animation.js';
 import {NICO_MODEL} from './nico-version.js';
@@ -5,7 +6,7 @@ import {createSurfaces,createFootContact} from './grove-surfaces.js';
 import {learnerLine} from './learner-voice.js';
 import * as THREE from './vendor/three/three.module.js';
 import {GLTFLoader} from './vendor/three/GLTFLoader.js';
-import {icon, state, save, escapeHTML,adoptExplorer,complete} from './app.js?v=8';
+import {icon, state, save, escapeHTML,adoptExplorer,complete} from './app.js?v=10';
 
 import {explorerFields,bindExplorerFields} from './grove-progress.js';
 import {createForestCampaign} from './grove-campaign.js';
@@ -72,7 +73,9 @@ export async function bindGrove(){
  const mesh=(geo,material,parent=world)=>{const m=new THREE.Mesh(geo,material);m.castShadow=true;m.receiveShadow=true;parent.add(m);return m};
  const cube=(x,y,z,w,h,d,color,parent=world)=>{const m=mesh(new THREE.BoxGeometry(w,h,d),mat(color),parent);m.position.set(x,y,z);return m};
  const cylinder=(x,y,z,r,h,color,parent=world)=>{const m=mesh(new THREE.CylinderGeometry(r,r,h,12),mat(color),parent);m.position.set(x,y,z);return m};
- const groundHeight=(x,z)=> -.12+Math.sin(x*.24)*Math.cos(z*.2)*.15 + Math.max(0,-z-9)*.14;
+ const meadowHeight=(x,z)=> -.12+Math.sin(x*.24)*Math.cos(z*.2)*.15 + Math.max(0,-z-9)*.14;
+ const groundHeight=(x,z)=>meadowHeight(x,z)-.24*(1-THREE.MathUtils.smoothstep(creekDistance(x,z),.25,1.25));
+ const waterHeight=(x,z)=>meadowHeight(x,z)-.035;
  const surfaces=createSurfaces(groundHeight);
  const inClearing=(x,z)=>[[-4,2],[6,-1],[-2,-16.5],[-22,15],[3,17],[23,17]].some(([a,b])=>Math.hypot(x-a,z-b)<4.3);
  const normalize=(object,height)=>{const box=new THREE.Box3().setFromObject(object), size=box.getSize(new THREE.Vector3());object.scale.multiplyScalar(height/Math.max(size.y,.001));const b=new THREE.Box3().setFromObject(object);object.position.y-=b.min.y;return object};
@@ -87,23 +90,24 @@ export async function bindGrove(){
   [[-3,-.03,-1],[0,-.03,-1],[3,-.03,-1],[5.8,-.03,-1]],
   [[-3,-.03,-1],[-1,-.03,-3],[1,-.03,-5],[1,-.03,-7]]
  ];
- function makeWater(points,radius=.38){const material=new THREE.MeshStandardMaterial({color:0x62cbd2,roughness:.24,metalness:.12,transparent:true,opacity:.91});waterSurfaces.push(material);const m=pathMesh(points,radius,material);m.scale.y=.26;return m}
+ function makeWater(points,radius=.38){const m=waterRibbon(THREE,points,radius*2,groundHeight,{surfaceHeight:points===sourcePoints?waterHeight:undefined});world.add(m);waterSurfaces.push(m);return m}
+ let wetFraction=null,waterTarget=1;
  const creekDistance=(x,z)=>{let nearest=Infinity;for(let i=1;i<sourcePoints.length;i++){const a=sourcePoints[i-1],b=sourcePoints[i],dx=b[0]-a[0],dz=b[2]-a[2],t=THREE.MathUtils.clamp(((x-a[0])*dx+(z-a[2])*dz)/(dx*dx+dz*dz),0,1);nearest=Math.min(nearest,Math.hypot(x-a[0]-t*dx,z-a[2]-t*dz))}return nearest};
  const firstBlockage=()=>obstacles.find(o=>!o.clear);
  function updateObstructions(){
   for(const o of obstacles){const wasClear=o.clear;o.clear=creekDistance(o.root.position.x,o.root.position.z)>o.clearance;if(wasClear!==o.clear){if(o.clear)tell(`${o.name} is clear of the stream. ${firstBlockage()?'There is still another obstruction.':'Water can now reach the gate.'}`);updateObjective()}}
-  const blocked=firstBlockage();if(stream){const fraction=blocked?blocked.fraction:1;stream.geometry.setDrawRange(0,Math.floor(stream.geometry.index.count*fraction/3)*3)}
-  if(blockedPool){blockedPool.visible=!!blocked;blockedPool.position.set(blocked?blocked.root.position.x-.65:-30,.02,blocked?blocked.streamZ:-30)}
+  const blocked=firstBlockage();if(stream){waterTarget=blocked?blocked.fraction:1;if(wetFraction===null)wetFraction=waterTarget}
+  if(blockedPool){blockedPool.visible=!!blocked;blockedPool.position.set(blocked?blocked.start[0]-.65:-30,blocked?waterHeight(blocked.start[0]-.65,blocked.streamZ)+.015:0,blocked?blocked.streamZ:-30)}
   if(flowing&&routeWater)routeWater.visible=!blocked;
  }
  function moveObstacle(o,x,z){
   x=THREE.MathUtils.clamp(x,-11,-4.6);z=THREE.MathUtils.clamp(z,-5,2.5);
   if(obstacles.some(other=>other!==o&&Math.hypot(x-other.root.position.x,z-other.root.position.z)<.85))return;
-  o.root.position.set(x,groundHeight(x,z)+o.height,z);updateObstructions();
+  o.root.position.x=x;o.root.position.z=z;updateObstructions();
  }
  function updateRoute(){
   outlet=channelAngle<-.3?0:channelAngle>.35?2:1;
-  if(routeIndex!==outlet){if(routeWater){world.remove(routeWater);routeWater.geometry.dispose();routeWater.material.dispose()}routeWater=makeWater(routePoints[outlet],.29);routeWater.visible=false;routeIndex=outlet}
+  if(routeIndex!==outlet){if(routeWater){world.remove(routeWater);routeWater.geometry.dispose();routeWater.material.normalMap?.dispose();waterSurfaces.splice(waterSurfaces.indexOf(routeWater),1);routeWater.material.dispose()}routeWater=makeWater(routePoints[outlet],.29);routeWater.visible=false;routeIndex=outlet}
   channel.rotation.y=channelAngle;
   surfaces.remove('creek-channel');const angle=channel.rotation.y,c=Math.cos(angle),n=Math.sin(angle);
   surfaces.box('creek-channel',-2.2+.3*c,-1-.3*n,2.5,.9,.08,angle);
@@ -129,7 +133,7 @@ export async function bindGrove(){
   if(turningChannel){turningChannel=false;tell(`Channel now points ${['toward the pond','toward Sprout’s roots','toward the old stump'][outlet]}. Return to the gate to test the route.`);return}
   if(!target)return;
   if(target.id==='rock'||target.id==='log'){
-   grabbedObstacle=obstacles.find(o=>o.id===target.id);grabbedObstacle.grabOffset.set(grabbedObstacle.root.position.x-player.position.x,grabbedObstacle.root.position.z-player.position.z);tell(`Grabbed the ${grabbedObstacle.name.toLowerCase()}. Walk to move it out of the stream, then press E to let go.`);return;
+   grabbedObstacle=obstacles.find(o=>o.id===target.id);grabbedObstacle.grabOffset.set(Math.sin(player.rotation.y)*1.1,Math.cos(player.rotation.y)*1.1);tell(`Grabbed the ${grabbedObstacle.name.toLowerCase()}. Walk to move it out of the stream, then press E to let go.`);return;
   }
   if(target.id==='handle'){
    performAt(-8,3,'Picking Up',{onContact:()=>{handleFound=true;handle.visible=false;heldHandle.visible=true;tone();updateObjective()},onComplete:()=>tell('Found it! Take the handle to the wooden creek gate.')});
@@ -208,11 +212,14 @@ export async function bindGrove(){
   // Sculpted meadow, with a pale path painted into the ground rather than a board.
   const geo=new THREE.PlaneGeometry(90,90,100,100);geo.rotateX(-Math.PI/2);const positions=geo.attributes.position,colors=[];const green=new THREE.Color(), c1=new THREE.Color(0x548342), c2=new THREE.Color(0x8eac52), pathColor=new THREE.Color(0xc8b781);
   for(let i=0;i<positions.count;i++){const x=positions.getX(i),z=positions.getZ(i);positions.setY(i,groundHeight(x,z));const noise=(Math.sin(x*1.24+z*.8)+Math.sin(z*2.1-x*.3))*.08+.48;green.copy(c1).lerp(c2,noise);const nearPath=Math.abs(z-(3+Math.sin(x*.22)*1.3));if(nearPath<1.5&&x>-12&&x<8)green.lerp(pathColor,Math.max(0,1-nearPath/1.5)*.9);colors.push(green.r,green.g,green.b)}geo.setAttribute('color',new THREE.Float32BufferAttribute(colors,3));geo.computeVertexNormals();ground=mesh(geo,new THREE.MeshStandardMaterial({vertexColors:true,roughness:1}));ground.castShadow=false;
-  // Rock-edged creek begins outside the view and continues through the gate.
-  const creekBed=pathMesh(sourcePoints.map(p=>[p[0],-.19,p[2]]),.95,mat(0x8a9d82));creekBed.scale.y=.3;creekBed.position.y=-.23;stream=makeWater(sourcePoints,.73);
+  // A visible rocky spring feeds a shallow, walkable creek.
+  const creekBed=waterRibbon(THREE,sourcePoints,1.9,groundHeight,{bed:true});world.add(creekBed);stream=makeWater(sourcePoints,.73);
+  const spring=mesh(new THREE.CircleGeometry(1.1,40),mat(0x54aeb8,{roughness:.25}));spring.rotation.x=-Math.PI/2;spring.position.set(-18,waterHeight(-18,-3),-3);spring.castShadow=false;
+  for(let i=0;i<9;i++){const a=.55+i/8*5.15;place('Rock_Medium_1',-18+Math.cos(a)*1.18,-3+Math.sin(a)*1.05,.45+(i%3)*.16,a)}
+  sign('Woodland spring',new THREE.Vector3(-18,1.45,-3),2.4);
   const rockRoot=place('Rock_Medium_2',-9,-2.95,.85,.4);obstacles.push({id:'rock',name:'Rock',root:rockRoot,start:[-9,-2.95],streamZ:-2.95,fraction:.51,height:.03,clearance:1.35,clear:false,grabOffset:new THREE.Vector2()});
   const logRoot=new THREE.Group();logRoot.position.set(-6.2,groundHeight(-6.2,-2.1)+.03,-2.1);world.add(logRoot);const trunk=mesh(new THREE.CylinderGeometry(.23,.29,2.1,10),mat(0x85613e),logRoot);trunk.rotation.x=Math.PI/2;trunk.position.y=.28;for(const z of [-.72,.63]){const knot=mesh(new THREE.CylinderGeometry(.08,.1,.2,8),mat(0x64482e),logRoot);knot.position.set(.17,.38,z);knot.rotation.z=Math.PI/3}obstacles.push({id:'log',name:'Fallen log',root:logRoot,start:[-6.2,-2.1],streamZ:-2.1,fraction:.82,height:.03,clearance:1.9,clear:false,grabOffset:new THREE.Vector2()});
-  blockedPool=mesh(new THREE.CircleGeometry(.95,32),new THREE.MeshBasicMaterial({color:0x75cbd1,transparent:true,opacity:.56,depthWrite:false}));blockedPool.rotation.x=-Math.PI/2;blockedPool.castShadow=false;updateObstructions();
+  blockedPool=mesh(new THREE.RingGeometry(.32,.39,40),new THREE.MeshBasicMaterial({color:0x75cbd1,transparent:true,opacity:.2,depthWrite:false}));blockedPool.rotation.x=-Math.PI/2;blockedPool.castShadow=false;obstacles.forEach(o=>{let best=Infinity;for(let i=0;i<=200;i++){const p=curve(sourcePoints).getPoint(i/200),d=Math.hypot(p.x-o.start[0],p.z-o.start[1]);if(d<best){best=d;o.fraction=Math.max(0,i/200-.025)}}});updateObstructions();
   for(let j=0;j<3;j++){const p=routePoints[j],route=curve(p),bed=pathMesh(p.map(v=>[v[0],-.05,v[2]]),.48,mat(0xa7a17e));bed.scale.y=.32;bed.position.y=-.15;for(let i=0;i<14;i++){const t=i/13,point=route.getPoint(t),tangent=route.getTangent(t);for(const side of [-1,1]){const peb=place('Pebble_Round_1',point.x-tangent.z*side*.53,point.z+tangent.x*side*.53,.16+(i%3)*.025,side+i);peb.scale.x=1.2;}}}
   const pond=mesh(new THREE.CircleGeometry(1.65,48),mat(0x67b9bc,{roughness:.25,metalness:.1}));pond.rotation.x=-Math.PI/2;pond.position.set(2,-.025,6);
   // Reproducible planting avoids loading a unique asset for every tuft.
@@ -226,7 +233,7 @@ export async function bindGrove(){
   for(let i=0;i<30;i++){const x=rand()*30-15,z=rand()*22-11;if(inClearing(x,z)||Math.abs(z+1)<1.5||Math.hypot(x-2,z-6)<2||Math.hypot(x+6,z-6)<2.6||Math.hypot(x+8,z-3)<2.2)continue;place(i%3?'Bush_Common':'Bush_Common_Flowers',x,z,.5+rand()*.6,rand()*6.28)}
    for(let i=0;i<42;i++){const x=rand()*59-29,z=rand()*45-22;if(inClearing(x,z)||Math.abs(x)<11&&Math.abs(z)<12)continue;place(i%5?'Bush_Common':'Bush_Common_Flowers',x,z,.55+rand()*.65,rand()*6.28)}
   const vegetation=[['Grass_Common_Short',1100,.42],['Flower_3_Group',72,.48],['Flower_4_Group',60,.45],['Fern_1',35,.65]];
-  for(const[name,count,height]of vegetation){const model=normalize(assets.get(name).scene.clone(true),height);model.updateMatrixWorld(true);model.traverse(o=>{if(!o.isMesh)return;const inst=new THREE.InstancedMesh(o.geometry,o.material,count);inst.receiveShadow=true;inst.castShadow=false;let j=0;while(j<count){const x=rand()*36-18,z=rand()*28-14;if(inClearing(x,z)||(Math.abs(z+1)<1.25&&x>-15&&x<8)||Math.hypot(x-2,z-6)<2||Math.hypot(x+8,z-3)<1.7)continue;dummy.position.set(x,groundHeight(x,z),z);dummy.rotation.set(0,rand()*6.28,0);dummy.scale.setScalar(.7+rand()*.8);dummy.updateMatrix();inst.setMatrixAt(j++,dummy.matrix.clone().multiply(o.matrixWorld))}world.add(inst);plants.push(inst)})}
+  for(const[name,count,height]of vegetation){const model=normalize(assets.get(name).scene.clone(true),height);model.updateMatrixWorld(true);model.traverse(o=>{if(!o.isMesh)return;const inst=new THREE.InstancedMesh(o.geometry,o.material,count);inst.receiveShadow=true;inst.castShadow=false;let j=0;while(j<count){const x=rand()*36-18,z=rand()*28-14;if(creekDistance(x,z)<1.1||inClearing(x,z)||(Math.abs(z+1)<1.25&&x>-15&&x<8)||Math.hypot(x-2,z-6)<2||Math.hypot(x+8,z-3)<1.7)continue;dummy.position.set(x,groundHeight(x,z),z);dummy.rotation.set(0,rand()*6.28,0);dummy.scale.setScalar(.7+rand()*.8);dummy.updateMatrix();inst.setMatrixAt(j++,dummy.matrix.clone().multiply(o.matrixWorld))}world.add(inst);plants.push(inst)})}
   // Creek gate: timber posts, a sliding gate, and a wheel fitted by the player.
   for(const z of [-2.05,.05]){cube(-3.7,.65,z,.25,1.7,.25,0x66513b);cylinder(-3.7,1.55,z,.21,.15,0xd2b572)}
   cube(-3.7,1.45,-1, .32,.22,2.4,0x796141);gate=cube(-3.7,.4,-1,.18,.9,1.8,0x967a51);gate.userData.open=false;
@@ -275,7 +282,7 @@ export async function bindGrove(){
      if((dx||dz)&&approach){approach.onCancel?.();approach=null;pointerTarget=null}
      if(motion?.busy){movement.set(0,0,0);pointerTarget=null}
      if(pointerTarget&&!dx&&!dz){movement.copy(pointerTarget).sub(player.position);movement.y=0;if(movement.length()<.22){pointerTarget=null;movement.set(0,0,0);if(approach){const job=approach;approach=null;job.begin()}}}else if(dx||dz)pointerTarget=null;
-     const moving=movement.lengthSq()>.001;if(moving){movement.normalize();const step=movement.multiplyScalar(delta*(grabbedObstacle?2.2:inputKeys.has('shift')?5.7:3.4));const nx=THREE.MathUtils.clamp(player.position.x+step.x,-30,30),nz=THREE.MathUtils.clamp(player.position.z+step.z,-24,25);const block=(x,z)=>surfaces.heightAt(x,z)-player.position.y>.48||colliders.some(c=>{const limit=c.r+.35,next=Math.hypot(x-c.x,z-c.z),current=Math.hypot(player.position.x-c.x,player.position.z-c.z);return next<limit&&next<current-.0001})||(x<-4.5&&Math.abs(z+3)<.65)||quest?.blocksMovement(x,z,player.position.x,player.position.z);if(!block(nx,player.position.z))player.position.x=nx;if(!block(player.position.x,nz))player.position.z=nz;if(grabbedObstacle)moveObstacle(grabbedObstacle,player.position.x+grabbedObstacle.grabOffset.x,player.position.z+grabbedObstacle.grabOffset.y);const angle=Math.atan2(step.x,step.z);player.rotation.y+=Math.atan2(Math.sin(angle-player.rotation.y),Math.cos(angle-player.rotation.y))*Math.min(1,delta*12);setAction(grabbedObstacle?'Walking':inputKeys.has('shift')?'Running':'Walking')}else setAction('Idle');
+     const moving=movement.lengthSq()>.001;if(moving){movement.normalize();const step=movement.multiplyScalar(delta*(grabbedObstacle?2.2:inputKeys.has('shift')?5.7:3.4));const nx=THREE.MathUtils.clamp(player.position.x+step.x,-30,30),nz=THREE.MathUtils.clamp(player.position.z+step.z,-24,25);const block=(x,z)=>surfaces.heightAt(x,z)-player.position.y>.48||colliders.some(c=>{const limit=c.r+.35,next=Math.hypot(x-c.x,z-c.z),current=Math.hypot(player.position.x-c.x,player.position.z-c.z);return next<limit&&next<current-.0001})||quest?.blocksMovement(x,z,player.position.x,player.position.z);if(!block(nx,player.position.z))player.position.x=nx;if(!block(player.position.x,nz))player.position.z=nz;if(grabbedObstacle)moveObstacle(grabbedObstacle,player.position.x+grabbedObstacle.grabOffset.x,player.position.z+grabbedObstacle.grabOffset.y);const angle=Math.atan2(step.x,step.z);player.rotation.y+=Math.atan2(Math.sin(angle-player.rotation.y),Math.cos(angle-player.rotation.y))*Math.min(1,delta*12);setAction(grabbedObstacle?'Walking':inputKeys.has('shift')?'Running':'Walking')}else setAction('Idle');
      player.position.y=surfaces.heightAt(player.position.x,player.position.z);
      const available=quest?.active?quest.targets():[...obstacles.map(o=>({id:o.id,x:o.root.position.x,z:o.root.position.z,label:`Grab ${o.name.toLowerCase()}`,radius:2.5})),...interactables],priorityId=quest?.active?quest.desired()?.id:null;target=available.filter(t=>!(t.id==='handle'&&handleFound)&&!(t.id==='channel'&&(!handleFitted||won))).map(t=>({...t,d:Math.hypot(player.position.x-t.x,player.position.z-t.z)})).filter(t=>t.d<t.radius).sort((a,b)=>Number(b.id===priorityId)-Number(a.id===priorityId)||a.d-b.d)[0]||null;
      show('#grove-context',!!target||!!grabbedObstacle||turningChannel||!!quest?.holding||!!quest?.turning);if(target||grabbedObstacle||turningChannel||quest?.holding||quest?.turning)$('#grove-context-label').textContent=grabbedObstacle?'Release '+grabbedObstacle.name.toLowerCase():turningChannel?'Finish turning channel':quest?.holding?'Release object':quest?.turning?'Finish turning screen':quest?.active?target.label:target.id==='gate'?(handleFitted?'Lift gate and test water route':handleFound?'Fit the handle':'Inspect creek gate'):target.label;
@@ -287,7 +294,12 @@ export async function bindGrove(){
     if(!reduced()){handle.rotation.y=time*.65;handle.position.y=groundHeight(-8,3)+.65+Math.sin(time*2)*.06;motes.forEach(m=>{m.position.y+=Math.sin(time*.7+m.userData.phase)*delta*.08;m.material.opacity=.25+(Math.sin(time+m.userData.phase)+1)*.22});}
     const openTarget=gate.userData.open?1.2:.4;gate.position.y=THREE.MathUtils.lerp(gate.position.y,openTarget,delta*3);wheel.rotation.x=handleFitted&&flowing?time*.8:0;
     if(flowing){const progress=Math.min((time-flowStart)/3,1);if(!blocked)routeWater.geometry.setDrawRange(0,Math.floor(routeWater.geometry.index.count*progress/3)*3);if(progress>=1){flowing=false;if(blocked){gate.userData.open=false;$('#grove-release').disabled=false;tell(`Water is backing up at the ${blocked.name.toLowerCase()}. Move it onto the bank, then try the gate again.`)}else if(outlet===1){rootRipple.visible=true;win()}else{gate.userData.open=false;$('#grove-release').disabled=false;$('#grove-turn-left').disabled=false;$('#grove-turn-right').disabled=false;tell(outlet===0?'The pond has water, but Sprout’s roots are still dry. Turn the channel and try another route.':'The water went toward the old stump. Sprout’s roots are in the other soil bed. Try another route.')}}}
-    flowBeads.forEach((m,i)=>{const t=(time*.14+i/flowBeads.length)%1,p=beadCurves[blocked?0:won||flowing?outlet+1:0].getPoint(blocked?t*blocked.fraction:t);m.position.copy(p);m.position.y=.055;m.scale.set(1.7,.35,.7)});
+    wetFraction=THREE.MathUtils.clamp(wetFraction+THREE.MathUtils.clamp(waterTarget-wetFraction,-delta*.35,delta*.20),0,1);
+    stream.geometry.setDrawRange(0,Math.floor(stream.geometry.index.count*wetFraction/6)*6);
+    for(const water of waterSurfaces)water.userData.updateWater?.(time,reduced());
+    flowBeads.forEach((m,i)=>{const t=(time*.14+i/flowBeads.length)%1,p=beadCurves[0].getPoint(t*wetFraction);m.position.copy(p);const tangent=beadCurves[0].getTangent(t*wetFraction),side=Math.sin(i*17.3)*.48;m.position.x-=tangent.z*side;m.position.z+=tangent.x*side;m.position.y=waterHeight(m.position.x,m.position.z)+.022;m.scale.set(.5+(i%4)*.16,.12,.24+(i%3)*.12);m.material.opacity=.18+(i%3)*.08});
+    for(const o of obstacles){if(o===grabbedObstacle)moveObstacle(o,player.position.x+Math.sin(player.rotation.y)*1.1,player.position.z+Math.cos(player.rotation.y)*1.1);prepareLift(THREE,o.root);liftObject(o.root,groundHeight(o.root.position.x,o.root.position.z)+o.height,o===grabbedObstacle||obstacleDrag?.object===o ? .68 : 0,delta,reduced())}
+
     if(blockedPool?.visible&&!reduced())blockedPool.scale.setScalar(.9+Math.sin(time*2.5)*.08);
     if(won&&!quest?.active){sprout.scale.setScalar(.84+Math.min((time-wonTime)/8,1)*.16);sprout.rotation.z=-.12*(1-Math.min((time-wonTime)/8,1));if(!reduced()){rootRipple.scale.setScalar(1+(time-wonTime)%2*.4);rootRipple.material.opacity=.65*(1-((time-wonTime)%2)/2)}if(stage==='success'&&time-wonTime>2.2){stage='explore';setAction('Idle')}}
    }
