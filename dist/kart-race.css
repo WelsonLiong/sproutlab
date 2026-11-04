@@ -97,3 +97,22 @@
  .race-shell:is(:fullscreen,.race-expanded) .race-toolbar>span{display:none}
  .race-shell:is(:fullscreen,.race-expanded) .race-toolbar>div{width:100%;justify-content:space-between;flex-wrap:nowrap}
 }
+
+.race-overlay{overflow-y:auto;justify-content:safe center}
+
+/* A short briefing with a visual guide for the selected input device. */
+.race-control-guide{width:min(100%,560px)}
+.race-device-tabs{display:flex;justify-content:center;gap:6px;margin-bottom:18px}
+.race-device-tabs button{display:flex;align-items:center;justify-content:center;gap:7px;min-height:42px;padding:8px 12px;border:1px solid #fffef850;border-radius:8px;background:transparent;color:#fffef8;font:800 14px Nunito,sans-serif}
+.race-device-tabs button[aria-selected="true"]{background:#ffdc66;border-color:#ffdc66;color:#153d36}
+.race-device-tabs button:focus-visible{outline:3px solid #fffef8;outline-offset:3px}
+.race-control-guide svg{width:26px;height:26px;flex-shrink:0;vertical-align:middle}
+.race-device-tabs svg{width:21px;height:21px}
+.race-control-panel{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+.race-control-item{display:flex;flex-direction:column;align-items:center;gap:9px;font:800 13px/1.3 Nunito,sans-serif}
+.race-control-item>div{display:flex;align-items:center;justify-content:center;gap:5px;min-height:38px}
+.race-control-item kbd{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:34px;padding:3px 7px;border:1px solid #fffef8a0;border-bottom-width:3px;border-radius:6px;color:#fffef8;background:#153d36;font:900 14px Nunito,sans-serif}
+.race-control-item small{font:700 11px Nunito,sans-serif}
+.race-overlay .race-brief{font-size:20px;line-height:1.5;max-width:38ch}
+@media(max-width:760px){.race-overlay:has(.race-control-guide){gap:18px;padding:22px 14px}.race-overlay .race-brief{font-size:16px}.race-device-tabs{gap:5px;margin-bottom:15px}.race-device-tabs button{padding:8px;font-size:12px;gap:5px}.race-control-panel{gap:14px 18px}.race-control-item{font-size:11px}.race-control-item kbd{min-width:29px;height:31px;font-size:12px;padding:3px 5px}.race-control-guide svg{width:23px;height:23px}.race-device-tabs svg{width:19px;height:19px}}
+@media(max-height:500px){.race-shell:is(:fullscreen,.race-expanded) .race-overlay:has(.race-control-guide){gap:10px}.race-device-tabs{margin-bottom:10px}.race-control-item{gap:4px}}

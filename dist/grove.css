@@ -103,7 +103,7 @@ body[data-route=grove] main{position:fixed;inset:0;max-width:none;padding:0;min-
 .grove-needs .icon{width:20px;height:20px}
 .grove-discovery .grove-prototype-note{font-size:11px;color:#5c694e;border-top:1px solid #cfd7b9;padding-top:14px;margin-top:15px}
 #grove-replay{min-height:40px;background:transparent;box-shadow:none;text-decoration:underline;text-underline-offset:4px;font-size:12px;padding:8px;margin-top:12px}
-.grove dialog{background:#fff9e8;color:#294632;border:0;border-radius:20px;padding:34px;width:min(380px,calc(100% - 36px));box-shadow:0 15px 70px #17342d44}
+.grove dialog{background:#fff9e8;color:#294632;border:0;border-radius:20px;padding:28px;width:min(560px,calc(100% - 32px));max-height:calc(100dvh - 32px);overflow-y:auto;scrollbar-color:#315f41 #fff9e8;box-shadow:0 15px 70px #17342d44}
 .grove dialog::backdrop{background:#203d3575}
 .grove dialog h2{font:400 34px/1.1 'Lilita One',Nunito,sans-serif;letter-spacing:0}
 .grove dialog p{font-size:14px;margin:12px 0 25px}
@@ -132,3 +132,19 @@ body[data-route=grove] main{position:fixed;inset:0;max-width:none;padding:0;min-
 body.reduce-motion .grove *{transition:none!important;animation:none!important}
 
 .grove:has(.grove-intro:not([hidden])) .grove-compass,.grove:has(.grove-intro:not([hidden])) .grove-marker{display:none}
+
+/* The pause menu keeps an illustrated control reference within reach. */
+.grove-control-guide{margin:24px 0;padding:20px 0;border-block:1px solid #a9b69c}
+.grove-control-guide h3{font:400 24px/1.2 'Lilita One',Nunito,sans-serif;margin:0 0 14px}
+.grove-device-tabs{display:flex;gap:6px;margin-bottom:12px}
+.grove dialog .grove-device-tabs button{flex:1;min-width:0;min-height:44px;width:auto;margin:0;padding:9px 6px;display:flex;align-items:center;justify-content:center;gap:6px;transition:none;transform:none;border:1px solid #a9b69c;border-radius:10px;font-size:14px;color:#294632;background:transparent}
+.grove dialog .grove-device-tabs button[aria-selected=true]{background:#315f41;color:#fff9e8;border-color:#315f41}
+.grove dialog .grove-device-tabs button:hover{background:#e4eccc;color:#294632}
+.grove dialog button:focus-visible{outline:3px solid #126b91;outline-offset:3px}
+.grove-control-guide svg{width:24px;height:24px;flex-shrink:0}
+.grove-control-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:14px;align-items:center;padding:9px 0;font-size:14px;line-height:1.45}
+.grove-control-row>div{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.grove-control-row kbd{display:inline-flex;align-items:center;justify-content:center;min-height:30px;min-width:30px;font-size:13px}
+.grove-control-row small{font:inherit}
+.grove dialog .grove-controls-tip{font-size:13px;line-height:1.5;margin:14px 0 0}
+@media(max-width:560px){.grove dialog{padding:22px 18px}.grove-control-row{grid-template-columns:105px minmax(0,1fr);gap:12px}.grove dialog .grove-device-tabs button{flex-direction:column;gap:4px;font-size:12px}.grove-control-row kbd{padding:2px 5px}.grove-control-guide{margin:20px 0;padding:18px 0}}

@@ -21,7 +21,7 @@ The final trail destination is Nico’s forest, clearly described as bonus play.
 - Numbered seven-stop trail: learn → play, repeated for three chapters → bonus forest.
 - Learners can revisit any stop. Next unlocks after the current interaction; corrected answers are accepted with specific feedback.
 - New chapter storage key: sprout-chapters-v1. Explorer legacy entries carry chapterVersion: 1, preventing previous pathway completion from silently skipping new lessons. Existing forest campaign fields and source files are unchanged.
-- Collect & Avoid supports arrow keys/A/D, pointer/touch position, tap direction buttons, pause, replay and a calm selection alternative. No countdown or life loss. Four distinct need badges complete the game. Repeated catches earn points but do not substitute for distinct needs.
+- Collect & Avoid supports arrow keys/A/D, pointer/touch position, tap direction buttons, pause, replay and a calm selection alternative. No countdown; missing a need costs one of three hearts, and losing all three ends the game. Four distinct need badges complete the game. Repeated catches earn points but do not substitute for distinct needs.
 - Chlorophyll badges are symbolic; the game explains that chlorophyll is already inside leaves. Distractions are toys, snacks and books, avoiding the misconception that oxygen or soil are generally useless to a plant.
 - Practice completions are not a formal LO rubric or official performance-level grade. Teacher guidance asks for independent spoken or written responses to SC1–SC3.
 - The field journal is now a three-objective recap with an optional saved note. Teacher and offline pages follow the same scope.

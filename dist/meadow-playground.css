@@ -1,0 +1,109 @@
+/* Meadow playground: painted scenery, sunny signs and colourful field notes. */
+:root{--play-ink:#153f46;--play-blue:#c4edff;--play-yellow:#ffe18b;--play-orange:#ed8153;--play-pink:#ffd5df;--play-lilac:#e7dfff}
+body[data-route]:not([data-route=grove]){--garden-ground:#b6e7f7;--garden-mint:#dcedb3;--garden-sky:#c4edff;--garden-paper:#fff9e5;--garden-ink:#153f46;--garden-yellow:#ffe18b;background:#b6e7f7 url('assets/meadow-playground.webp') center center/cover fixed no-repeat;color:var(--play-ink)}
+body[data-route]:not([data-route=grove]):before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,#c0edff00 55%,#eef5ae22)}
+body[data-route]:not([data-route=grove]) .app-header{position:relative;top:auto;width:calc(100% - 48px);max-width:1280px;margin:22px auto 8px;padding:14px 24px;background:#fff7d4;border:4px solid #fffdf0;border-radius:32px 22px 35px 18px;box-shadow:0 6px 0 #506b4730,0 10px 24px #254b5920;gap:20px}
+body[data-route] .brand{font-size:39px;transform:rotate(-2deg)}
+body[data-route] .brand-mark{background:#ffcf58;box-shadow:0 3px 0 #d9a64b;width:52px;height:52px;transform:rotate(-9deg)}
+body[data-route] .brand small{letter-spacing:.06em;color:#4e6455}
+body[data-route] .main-nav a{font:700 24px/1.1 Caveat,Nunito,sans-serif;gap:8px;padding:9px 15px;background:#d5ebc3;border-radius:14px 17px 10px 18px;border:2px solid #bbdba2}
+body[data-route] .main-nav a:nth-child(2){background:#ffdadf;border-color:#eab0b8;transform:rotate(2deg)}
+body[data-route] .main-nav a.active{background:#ffe18b;border-color:#d8a747}
+body[data-route] .header-tools .icon-btn{background:#c9eaff;border:2px solid #9fcada;box-shadow:0 3px 0 #9fcada}
+body[data-route] .collection{background:#ffe18b;border:2px solid #e6b454;transform:rotate(-3deg)}
+body[data-route]:not([data-route=grove]) main{padding-top:24px;max-width:1328px}
+.garden-topics{position:relative;background:#fff7d0;border:3px solid #fffdf0;border-radius:18px 26px 18px 28px;box-shadow:0 5px 0 #456d5930;gap:7px;padding:10px;margin-bottom:26px;overflow-x:auto;scrollbar-width:thin;scrollbar-color:#73a99b transparent}
+.garden-topics a{background:#d6edb5;border:2px solid #b5d790;border-radius:12px 15px 10px 15px;min-height:46px;font-size:13px;padding:8px 11px}
+.garden-topics a:nth-child(3n+2){background:#c9eaff;border-color:#a1cddd}.garden-topics a:nth-child(3n){background:#ffdae1;border-color:#edb6c1}
+.garden-topics a[aria-current]{background:#ffcc62;border-color:#b67a26;color:#153f46;box-shadow:0 3px 0 #b67a26;transform:rotate(-2deg)}
+.garden-topics a:hover{background:#ffedaa;transform:translateY(-2px)}
+.lesson-top{display:inline-flex;gap:9px;align-items:center;flex-wrap:wrap;padding:7px 14px;background:#fff9e5f0;border:2px solid #fffdf0;border-radius:12px;color:#214e53;font-weight:800;box-shadow:0 3px 0 #3d77531c}
+.lesson-heading,.page-heading{background:#ffe18b;border:4px solid #fff8d6;box-shadow:0 7px 0 #ba934143,0 12px 24px #31574718;border-radius:28px 46px 24px 38px;overflow:visible;margin-top:6px;padding-top:30px;padding-bottom:30px;min-height:152px}
+.lesson-heading:before,.page-heading:before{content:'';position:absolute;left:22px;top:-10px;width:58px;height:22px;background:#f6bd6ecc;transform:rotate(-8deg);border-radius:3px;z-index:1}
+.lesson-heading h1,.page-heading h1{font-size:clamp(35px,4.3vw,59px);color:#184851;text-shadow:0 2px #fff7da;letter-spacing:0;max-width:1000px}
+.lesson-heading p,.page-heading p{font-size:18px;color:#294e4f}
+.heading-botany{bottom:-12px;z-index:0;right:22px;filter:drop-shadow(0 6px 3px #61763728)}
+body[data-route=meaning-game] .lesson-heading,body[data-route=needs-game] .lesson-heading{background:#ffd6df;border-color:#fff0f2;box-shadow:0 7px 0 #c8879943}
+body[data-route=products] .lesson-heading,body[data-route=factory] .lesson-heading{background:#c8ebff;border-color:#effaff;box-shadow:0 7px 0 #5c9eaf43}
+body[data-route=products-game] .lesson-heading{background:#dcd2ff;border-color:#f2edff;box-shadow:0 7px 0 #8b7fb443}
+body[data-route] .btn,body[data-route] .adventure-button{background:#ffc660;color:#163f46;border:3px solid #fff1bf;border-radius:16px 20px 13px 21px;box-shadow:0 5px 0 #be8438;min-height:52px;padding:12px 22px}
+body[data-route] .btn:hover,body[data-route] .adventure-button:hover{background:#ffd78b;color:#163f46;box-shadow:0 7px 0 #be8438;transform:translateY(-2px)}
+body[data-route] .btn:active,body[data-route] .adventure-button:active{box-shadow:0 1px 0 #be8438;transform:translateY(3px)}
+body[data-route] .btn:disabled{box-shadow:none;border-color:#d0ddd3;background:#dce4dc;color:#4c6154}
+body[data-route] .btn.coral{background:#ffd5df;border-color:#fff0f4;box-shadow:0 5px 0 #c7869a}
+body[data-route] .btn.secondary{background:#caeaff;border-color:#ecf9ff;box-shadow:0 5px 0 #7aaabd}
+body[data-route] input:not([type=checkbox]):not([type=radio]):not([type=range]),body[data-route] select,body[data-route] textarea{background:#fffdf4;border:2px solid #a5b9a0;border-radius:14px;box-shadow:inset 0 2px 0 #708a6620}
+/* A sunny invitation on a full illustrated garden, rather than a split business hero. */
+body[data-route=map] .adventure-cover:has(.explorer-entry){position:relative;display:grid;grid-template-columns:1fr 1fr;min-height:600px;overflow:visible;border:0;border-radius:0;background:none;gap:28px;padding:0 0 24px}
+.adventure-cover .cover-copy{background:#ffe6a2;position:relative;border:5px solid #fff7d7;box-shadow:0 9px 0 #9a742b38,0 14px 30px #36534424;border-radius:38px 26px 42px 22px;padding:34px 38px;transform:rotate(-1deg)}
+.adventure-cover .cover-copy:before,.adventure-cover .cover-copy:after{content:'';position:absolute;top:14px;width:10px;height:10px;border-radius:50%;background:#b98c48;box-shadow:inset 0 2px 1px #795c2f55}.adventure-cover .cover-copy:before{left:17px}.adventure-cover .cover-copy:after{right:17px}
+.adventure-cover .cover-copy h1{font-size:clamp(54px,5.7vw,78px);color:#1b5261;letter-spacing:0;line-height:1.02;transform:rotate(-2deg);text-shadow:0 3px #fff6cc}
+.adventure-cover .cover-copy>p{font-size:18px;margin-top:20px;color:#234e51;max-width:36ch}
+.adventure-cover .cover-art{min-height:560px;height:calc(100% - 18px);margin-top:16px;border-radius:42% 38% 30% 28% / 23% 27% 18% 22%;border:6px solid #fff9e2;box-shadow:0 10px 0 #6c894039,0 16px 30px #31585225;object-position:66% center;transform:rotate(2deg);width:100%}
+.adventure-cover .character-hello{font:700 25px Caveat,sans-serif;right:5%;bottom:4px;background:#ffc6d7;border:3px solid #fff2f6;border-radius:16px;box-shadow:0 4px 0 #bd809342;padding:12px 22px;transform:rotate(-5deg)}
+.adventure-cover .explorer-entry{margin-top:24px;max-width:420px}.adventure-cover .guest-entry{font-weight:900;font-size:15px;margin-top:7px}
+.trail-heading{background:#fff5cce8;border:3px solid #fffdf0;padding:20px 26px;border-radius:24px 36px 22px 30px;box-shadow:0 5px 0 #7c9a5730;gap:20px}
+.trail-heading h2{font-size:40px}.trail-heading p{max-width:38ch;font-weight:800;font-size:15px}
+.trail-next{background:#dff2c6f5;border:3px solid #fff8e3;border-radius:18px 25px 19px 25px;padding:18px 22px;box-shadow:0 5px 0 #7ca75333}
+.trail-next a{background:#28644d;border:2px solid #143e34;box-shadow:0 4px 0 #143e34;border-radius:14px;color:#fffef8}
+.discovery-trail{padding-top:24px}.discovery-trail ol{gap:26px 22px}
+.discovery-trail li:first-child{grid-column:auto}.discovery-trail li a{border:5px solid #fff9de;border-radius:22px 27px 15px 24px;background:#ffe6a2;box-shadow:0 7px 0 #4e724e45;padding-bottom:22px;grid-template-rows:160px auto auto;min-height:290px;transition:transform .18s,box-shadow .18s}
+.discovery-trail li:nth-child(4n+2) a{background:#c4eaff;border-color:#effaff}.discovery-trail li:nth-child(4n+3) a{background:#ffd2de;border-color:#fff0f5}.discovery-trail li:nth-child(4n) a{background:#e0d5ff;border-color:#f6efff}
+.discovery-trail li:nth-child(odd){transform:rotate(-1deg)}.discovery-trail li:nth-child(even){transform:rotate(1deg)}
+.discovery-trail li a:hover{transform:translateY(-6px);box-shadow:0 11px 0 #4e724e45}
+.discovery-trail .activity-preview{height:160px}.discovery-trail strong{font-size:24px}.discovery-trail .trail-current a{outline:3px dashed #176246;outline-offset:6px}
+.trail-goals{background:#fff2c9;border:3px solid #fff9e1;border-radius:22px;box-shadow:0 5px 0 #798f4930}
+/* Lessons feel like things laid out on a field-trip table. */
+.induction-video{border:5px solid #fff6dd;border-radius:26px;box-shadow:0 8px 0 #315d5830;background:#fff1c2}
+.induction-video .lesson-video-note{background:#fff1c2}.induction-ready{background:#d8edb1}
+.chapter-scene{border:5px solid #fff6dd;box-shadow:0 7px 0 #33594d2b;border-radius:30px 22px 32px 20px}
+.meaning-scene{background:#c4eaff}.chapter-speech{background:#fff0b8;border:3px solid #fff9e5;border-radius:24px 30px 28px 8px;box-shadow:0 6px 0 #436f7e22}
+.word-scene{background:#fbd2df}.word-slots{background:#fff9df;border:2px dashed #b28292;border-radius:16px;box-shadow:none}
+.word-piece{background:#fff1b6;border:3px solid #fff8dc;box-shadow:0 4px 0 #b48b4f;color:#153f46}
+.catch-game{background:#c4eaff;border:5px solid #f2fbff;box-shadow:0 7px 0 #639fb54a;border-radius:28px}
+.greenhouse{border:5px solid #fff6da;box-shadow:0 8px 0 #456b4d38;background:#fff2c8;border-radius:28px 22px 30px 20px}
+.greenhouse-tools{background:#ffdf8d}.greenhouse-work{background:#fff1c7}.greenhouse-finding{background:#d5edb2;border:3px solid #f4ffe7}.greenhouse-conclusion{background:#fff1c7;border-color:#a5c57c}
+.race-shell{border:5px solid #fff2c7;box-shadow:0 8px 0 #3e5b4d4d;border-radius:24px}
+.guided-factory{border:5px solid #effaff;box-shadow:0 7px 0 #4f8fae38;border-radius:28px;overflow:hidden;background:#c4eaff}
+.factory-narrator{background:#fff1b8}.experience-bar{background:#d6efff}.recap-sheet,.teacher-section,.safety-list,.journal-sheet{background:#fff1c5;border:4px solid #fff7dd;box-shadow:0 6px 0 #68874e30;border-radius:24px}
+/* A small wooden trail sign stays within reach at the bottom of each activity. */
+body[data-route]:not([data-route=grove]) .lesson-nav.journey-nav{background:#fff0ba;border-top:4px solid #cfac66;box-shadow:0 -5px 18px #173f4d20;color:#153f46;padding-top:12px;padding-bottom:calc(14px + env(safe-area-inset-bottom,0px))}
+body[data-route] .site-footer{max-width:none;padding:90px max(28px,calc((100vw - 1240px)/2)) 36px;min-height:225px;margin-top:70px;color:#fff9e4;background:#2c654c url('assets/garden-border.webp') center bottom/cover no-repeat;border-top:5px solid #bad77c;gap:20px}
+body[data-route] .site-footer:before{content:'';position:absolute;inset:0;background:#163f326b;z-index:-1}
+body[data-route] .site-footer>span,body[data-route] .site-footer>div:not(.garden-footer-wordmark){background:#184d3eeb;border:2px solid #63936e;padding:12px 18px;border-radius:16px}
+body[data-route] .site-footer a{color:#fff9e4;font-weight:800}.garden-footer-wordmark{color:#fff5c8;text-shadow:0 3px #214c35;max-width:100%}
+body[data-route] :focus-visible{outline:3px solid #164e76;outline-offset:5px}
+html{scrollbar-color:#36805d #b6e7f7}
+body.low-data[data-route]:not([data-route=grove]){background-image:none;background-color:#bfe8f4}.low-data .site-footer{background-image:none!important}
+@media(min-width:1700px){body[data-route]:not([data-route=grove]) main{max-width:1380px}.adventure-cover .cover-copy{padding:42px}}
+@media(max-width:1050px){body[data-route]:not([data-route=grove]) .app-header{width:calc(100% - 32px);padding:12px 18px;gap:12px}body[data-route] .brand{font-size:32px}body[data-route] .main-nav a{font-size:21px;padding:10px}.adventure-cover .cover-copy{padding:32px 26px}.discovery-trail ol{grid-template-columns:repeat(2,minmax(0,1fr))}.garden-topics{justify-content:start}}
+@media(max-width:760px){
+ body[data-route]:not([data-route=grove]){background-size:auto 100dvh;background-position:center top}
+ body[data-route]:not([data-route=grove]) .app-header{width:calc(100% - 24px);margin:12px auto 4px;border-width:3px;padding:12px 10px 8px;border-radius:22px 18px 24px 16px;gap:12px}
+ body[data-route] .brand{font-size:31px}.brand small{font-size:8px!important}body[data-route] .brand-mark{width:39px;height:39px}
+ body[data-route] .main-nav{gap:10px}body[data-route] .main-nav a{font-size:23px;padding:7px 14px;min-height:40px}
+ body[data-route] .header-tools{gap:6px}body[data-route] .header-tools .icon-btn{width:34px;height:34px}body[data-route] .collection{font-size:12px;padding:6px 8px}
+ body[data-route]:not([data-route=grove]) main{padding:18px 16px 30px}
+ .garden-topics{margin-bottom:24px;padding:8px;gap:7px;border-width:3px;border-radius:16px}.garden-topics a{font-size:12px;min-height:40px;padding:7px 10px}
+ .lesson-top{font-size:12px;padding:6px 10px;gap:6px}.lesson-heading,.page-heading{padding:25px 20px;border-radius:24px 32px 21px 28px;margin-bottom:28px;min-height:0;border-width:3px}
+ .lesson-heading h1,.page-heading h1{font-size:36px;line-height:1.08}.lesson-heading p,.page-heading p{font-size:16px;margin-top:12px}
+ body[data-route=map] .adventure-cover:has(.explorer-entry){display:flex;flex-direction:column;min-height:0;gap:20px;padding-bottom:28px;margin-top:6px}
+ .adventure-cover .cover-copy{padding:28px 22px;border-width:4px;border-radius:27px 22px 32px 20px;transform:none;order:1}
+ .adventure-cover .cover-copy h1{font-size:56px;max-width:none;transform:rotate(-2deg)}.adventure-cover .cover-copy>p{font-size:17px;max-width:none;margin-top:18px}.adventure-cover .explorer-entry{max-width:none;margin-top:22px}
+ .adventure-cover .cover-art{order:0;width:100%;height:250px;min-height:0;max-height:none;margin:0;transform:rotate(2deg);object-position:65% 47%;border-radius:35px 30px 36px 26px;border-width:5px}
+ .adventure-cover .character-hello{top:210px;right:15px;bottom:auto;z-index:3;font-size:21px;padding:7px 12px}
+ .trail-heading{padding:20px 18px;gap:12px;align-items:start;border-radius:22px;display:block}.trail-heading h2{font-size:34px}.trail-heading p{font-size:14px;margin-top:10px}
+ .trail-next{padding:16px;gap:14px}.trail-next p{font-size:15px}.trail-next a{width:100%;font-size:15px}
+ .discovery-trail ol{gap:24px 14px}.discovery-trail li a{padding-inline:14px;border-width:4px;grid-template-rows:115px auto auto;min-height:250px;border-radius:18px 23px 15px 20px;gap:6px}
+ .discovery-trail .activity-preview{height:115px;width:calc(100% + 28px);margin-inline:-14px}.discovery-trail strong{font-size:21px;grid-column:1/-1}.discovery-trail small{font-size:12px;grid-column:1/-1}.discovery-trail .trail-marker{position:absolute;right:8px;top:91px;width:30px;height:30px}.discovery-trail .trail-marker .icon{width:18px;height:18px}.discovery-trail .trail-step{top:8px;left:7px;right:7px;font-size:11px}.trail-step>span{padding:5px 7px}.trail-step .trail-step-cue{font-size:10px}
+ .chapter-scene{border-width:3px;padding:22px 18px}.chapter-speech{padding:22px 18px}.meaning-scene .chapter-character{height:220px}.greenhouse{border-width:3px}.greenhouse-tools{padding:14px 12px}.greenhouse-work{padding:20px 15px}
+ .induction-video{border-width:3px}.catch-game{border-width:3px;padding:18px 12px}.race-shell{border-width:3px}
+ body[data-route]:not([data-route=grove]) .lesson-nav.journey-nav{padding-inline:16px;border-top-width:3px}.journey-nav>p{font-size:11px}.journey-actions .btn{font-size:14px}
+ body[data-route] .site-footer{margin-top:36px;padding:64px 20px 30px;background-size:auto 100%;gap:16px}.garden-footer-wordmark{font-size:40px}body[data-route] .site-footer>span,body[data-route] .site-footer>div:not(.garden-footer-wordmark){font-size:13px;padding:10px 14px}
+}
+@media(max-width:360px){body[data-route] .brand{font-size:27px}body[data-route] .header-tools .icon-btn{width:31px;height:31px}.adventure-cover .cover-copy h1{font-size:49px}.discovery-trail ol{grid-template-columns:1fr}.discovery-trail li a{grid-template-rows:150px auto auto}.discovery-trail .activity-preview{height:150px}.discovery-trail .trail-marker{top:126px}}
+@media(prefers-reduced-motion:reduce){.discovery-trail li a{transition:none}.adventure-cover .cover-art{transform:none}}
+@media print{body[data-route]:not([data-route=grove]){background:white!important}.app-header,.site-footer{box-shadow:none!important}.lesson-heading,.chapter-scene,.greenhouse,.recap-sheet{box-shadow:none!important}}
+/* Keep the artwork fully visible; the former sliding reveal clipped the mobile postcard. */
+body:not(.reduce-motion) .adventure-cover .cover-art{animation:none;clip-path:none}
+.discovery-trail .preview-products-game{object-fit:contain;background:#9cdae7;object-position:center}
