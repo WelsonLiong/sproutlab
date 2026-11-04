@@ -8,7 +8,7 @@ export function welcome({state, stations, icon, escapeHTML, explorerFields}) {
   return `<section class="adventure-cover" aria-labelledby="adventure-title">
     <img class="cover-art" src="assets/adventure-cover.webp" alt="Sprout and Beep investigate a sunny garden filled with oversized flowers." fetchpriority="high" width="1536" height="1024">
     <div class="cover-copy"><h1 id="adventure-title">Little leaves.<br>Big ideas.</h1>
-      <p>Grow your science curiosity with Sprout and Beep. Watch, experiment, and discover how plants make food.</p>
+      <p>Discover how plants make food.</p>
       <div class="explorer-entry"><form id="explorer-form" class="explorer-welcome">${explorerFields('explorer',escapeHTML,state.learnerName)}<button class="adventure-button" type="submit">Let’s grow! ${icon('arrow')}</button><button class="guest-entry" id="guest-entry" type="button">Explore as a guest</button></form></div>
     </div>
     <span class="character-hello">Meet Sprout & Beep!</span>
