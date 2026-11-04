@@ -50,3 +50,50 @@
 .race-distance{margin-right:174px}
 .race-callout{top:28%}
 @media(max-width:760px){.race-speedometer{top:12px;bottom:auto}.race-distance{margin-right:106px}.race-callout{top:31%}}
+
+/* Speed feedback stays readable while eyes are on the road. */
+.race-speedometer{transform-origin:top right;transition:background-color .18s,border-color .18s,color .18s}
+.race-speed-mode{display:block;margin-top:8px;padding:6px 2px;border-top:1px solid #fffef855;font:900 12px/1.2 Nunito,sans-serif;letter-spacing:.02em}
+.race-speedometer.is-boosting{background:#ffdc66;color:#153d36;border-color:#fffef8}
+.race-speedometer.is-slowed{background:#8b3024;color:#fffef8;border-color:#ffb99c}
+.race-speedometer.is-boosting svg text{fill:#153d36}
+.race-speedometer.is-boosting .race-speed-mode{border-color:#153d3645}
+.race-speed-event{position:absolute;width:max-content;max-width:88%;left:50%;bottom:20%;transform:translateX(-50%);min-width:210px;padding:10px 20px;text-align:center;background:#ffdc66;color:#153d36;border:2px solid #fffef8;border-radius:12px;box-shadow:0 6px 16px #153d3650;pointer-events:none}
+.race-speed-event strong{display:block;font:400 30px/1.1 'Lilita One',sans-serif}
+.race-speed-event span{display:block;margin-top:5px;font:900 20px/1.2 Nunito,sans-serif;font-variant-numeric:tabular-nums;white-space:nowrap}
+.race-speed-event.is-slowed{background:#8b3024;color:#fffef8;border-color:#ffb99c}
+.race-stage.has-boost:after{border-color:#ffdc66;box-shadow:none;opacity:.55;border-width:7px}
+.race-stage.has-slowdown:after{border-color:#ed8b6b;box-shadow:none;opacity:.65;border-width:9px}
+@media(max-width:760px){.race-callout{top:39%}.race-speed-mode{font-size:10px;margin-top:5px;padding-top:5px}.race-speed-event{bottom:22%;min-width:180px;padding:8px 12px}.race-speed-event strong{font-size:25px}.race-speed-event span{font-size:17px}.race-stage.has-boost:after,.race-stage.has-slowdown:after{border-width:4px}}
+@media(prefers-reduced-motion:reduce){.race-speedometer{transition:none}}
+.reduce-motion .race-speedometer{transition:none}
+
+/* Fullscreen gives the entire display to the track; controls float above it. */
+.race-shell:fullscreen,.race-shell.race-expanded{position:fixed;inset:0;width:100%;height:100dvh;max-width:none;margin:0;border:0;border-radius:0;box-shadow:none;overflow:hidden;display:block}
+.race-shell:fullscreen .race-stage,.race-shell.race-expanded .race-stage{position:absolute;inset:0;width:100%;height:100%;max-width:none;min-height:0;aspect-ratio:auto}
+.race-shell:is(:fullscreen,.race-expanded) .race-toolbar{position:absolute;inset:0 0 auto;z-index:10;padding:calc(10px + env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) 10px max(16px,env(safe-area-inset-left));background:#153d36e8;min-height:58px}
+.race-shell:is(:fullscreen,.race-expanded) .race-hud{top:calc(74px + env(safe-area-inset-top))}
+.race-shell:is(:fullscreen,.race-expanded) .race-speedometer{top:calc(74px + env(safe-area-inset-top))}
+.race-shell:is(:fullscreen,.race-expanded) .race-controls{position:absolute;z-index:10;left:max(16px,env(safe-area-inset-left));right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));padding:0;justify-content:flex-start;gap:12px;pointer-events:none}
+.race-shell:is(:fullscreen,.race-expanded) .race-controls button{pointer-events:auto;box-shadow:0 3px 10px #153d3640}
+.race-shell:is(:fullscreen,.race-expanded) #race-left{order:1}
+.race-shell:is(:fullscreen,.race-expanded) #race-right{order:2}
+.race-shell:is(:fullscreen,.race-expanded) #race-drift{order:3;margin-left:auto}
+.race-shell:is(:fullscreen,.race-expanded) .race-boost{bottom:calc(84px + env(safe-area-inset-bottom))}
+.race-shell:is(:fullscreen,.race-expanded) .race-status{position:absolute;width:1px;height:1px;min-height:0;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.race-shell:is(:fullscreen,.race-expanded):has(.race-overlay:not([hidden])) .race-controls{visibility:hidden}
+@media(max-height:500px){
+ .race-shell:is(:fullscreen,.race-expanded) .race-speedometer{width:100px;padding:5px 7px 8px}
+ .race-shell:is(:fullscreen,.race-expanded) .race-speedometer strong{font-size:30px}
+ .race-shell:is(:fullscreen,.race-expanded) .race-distance{margin-right:116px}
+ .race-shell:is(:fullscreen,.race-expanded) .race-overlay{gap:10px;padding:70px 20px 15px;overflow:auto;justify-content:flex-start}
+ .race-shell:is(:fullscreen,.race-expanded) .race-overlay h2{font-size:30px;max-width:none}
+ .race-shell:is(:fullscreen,.race-expanded) .race-overlay p{font-size:15px;max-width:65ch;line-height:1.35}
+ .race-shell:is(:fullscreen,.race-expanded) .race-overlay .race-how{font-size:12px;line-height:1.3}
+ .race-shell:is(:fullscreen,.race-expanded) .race-overlay .btn{padding:10px 20px;flex-shrink:0}
+}
+
+@media(max-width:600px){
+ .race-shell:is(:fullscreen,.race-expanded) .race-toolbar>span{display:none}
+ .race-shell:is(:fullscreen,.race-expanded) .race-toolbar>div{width:100%;justify-content:space-between;flex-wrap:nowrap}
+}
