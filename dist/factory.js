@@ -1,6 +1,6 @@
-import {learnerLine} from './learner-voice.js';
-import {cartoonCast as cast, plantDrawing, leafDrawing} from './factory-art.js?v=3';
-import {icon,title,next,complete,state,escapeHTML} from './app.js?v=10';
+import {learnerLine} from './learner-voice.js?v=20261106d';
+import {cartoonCast as cast, plantDrawing, leafDrawing} from './factory-art.js?v=20261106d';
+import {icon,title,next,complete,state,escapeHTML} from './app.js?v=20261106d';
 const demo = [
   {focus:'water', who:'Water', line:'Up we go! Roots absorb water. It travels inside the stem and into the veins of the leaves. Follow the blue route!', seconds:9},
   {focus:'air', who:'Sprout', line:'Carbon dioxide is a gas in the air. It enters through tiny openings in a leaf.', seconds:9},

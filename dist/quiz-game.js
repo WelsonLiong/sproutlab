@@ -1,6 +1,6 @@
-import {isMiniGame,renderMiniGame,bindMiniGame,cleanupMiniGame} from './quiz-minigames.js?v=1';
+import {isMiniGame,renderMiniGame,bindMiniGame,cleanupMiniGame} from './quiz-minigames.js?v=20261106d';
 export {cleanupMiniGame as cleanupQuiz};
-import {icon,title,next,state,save,complete,chime,cast,escapeHTML} from './app.js?v=10';
+import {icon,title,next,state,save,complete,chime,cast,escapeHTML} from './app.js?v=20261106d';
 
 export const questChallenges=[
  {type:'sequence',standard:'4.2.1',title:'Give Sprout a superpower',prompt:'What does photosynthesis mean?',instruction:'Tap the word pieces to build the meaning. Tap a filled space to undo.',pieces:[['food','their own food'],['soil','eat soil'],['plants','Plants'],['make','make']],answer:['plants','make','food'],why:'Photosynthesis is the process where plants make their own food.',review:'story'},

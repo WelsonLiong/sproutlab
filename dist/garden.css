@@ -114,7 +114,7 @@ body[data-route=map] main{padding:24px 32px 32px;max-width:1400px}
 .mystery-choices button.selected{outline:3px solid var(--garden-green);outline-offset:2px;background:#d2eabf}
 .sprout-question{border:0;box-shadow:none;border-radius:22px 22px 7px 22px;font-size:17px}
 .comic-caption{border:0;border-radius:15px;font-size:21px}
-.story-theatre,.lab-playground,.leaf-experience,.game-shell,.detective-play,.journal-sheet{border:0;border-radius:var(--garden-radius);background:var(--garden-paper);box-shadow:none;overflow:hidden}
+.story-theatre,.lab-playground,.leaf-experience,.game-shell,.journal-sheet{border:0;border-radius:var(--garden-radius);background:var(--garden-paper);box-shadow:none;overflow:hidden}
 .story-copy,.lab-tools{border:0;background:var(--garden-paper);padding:28px}
 .lab-tools .lab-switch{border:0;border-radius:18px;background:#edf4e8;min-height:84px}
 .lab-tools .lab-switch:has(input:checked){background:#d4eac5;outline:2px solid #5b8c66;outline-offset:-2px}
@@ -159,16 +159,7 @@ details.transcript p{font-size:16px;line-height:1.65}
 .game-heading h2{font-size:30px}.puzzle-count,.move-counter{font-size:14px}
 .creek-play{border:0;border-radius:24px;background-color:#dcefe8}
 .game-controls{background:#e5f1df;border:0;border-radius:22px;padding:16px;margin-top:20px}
-.detective-play{padding:24px}.case-progress{background:#edf4e5;border:0;border-radius:30px;padding:7px;gap:6px}
-.case-progress span{border:0;border-radius:24px;font-size:15px;padding:11px 16px;flex:1;text-align:center}
-.case-progress .current{background:var(--garden-green);color:white}
-.robot-comic{background:var(--garden-yellow);border:0;border-radius:26px;padding:20px;margin-top:22px}
 .bubble{border:0;box-shadow:none;border-radius:24px 24px 24px 7px}
-.evidence-desk{gap:18px}.clue-object{border:0;border-radius:24px;background:#e2eed9;padding:22px}
-.clue-object:nth-child(2){background:#dceef5}.clue-object strong{font-size:18px}.clue-object small{font-size:13px}
-.clue-reading{border:0;background:#f1f5e8;border-radius:24px;padding:24px}.clue-reading p{font-size:16px}
-.case-actions{border:0;background:#e8f2e0;padding:18px 22px;border-radius:24px;margin-top:20px}
-.word-bank button,.repair-slot{border-radius:16px}.privacy-message{background:#f4f8ed;border:0;border-radius:24px}
 .closure-banner{border:0;border-radius:var(--garden-radius);background:var(--garden-mint);overflow:hidden}
 .closure-banner h2{font-size:36px}.closure-banner p{font-size:17px}
 .lesson-columns{gap:24px;margin-top:24px}.lesson-columns>.activity-panel{background:var(--garden-paper);border-radius:28px;padding:28px}
@@ -267,7 +258,6 @@ body[data-route=grove]>.site-footer,body[data-route=grove]>.app-header{display:n
  .guided-factory .demo-controls{padding:18px;display:block}.guided-factory .demo-controls h2{font-size:23px}.guided-factory .demo-buttons{margin-top:16px;gap:10px}.guided-factory .demo-buttons .btn{font-size:14px;padding:10px 12px;min-height:48px}.guided-factory .science-scenes{padding:10px;gap:12px}.guided-factory .science-status{padding:16px;font-size:16px}
  .guided-factory .factory-narrator{padding:14px 12px}.guided-factory .narrator-caption p{font-size:16px;line-height:1.5}.factory-narrator #guide-face,.factory-narrator #guide-face .cartoon-cast{width:45px;height:45px}
  .game-shell{padding:18px 12px}.game-heading{gap:10px}.game-heading h2{font-size:26px}.puzzle-count,.move-counter{font-size:12px}.game-controls{padding:15px 10px;gap:10px;flex-wrap:wrap}.game-controls .text-btn{font-size:14px}.creek-play{border-radius:18px}
- .detective-play{padding:16px}.case-progress{border-radius:20px;padding:5px;gap:3px}.case-progress span{font-size:12px;padding:10px 7px;line-height:1.3}.robot-comic{padding:15px 10px}.robot-comic .bubble{font-size:18px}.evidence-desk{gap:12px}.clue-object{padding:16px 10px}.clue-object strong{font-size:16px}.clue-object small{font-size:12px}.clue-reading{padding:20px}.case-actions{padding:15px;gap:12px}
  .closure-banner h2{font-size:29px}.closure-banner p{font-size:16px}.lesson-columns{grid-template-columns:1fr;gap:18px}.lesson-columns>.activity-panel{padding:24px 20px}.activity-panel h2{font-size:29px}.notice{padding:22px}
  .journal-sheet{padding:16px}.journal-header{padding:18px 12px;gap:12px}.journal-header h2{font-size:26px}.journal-header p{font-size:15px}.journal-header>.cast{width:65px;height:80px}.badge-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.earned-badge{padding:20px 10px;border-radius:20px}.earned-badge strong{font-size:15px}.earned-badge small{font-size:12px}.journal-note{padding:22px}.journal-note p{font-size:18px}
  .teacher-section{padding:24px 20px;margin:18px 0}.teacher-section h2{font-size:28px}.teacher-section p,.teacher-section li{font-size:16px}.safety-list>div{padding:22px 18px}.safety-list h2{font-size:27px}.safety-list p{font-size:16px}

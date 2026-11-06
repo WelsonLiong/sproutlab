@@ -1,17 +1,17 @@
-import {createGamepadControls} from './gamepad-controls.js';
-import {groveControlGuide,bindGroveControlGuide} from './grove-controls.js';
-import {waterRibbon,liftObject,prepareLift} from './grove-water.js';
+import {createGamepadControls} from './gamepad-controls.js?v=20261106d';
+import {groveControlGuide,bindGroveControlGuide} from './grove-controls.js?v=20261106d';
+import {waterRibbon,liftObject,prepareLift} from './grove-water.js?v=20261106d';
 // Nico's environmental forest campaign. Earlier scored attempts remain stored separately.
-import {createCharacterMotion} from './grove-animation.js';
-import {NICO_MODEL} from './nico-version.js';
-import {createSurfaces,createFootContact} from './grove-surfaces.js';
-import {learnerLine} from './learner-voice.js';
+import {createCharacterMotion} from './grove-animation.js?v=20261106d';
+import {NICO_MODEL} from './nico-version.js?v=20261106d';
+import {createSurfaces,createFootContact} from './grove-surfaces.js?v=20261106d';
+import {learnerLine} from './learner-voice.js?v=20261106d';
 import * as THREE from './vendor/three/three.module.js';
 import {GLTFLoader} from './vendor/three/GLTFLoader.js';
-import {icon, state, save, escapeHTML,adoptExplorer,complete} from './app.js?v=10';
+import {icon, state, save, escapeHTML,adoptExplorer,complete} from './app.js?v=20261106d';
 
-import {explorerFields,bindExplorerFields} from './grove-progress.js';
-import {createForestCampaign} from './grove-campaign.js';
+import {explorerFields,bindExplorerFields} from './grove-progress.js?v=20261106d';
+import {createForestCampaign} from './grove-campaign.js?v=20261106d';
 
 let disposeScene;
 export function cleanupGrove(){disposeScene?.();disposeScene=null}
@@ -30,7 +30,7 @@ export function grove(){
   <div class="grove-touch" aria-label="Movement controls" hidden><button data-walk="up" aria-label="Walk forward">${svg('arrow')}</button><button data-walk="left" aria-label="Walk left">${svg('arrow')}</button><button data-walk="down" aria-label="Walk backward">${svg('arrow')}</button><button data-walk="right" aria-label="Walk right">${svg('arrow')}</button></div>
   <div class="grove-bottom" hidden><span id="grove-bottom-note">Save Sprout · explore the clearing</span><a id="grove-completion-link" href="#certificate" hidden>${svg('download')} Get my certificate</a></div>
   <section id="grove-transition" class="grove-transition" aria-labelledby="grove-transition-title" hidden><div class="grove-transition-card"><span class="grove-transition-kicker">Clearing complete</span><h2 id="grove-transition-title">The trail opens</h2><p id="grove-transition-copy">You can continue the adventure.</p><button id="grove-next" disabled><span>Continue</span>${svg('arrow')}</button></div></section>
-  <section class="grove-intro" aria-labelledby="grove-title"><div class="grove-intro-copy"><h1 id="grove-title">Nico and the<br><em>Dying Forest.</em></h1><p>A storm has damaged Greenhaven. Sprout asks Nico to help the plants across the forest and discover what they need to make their own food.</p><form id="grove-start-form"><div class="grove-name-row">${explorerFields('grove',escapeHTML,state.learnerName)}<button id="grove-begin" disabled>Preparing forest…</button></div><small>A nickname is enough. It stays on this computer.</small></form><p class="grove-intro-controls">${svg('game')} Walk with WASD or arrow keys. Drag objects to move them, drag open ground to look around, and press E to grab or release. Controller: left stick to walk, right stick to look, A/Cross to interact, LB/L1 to run, Menu/Options to pause. Press a controller button to connect.</p></div><div class="grove-loading"><span id="grove-load-label">Growing your little corner of the forest…</span><progress id="grove-load" max="100" value="0" aria-label="Loading forest"></progress></div></section>
+  <section class="grove-intro" aria-labelledby="grove-title"><div class="grove-intro-copy"><h1 id="grove-title">Nico and the<br><em>Dying Forest.</em></h1><p>A storm has damaged Greenhaven. Sprout asks Nico to help the plants across the forest and discover what they need to make their own food.</p><form id="grove-start-form"><div class="grove-name-row">${explorerFields('grove',escapeHTML,state.learnerName)}<button id="grove-begin" disabled>Preparing forest…</button></div><small>A nickname is enough. It stays on this computer.</small><p class="caption">This game’s code was developed with assistance from Generative AI. The 3D models are sourced from Mixamo and Quaternius.</p></form><p class="grove-intro-controls">${svg('game')} Walk with WASD or arrow keys. Drag objects to move them, drag open ground to look around, and press E to grab or release. Controller: left stick to walk, right stick to look, A/Cross to interact, LB/L1 to run, Menu/Options to pause. Press a controller button to connect.</p></div><div class="grove-loading"><span id="grove-load-label">Growing your little corner of the forest…</span><progress id="grove-load" max="100" value="0" aria-label="Loading forest"></progress></div></section>
   <section id="grove-story" class="grove-story" aria-labelledby="grove-story-title" hidden><div id="grove-story-face"></div><div><span id="grove-story-speaker"></span><h2 id="grove-story-title" tabindex="-1"></h2><p id="grove-story-copy"></p><span id="grove-story-count"></span></div><button id="grove-story-next">Next ${svg('arrow')}</button></section>
   <section id="grove-gate-panel" class="grove-gate-panel" aria-labelledby="gate-title" hidden><div><h2 id="gate-title">Where should the water go?</h2><p>Turn the channel. Then lift the gate to test your route.</p></div><div class="grove-gate-actions"><button id="grove-turn-left" aria-label="Turn channel left">${svg('arrow')}</button><span id="grove-outlet">Toward the pond</span><button id="grove-turn-right" aria-label="Turn channel right">${svg('arrow')}</button><button id="grove-release">${svg('drop')} Let it flow</button><button id="grove-leave">Back to exploring</button></div></section>
   <section id="grove-success" class="grove-success" aria-labelledby="grove-success-title" hidden><div class="grove-earned">${svg('check')}</div><div><h2 id="grove-success-title">Water restored!</h2><p id="grove-success-copy">You brought water to Sprout’s roots.</p><span>Creek rescue complete · ungraded practice</span></div></section>

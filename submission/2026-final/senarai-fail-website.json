@@ -1,0 +1,534 @@
+[
+  {
+    "path": "dist/activities.js",
+    "sha256": "567b4d43debdd801d8297aee1e5729c1c6d066c3cbf3a4c7e237eac70cf50a26"
+  },
+  {
+    "path": "dist/activity.css",
+    "sha256": "cdb8f86a05937c530e70fd6174c019311c3d5406332af5d04539e6afd5eadded"
+  },
+  {
+    "path": "dist/adventure.css",
+    "sha256": "cb2a3ae7646316778088471099e2d41a062b5f726881ba5d76883090036ff055"
+  },
+  {
+    "path": "dist/app.js",
+    "sha256": "b673d6d68af67e02e9c054bbb535a0ec45d2dd127d44963bc197df37dca83ce3"
+  },
+  {
+    "path": "dist/assets/adventure-cover.webp",
+    "sha256": "359793202cb9f328ac3302334984bcff2c8d67c28a44fe10b094ee4337861d84"
+  },
+  {
+    "path": "dist/assets/adventure-cover.webp.json",
+    "sha256": "16e22049a0bd1a4175217ccb836b5724895ec759b0bb43c4af61141c9d7d046f"
+  },
+  {
+    "path": "dist/assets/canopy-kart.webp",
+    "sha256": "cffd12c6307258727cea2249ea920b2335104d0355f2b12862b98434cfc9155f"
+  },
+  {
+    "path": "dist/assets/canopy-race-tree.webp",
+    "sha256": "1822703bc51bb36edc93652d253041f53641b58f726506de355b04f27a0de09a"
+  },
+  {
+    "path": "dist/assets/cast.webp",
+    "sha256": "1a549ddd80284369e5010278756534eaef80cd4bcecfb5018d4b4176aed34be2"
+  },
+  {
+    "path": "dist/assets/cast.webp.json",
+    "sha256": "ab5ee7073c90ecc5ab75cf3e510ecc0af130590b22c0782ebd8d4df35fadf776"
+  },
+  {
+    "path": "dist/assets/caveat.ttf",
+    "sha256": "0bdb6b660482d31531b3945849fba5916b3ef8695da7024a9e6b9ee3c4157988"
+  },
+  {
+    "path": "dist/assets/celebration-garden.webp",
+    "sha256": "508f4eefc29164a222b75e2d2a62a5253e44613a34a86db1a972cb5c43f553d0"
+  },
+  {
+    "path": "dist/assets/celebration-garden.webp.json",
+    "sha256": "e28ebd362cfc9689cdd88e7d46025bef000df3db4d3a406341e99f16296c094c"
+  },
+  {
+    "path": "dist/assets/collect-sprites.png",
+    "sha256": "525507da1daa25c3ccbaccb134d71be00f0f025509c9d5e11c036b1346fb62c6"
+  },
+  {
+    "path": "dist/assets/creek-garden.webp",
+    "sha256": "5415d9b6037b9e6d8c3ff412a7376db3e71d3d7062b8d93966841786e48d45a3"
+  },
+  {
+    "path": "dist/assets/creek-garden.webp.json",
+    "sha256": "c987077308eb0636a8e7ee508dbcb3731c68421c1dd940dec21da5c47597ef5a"
+  },
+  {
+    "path": "dist/assets/distraction-apple.png",
+    "sha256": "c997c21ae9bd6088bb70cfc6f3f2adf2b6b504682e2a0365e52adf36d3550331"
+  },
+  {
+    "path": "dist/assets/garden-border.webp",
+    "sha256": "3aefeb177d68822e625e8b83f382953b34f47eea8754ba70b03856dfa4326504"
+  },
+  {
+    "path": "dist/assets/garden-bucket.png",
+    "sha256": "67c2fbdc4dcf24af73c9362ee9b2895a565e5dee89db2a6e6a8b96cab53604d7"
+  },
+  {
+    "path": "dist/assets/greenhouse-investigation.webp",
+    "sha256": "877f6240c98324224f5497de3533f79e09319ab15f4b56b64eb818639e24fac6"
+  },
+  {
+    "path": "dist/assets/grove/Bark_DeadTree.png",
+    "sha256": "a316400673e09063ea5fa2f20cddc19d73e20ae5f7163a21db09953b556c3574"
+  },
+  {
+    "path": "dist/assets/grove/Bark_DeadTree_Normal.png",
+    "sha256": "cdae5b3d483f47dc3a7cacd54f1c19dd6075fd3aaf665695683f2ac9ed307979"
+  },
+  {
+    "path": "dist/assets/grove/Bark_NormalTree.png",
+    "sha256": "53189da8d1859a82caee53d13f82dfd72836f8b0f41189800d26080bcac10f7c"
+  },
+  {
+    "path": "dist/assets/grove/Bark_NormalTree_Normal.png",
+    "sha256": "ac01ae169adb86db9665c6e78429b8b463da1adcdfb83c4d65c0af6b1fef6789"
+  },
+  {
+    "path": "dist/assets/grove/Bark_TwistedTree.png",
+    "sha256": "1899a5cb5bb77f9a580c30e0d3062b02b91462e0a034b6ea6b8feb822722eab4"
+  },
+  {
+    "path": "dist/assets/grove/Bark_TwistedTree_Normal.png",
+    "sha256": "cdae5b3d483f47dc3a7cacd54f1c19dd6075fd3aaf665695683f2ac9ed307979"
+  },
+  {
+    "path": "dist/assets/grove/Bush_Common.bin",
+    "sha256": "a5e1a773c8ba78fd9c05a8b342131eba4879302a8fddd2c5186cab9ee1ef4966"
+  },
+  {
+    "path": "dist/assets/grove/Bush_Common.gltf",
+    "sha256": "77811fca92610cb254713d3d49d5029ab6cf13050c3afb61aa942786a7b2ca90"
+  },
+  {
+    "path": "dist/assets/grove/Bush_Common_Flowers.bin",
+    "sha256": "15f56a013afe0eecaded0eb97fd8f323305af11e1f0f7bb9b68472ec4cdc20d5"
+  },
+  {
+    "path": "dist/assets/grove/Bush_Common_Flowers.gltf",
+    "sha256": "08768c680e3abeafd25858c9d3f369bcb7eed014661d3b6825a397f2a6a3deea"
+  },
+  {
+    "path": "dist/assets/grove/CommonTree_1.bin",
+    "sha256": "9dd689e84e1aa2f5b08db8def591254d582783c73737af54ba0d89b3e549c3ae"
+  },
+  {
+    "path": "dist/assets/grove/CommonTree_1.gltf",
+    "sha256": "b51cdea6545edb51d102dd6c27caafe62aa75e3c328ac8f9039f4e7bfd690bfa"
+  },
+  {
+    "path": "dist/assets/grove/CommonTree_3.bin",
+    "sha256": "24541f46fd9553e2389aba15575f2697009226e82118ed76868284114fd12b49"
+  },
+  {
+    "path": "dist/assets/grove/CommonTree_3.gltf",
+    "sha256": "17c6537aa8042bb7255fbb501bf7aeb2b6db87c16766f794f9c37be3ce70c976"
+  },
+  {
+    "path": "dist/assets/grove/CommonTree_5.bin",
+    "sha256": "0e617612d50e6bb2ca3c64338383f8938ce9e04d55b548ff11cec7a7b7d8f072"
+  },
+  {
+    "path": "dist/assets/grove/CommonTree_5.gltf",
+    "sha256": "fb7061f2bf9fe850870b056431f8f66cd8fdeb443c90695c5efbcf1fe6876d53"
+  },
+  {
+    "path": "dist/assets/grove/DeadTree_1.bin",
+    "sha256": "d623cfc5199a732cc988175fad149e8afcb84516df01a8dc1e378844019f408c"
+  },
+  {
+    "path": "dist/assets/grove/DeadTree_1.gltf",
+    "sha256": "b7ca9e90cbd8e8e3b3b17fd9c8fd57184ebf4986ff433ee3f2212f37f3114469"
+  },
+  {
+    "path": "dist/assets/grove/Fern_1.bin",
+    "sha256": "5e92b87a27f81a69fe15347a533df3c77d567b48298dceeef43168ccb7c22853"
+  },
+  {
+    "path": "dist/assets/grove/Fern_1.gltf",
+    "sha256": "d41915cffe9dbbde1ae88be381eb9c60f7caa2274511436cc78fe4de627468ab"
+  },
+  {
+    "path": "dist/assets/grove/Flower_3_Group.bin",
+    "sha256": "5ab387dd3d6fe181df3af4eeac4df85533e4c27e77545ae39a61e0c2aaaab248"
+  },
+  {
+    "path": "dist/assets/grove/Flower_3_Group.gltf",
+    "sha256": "4df1612371982c543f930d6b213967372e0d459622d7eff7fc2ed1ddbfaa3b6c"
+  },
+  {
+    "path": "dist/assets/grove/Flower_4_Group.bin",
+    "sha256": "3ac30b4c9eaa5078a17c061aa29e2e9618cc9eb58cb6d5d2ab0c07fa0b851ae1"
+  },
+  {
+    "path": "dist/assets/grove/Flower_4_Group.gltf",
+    "sha256": "69ead56b36b50f06a0cf18380797fce7434302e9b2da7bf68a85014b993c6134"
+  },
+  {
+    "path": "dist/assets/grove/Flowers.png",
+    "sha256": "36b869af1609713b00b5133b9b00321778ae3fade82cc0b689247d27f31cd7ab"
+  },
+  {
+    "path": "dist/assets/grove/Grass.png",
+    "sha256": "02f5e5562427b6739d36562c42e38ffaa1faa7ef62de45d2ba48ae29cdd0f709"
+  },
+  {
+    "path": "dist/assets/grove/Grass_Common_Short.bin",
+    "sha256": "7a0f0f7a9ac39cfa4b303bac03a6594f43e48d873b73553fa06a79e4df1271e9"
+  },
+  {
+    "path": "dist/assets/grove/Grass_Common_Short.gltf",
+    "sha256": "6957b50622c9e26e7296c1b47ea8653bc0d957e0a547de444e2ed96f0075a21a"
+  },
+  {
+    "path": "dist/assets/grove/Leaf_Pine_C.png",
+    "sha256": "8529598e4582790b515e83e79b42aae9b41532305b90261c70567b34e2bd6c20"
+  },
+  {
+    "path": "dist/assets/grove/Leaves.png",
+    "sha256": "053ef796d3a81db85ffe3aa0f5d723a55bf53eba078c916149255cf2e937d780"
+  },
+  {
+    "path": "dist/assets/grove/Leaves_NormalTree_C.png",
+    "sha256": "399f0d7026cc34191377390433a2ebbc4b2e544c6ef7b01a9f46823ce4946579"
+  },
+  {
+    "path": "dist/assets/grove/Leaves_TwistedTree_C.png",
+    "sha256": "7bd855efbe3ed33b16caae76d3010f6dc227a2f33825d5fbcf3bb04b31ae871c"
+  },
+  {
+    "path": "dist/assets/grove/nature-license.txt",
+    "sha256": "120710e542c3ebaf83856c4eb55b4a1e680593b39302eba7fdc5d942dfe78c58"
+  },
+  {
+    "path": "dist/assets/grove/nico-manifest.json",
+    "sha256": "acb7616c6ed3d1f327c5313bb5e02c26fd92475ee975c24cc90832c7f4ea82c2"
+  },
+  {
+    "path": "dist/assets/grove/nico.glb",
+    "sha256": "a6ed8573fa9da426a862fa2b8e31c7064aaa570bbbf4440fde9aaf9b2c2f97a5"
+  },
+  {
+    "path": "dist/assets/grove/PathRocks_Diffuse.png",
+    "sha256": "b217994d8b5108e2572d6656ae674d7b2721f081750006b89750758e491510e8"
+  },
+  {
+    "path": "dist/assets/grove/Pebble_Round_1.bin",
+    "sha256": "f3dacef3243ccaaad7df2beb5c72574a38fb3eae45357e1b5e2b40200d51c375"
+  },
+  {
+    "path": "dist/assets/grove/Pebble_Round_1.gltf",
+    "sha256": "9f6261c81134915e73cf35eb4e37076238fd1e79434515ac686d15cbd1f779ab"
+  },
+  {
+    "path": "dist/assets/grove/Pine_1.bin",
+    "sha256": "0cc0900d156359cab7028d87cd5d8897fbcb0479ddf1ddf524d5462c11e17af2"
+  },
+  {
+    "path": "dist/assets/grove/Pine_1.gltf",
+    "sha256": "adc85a72e6f46f71317ca5f7630876bfb207f687427bc9e37cd97ec4af5f2cbc"
+  },
+  {
+    "path": "dist/assets/grove/Plant_1.bin",
+    "sha256": "cc36c3e6e3473e13ce93ddb7f5efbfa57db43106f1036a8b8ea00edeedfde322"
+  },
+  {
+    "path": "dist/assets/grove/Plant_1.gltf",
+    "sha256": "11749feb4c196bc69eaba0c0ad938fab09e3fe33c02e0d0f86b329eacf633b55"
+  },
+  {
+    "path": "dist/assets/grove/Rock_Medium_1.bin",
+    "sha256": "ea79527d4c2b3bdb7a28bf589bf0c1fd96d192a4d0738636753911dd58681e99"
+  },
+  {
+    "path": "dist/assets/grove/Rock_Medium_1.gltf",
+    "sha256": "5d1ab1fa03218f4a908728ed0eabe6486344a7e4f510b0d3d6f837fd1d011bd8"
+  },
+  {
+    "path": "dist/assets/grove/Rock_Medium_2.bin",
+    "sha256": "76b60bf8349f71abdb0ed462b3223d93c2dcabdfb5754bc132e18b021cc6c805"
+  },
+  {
+    "path": "dist/assets/grove/Rock_Medium_2.gltf",
+    "sha256": "fac2d05a05f2d0d2098de59c09b58f42cc875c9caca4fd4c4bd57f3d36e7b12e"
+  },
+  {
+    "path": "dist/assets/grove/RockPath_Round_Small_1.bin",
+    "sha256": "8a77235966e7df8eae421de3d14940ca7903951c3e85dcca6c136fbec31fa661"
+  },
+  {
+    "path": "dist/assets/grove/RockPath_Round_Small_1.gltf",
+    "sha256": "9e2fc37aabceed94a2ece3dbffeae4477b87b46a220c3f3ff97503923902d4b9"
+  },
+  {
+    "path": "dist/assets/grove/Rocks_Diffuse.png",
+    "sha256": "00db3219f9fa8c8b15659c3e2af2a4965b587cf2321c456f6875f06b161150c1"
+  },
+  {
+    "path": "dist/assets/grove/TwistedTree_1.bin",
+    "sha256": "58e4c16c16e0a71051af76a37be0641ea8f7089652687f957383d3c4bd24723b"
+  },
+  {
+    "path": "dist/assets/grove/TwistedTree_1.gltf",
+    "sha256": "8544b084e1fadfbec981e964ce27463f50c39c460513e0d3442160880c5908a7"
+  },
+  {
+    "path": "dist/assets/lilita-one.ttf",
+    "sha256": "f5b641c45c69d772ee4eda687bc9fda411d5cad6b0b45371491da4580cbc8d59"
+  },
+  {
+    "path": "dist/assets/meadow-playground.webp",
+    "sha256": "454104d79ed48bf3c7647ae5f458c649327ac25496aa2a76057cabfac5e0c122"
+  },
+  {
+    "path": "dist/assets/mystery-garden.webp",
+    "sha256": "773456935380e0e9e59f3462177341316cc58223ada429c01179407c48d80837"
+  },
+  {
+    "path": "dist/assets/mystery-garden.webp.json",
+    "sha256": "aa384cfd526ab2b7dbdd9daa68041ffcc38c72c6003d16dad55af31a7eab7196"
+  },
+  {
+    "path": "dist/assets/nunito.ttf",
+    "sha256": "bb55a5ca5c2042335b3991af27c4d0705d0ef41cac6164ac737fd8f2a1e85207"
+  },
+  {
+    "path": "dist/assets/OFL-Caveat.txt",
+    "sha256": "1f9d81d094273d82f3898a1ee8b598a717d050ecbf5ff7bede105b704880157b"
+  },
+  {
+    "path": "dist/assets/OFL-LilitaOne.txt",
+    "sha256": "255d5debbb80eb2ea762644311f266a279e8778f00156655a516e2b7781a63e1"
+  },
+  {
+    "path": "dist/assets/OFL-Nunito.txt",
+    "sha256": "580df76c95a1ec5ab878ceb25bb3d85c6a076804e9c970c8c6972aea775fdf65"
+  },
+  {
+    "path": "dist/assets/photosynthesis-video-thumbnail.webp",
+    "sha256": "addf3a4b8c5724c4e854df10a0121ebbd5261c1d523efd0be155fd6c2da57bd1"
+  },
+  {
+    "path": "dist/assets/storybook-cast.webp",
+    "sha256": "b296d533f5ae146954df9c8c503f499d9d6263aeb911edc5b25c4de3ced4592b"
+  },
+  {
+    "path": "dist/assets/storybook-cast.webp.json",
+    "sha256": "472acbae6ac7080d7fe3b07a3136a536aa2cabac912c1428215dd0554348561e"
+  },
+  {
+    "path": "dist/assets/world.webp",
+    "sha256": "1b6ececc99cdc0f808c85e4d9ce7b448ac5243b0ee4375206b4f8efe80f4ec64"
+  },
+  {
+    "path": "dist/assets/world.webp.json",
+    "sha256": "03c6c42872c1a47de6783a31c5bb68b5565b3130432b80c7e5ee4ddd9d4f58f3"
+  },
+  {
+    "path": "dist/catch-music.js",
+    "sha256": "6630b1eb104ca10e167677c94f8fef61295c42cd85ad98efff242b3d499baf63"
+  },
+  {
+    "path": "dist/chapters.css",
+    "sha256": "fe369404d68a5a527de65fb96df1fd4c4c2ed7d9336bcf10b3d908639769e40b"
+  },
+  {
+    "path": "dist/chapters.js",
+    "sha256": "36f4138039d7e0ef49e4db9eabdf4717b1b93035d09d1878c8718e7739f91145"
+  },
+  {
+    "path": "dist/factory-art.js",
+    "sha256": "dcb2f582648a2e37c7c080a15f8e76afd073ca13251ceccdd5e658ce3f13dd3f"
+  },
+  {
+    "path": "dist/factory.css",
+    "sha256": "ef8ff868e6b78ca2af2b2029759ac36dbdac4945b76141979adf5b4224b9d60d"
+  },
+  {
+    "path": "dist/factory.js",
+    "sha256": "6419a0503698f8c943ad464756d2ca6773464fa2c7bacb6ca98533986b2acb75"
+  },
+  {
+    "path": "dist/first-screens.css",
+    "sha256": "6e1eaee06af97f1440e4601d5f315763c7678f1604ea2116c46991f6a95eac26"
+  },
+  {
+    "path": "dist/first-screens.js",
+    "sha256": "55ea9a024c69d2b929cb808ad09f417598e84d0fe5a7423d46816733717198c9"
+  },
+  {
+    "path": "dist/gamepad-controls.js",
+    "sha256": "f3cbb617a1745d8744780ca0446966a2da6123f63bedca1176690925c947e089"
+  },
+  {
+    "path": "dist/garden-ui.js",
+    "sha256": "40897b08c2b7853a3d5f4b5dfd0d312d0605d793549023c6866ec83f8c9c2de3"
+  },
+  {
+    "path": "dist/garden.css",
+    "sha256": "97f66b10e4b302b2143645a81669b893aada4f8fb5e31b40b0e9d580f47a5e6a"
+  },
+  {
+    "path": "dist/grove-adventure.css",
+    "sha256": "5bc302b6fe5c73ffedce1108d513de805b4f1e5ec86ffbdfaed2f68bec9f33bb"
+  },
+  {
+    "path": "dist/grove-animation.js",
+    "sha256": "78b93083baa01e7aee72ec4eccdbaf51bd37d834535a9e8e7c3cf1d1a1dfa9ab"
+  },
+  {
+    "path": "dist/grove-apparatus.js",
+    "sha256": "b9c6282d00753a994acd783aee28dc792be8a45bcafaf8deb704052d1b0ecd2c"
+  },
+  {
+    "path": "dist/grove-campaign.js",
+    "sha256": "9c9d930b6732b24cfc2a43bedfaf50d86b4498ae67613c200f1dcdf6162660ee"
+  },
+  {
+    "path": "dist/grove-certificate-ui.js",
+    "sha256": "b0cde84d9a6458d41229f94ea9ba6336832cb137f91691aaab4f89b55a0c3565"
+  },
+  {
+    "path": "dist/grove-certificate.js",
+    "sha256": "aaa4c8503f5abeb2a48fc61b7ac3dc4048a003c6718fca6bc1d92f79043749fd"
+  },
+  {
+    "path": "dist/grove-challenges.js",
+    "sha256": "a077a536f8006c32d33d9de51280865e5e3d2901d083cf01b304d74f968fa3c3"
+  },
+  {
+    "path": "dist/grove-completion.js",
+    "sha256": "5187270b921d0d34590eaf74af0e6726875c071f6a1c0c7f77cbefade2551531"
+  },
+  {
+    "path": "dist/grove-controls.js",
+    "sha256": "4d6b6a51323619191a24fc6009cfba8bf9fd2b8714549400c094cd319bd5016e"
+  },
+  {
+    "path": "dist/grove-progress.js",
+    "sha256": "cff743024569a7f6172ec98891556b178a1ee9fe8c18618c120bc1633de9847b"
+  },
+  {
+    "path": "dist/grove-quest.js",
+    "sha256": "46747c15e4333c959c6e34d65617472fd79107ee6d526f72854b717a3b1700c4"
+  },
+  {
+    "path": "dist/grove-surfaces.js",
+    "sha256": "c7999300b2a6055daffae6c44f5d59b362e89550e57fc02d05190f0c5c6aa14f"
+  },
+  {
+    "path": "dist/grove-water.js",
+    "sha256": "411b8089a5606bf9cef7266659aae7e77847fcbfb1ffc174b5762c5035b6dfa1"
+  },
+  {
+    "path": "dist/grove.css",
+    "sha256": "dad090a70af80f89a86c1f669327272424d561e6d6b45b6d64c91c93a6d06570"
+  },
+  {
+    "path": "dist/grove.js",
+    "sha256": "d896c595bdcb4b58677018f93c39dc46dd5718260f6bd5dbad24e8c94d42e070"
+  },
+  {
+    "path": "dist/index.html",
+    "sha256": "250e44f2da7d704807586b550a0b0e8759804ccc25204ee71d69bff89e43d6a4"
+  },
+  {
+    "path": "dist/kart-audio.js",
+    "sha256": "fd35319ddc2ad8d4d4430ba70ac58e7b23ea3ae239744bf0db00a950cd9d0543"
+  },
+  {
+    "path": "dist/kart-race.css",
+    "sha256": "42197cc655e2d3d15016dbb5ad6321e2249590f889018c1b8a280452202bd718"
+  },
+  {
+    "path": "dist/kart-race.js",
+    "sha256": "be8de294e2a02f59ff8c6893909c43f127d01d96db546573b88eaeb348d4d860"
+  },
+  {
+    "path": "dist/leaf-world.css",
+    "sha256": "7b9eb3ed9d4c9d5ee078e90d2b6e920eb947f54f844e12120576e09e1d735d27"
+  },
+  {
+    "path": "dist/learner-voice.js",
+    "sha256": "4c45b57e920b456668b8c78b97e188b323a465d4a7aec30890845d081298da92"
+  },
+  {
+    "path": "dist/meadow-playground.css",
+    "sha256": "2632cc88f6ca53fbac59a8862affc06ebe157636f1213e85fed7a973067dd3d7"
+  },
+  {
+    "path": "dist/nico-version.js",
+    "sha256": "de93c11eca65677b6fc221968a18c30cf379219e54584f39fa4be489ec1e833c"
+  },
+  {
+    "path": "dist/offline.html",
+    "sha256": "52281b91bddd5f2f4e5ab86eb0a4e576865f62f5a1cf02143651f2521f2cc5c7"
+  },
+  {
+    "path": "dist/parcel-flight.css",
+    "sha256": "b1c3c1a6944bfddcd6b241cc169332bc12676bf80ba2c9155f03b19865327416"
+  },
+  {
+    "path": "dist/parcel-flight.js",
+    "sha256": "0911df209369b20dbc1a2e817cf769a08adad9bb5cddfb844e9750905d13fe9d"
+  },
+  {
+    "path": "dist/products-investigation.css",
+    "sha256": "6227a35a63a8254b41d69acd15e7b8739fe35cba4bb2e64db7501b3ce5b84981"
+  },
+  {
+    "path": "dist/products-investigation.js",
+    "sha256": "0dbd2bcde2c02bb02490bb6c51414f7ffbf4486cee236b9fe5d233c1624bde32"
+  },
+  {
+    "path": "dist/quiz-game.css",
+    "sha256": "7267232bb24f651047b4df4d308ac85da902310f07d6beb61479de25c2787887"
+  },
+  {
+    "path": "dist/quiz-game.js",
+    "sha256": "006f9b965069c300a6dc77b49b048e23dff844f303ebd586d0bdc27845567637"
+  },
+  {
+    "path": "dist/quiz-minigames.js",
+    "sha256": "fe92eea5f3991e3925cd409bd2f7d7617b2e4c3cf683563c428f22c2637282c7"
+  },
+  {
+    "path": "dist/resources.js",
+    "sha256": "7a609609489f3829d26ce3998f2410d9b5a95c8e7fb3967e5d94fb01185f66a0"
+  },
+  {
+    "path": "dist/styles.css",
+    "sha256": "1bdf8571bca58e8deafe168e327ab70d249e08406497fbcbd27025e8df006f75"
+  },
+  {
+    "path": "dist/vendor/three/BufferGeometryUtils.js",
+    "sha256": "f07a335d7603eb09a46536fd8492bcb7ae8ef9c99b9c06e9910b2958f0b87310"
+  },
+  {
+    "path": "dist/vendor/three/GLTFLoader.js",
+    "sha256": "515e48b60852e33284cae6d0560fda59ad7e1d16956c88f207da5f83470b2bec"
+  },
+  {
+    "path": "dist/vendor/three/LICENSE.txt",
+    "sha256": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601"
+  },
+  {
+    "path": "dist/vendor/three/three.core.js",
+    "sha256": "eb077d2417f61d3e6d9264c317cabc4ea35769ed6b0ab533067292a550784c20"
+  },
+  {
+    "path": "dist/vendor/three/three.module.js",
+    "sha256": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a"
+  }
+]

@@ -1,7 +1,7 @@
-import {icon} from './app.js?v=10';
-import {canSave} from './grove-progress.js';
-import {completedCampaign,updateCompletionName} from './grove-completion.js';
-import {drawCertificate,downloadCertificate,printCertificate} from './grove-certificate.js';
+import {icon} from './app.js?v=20261106d';
+import {canSave} from './grove-progress.js?v=20261106d';
+import {completedCampaign,updateCompletionName} from './grove-completion.js?v=20261106d';
+import {drawCertificate,downloadCertificate,printCertificate} from './grove-certificate.js?v=20261106d';
 
 export function mountCertificate(host) {
   let dead = false, renderId = 0;

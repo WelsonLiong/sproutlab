@@ -1,5 +1,5 @@
 // Shared garden identity. Learning controls and saved progress remain owned by each activity.
-const topics = [['induction','Start · video','play'],['meaning','1 · Meaning','sprout'],['meaning-game','Meaning game','game'],['factory','2 · Needs','leaf'],['needs-game','Collect & avoid','game'],['products','3 · Products','flask'],['products-game','Kart cup','game'],['grove','Forest · for fun','game']];
+const topics = [['induction','Start · video','play'],['meaning','1 · Meaning','sprout'],['meaning-game','Meaning game','game'],['factory','2 · Needs','leaf'],['needs-game','Collect & avoid','game'],['products','3 · Products','flask'],['products-game','Kart cup','game'],['journal','My discoveries','book'],['grove','Forest · for fun','game']];
 let arrivalObserver;
 export function gardenNavigation(route,icon,done){
  if(route==='grove')return '';
@@ -15,7 +15,7 @@ export function decorateGarden(route,icon,state){
  if(topicsNav&&currentTopic)topicsNav.scrollLeft=currentTopic.offsetLeft-topicsNav.clientWidth/2+currentTopic.offsetWidth/2;
  const heading=main.querySelector('.lesson-heading,.page-heading,.opening-mystery>h1');
  if(!['products','products-game'].includes(route)&&heading&&!heading.querySelector('.heading-botany')){
-  const character=route==='detective'?'robot':route==='creek'?'drop':'sprout';
+  const character=route==='creek'?'drop':'sprout';
   heading.insertAdjacentHTML('beforeend',`<span class="heading-botany" aria-hidden="true"><span class="cast cast-${character}"></span></span>`);
  }
  document.querySelectorAll('.garden-footer-wordmark').forEach(e=>e.remove());

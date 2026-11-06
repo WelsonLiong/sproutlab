@@ -1,6 +1,6 @@
-import {liftObject,prepareLift} from './grove-water.js';
+import {liftObject,prepareLift} from './grove-water.js?v=20261106d';
 import * as THREE from './vendor/three/three.module.js';
-import {activeProfile} from './grove-progress.js';
+import {activeProfile} from './grove-progress.js?v=20261106d';
 
 // Environmental chapters share Nico, the camera and the creek instead of changing
 // into a separate quiz scene. All puzzle pieces remain real objects in world space.

@@ -1,4 +1,4 @@
-import {activeProfile, persist} from './grove-progress.js';
+import {activeProfile, persist} from './grove-progress.js?v=20261106d';
 
 const key = profile => `sprout-nico-story-v1-${profile.id}`;
 

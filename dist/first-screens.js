@@ -1,5 +1,5 @@
 // The two-screen illustrated preview. The remaining lessons retain their own UI.
-import {learnerLine} from './learner-voice.js';
+import {learnerLine} from './learner-voice.js?v=20261106d';
 export function welcome({state, stations, icon, escapeHTML, explorerFields}) {
   const current = stations.find(s => !state.done.includes(s[0]));
   const currentIndex = stations.indexOf(current);
@@ -8,15 +8,17 @@ export function welcome({state, stations, icon, escapeHTML, explorerFields}) {
   return `<section class="adventure-cover" aria-labelledby="adventure-title">
     <img class="cover-art" src="assets/adventure-cover.webp" alt="Sprout and Beep investigate a sunny garden filled with oversized flowers." fetchpriority="high" width="1536" height="1024">
     <div class="cover-copy"><h1 id="adventure-title">Little leaves.<br>Big ideas.</h1>
-      <p>Discover how plants make food.</p>
+      <p>Discover how plants make food.</p><p class="small">Year 4 Science · Three chapters · 20-minute lesson</p>
       <div class="explorer-entry"><form id="explorer-form" class="explorer-welcome">${explorerFields('explorer',escapeHTML,state.learnerName)}<button class="adventure-button" type="submit">Let’s grow! ${icon('arrow')}</button><button class="guest-entry" id="guest-entry" type="button">Explore as a guest</button></form></div>
     </div>
     <span class="character-hello">Meet Sprout & Beep!</span>
   </section>
+  <p class="caption">The Sprout and Beep characters were generated using Generative AI.</p>
   <section class="discovery-trail" aria-labelledby="trail-title">
     <div class="trail-heading"><h2 id="trail-title">Your discovery trail</h2><p id="trail-instructions">Follow steps 1–${stations.length} in order. You can revisit any step.</p></div>
     <div class="trail-next">${current ? `<p>${hasProgress ? 'Ready for your next discovery?' : 'Start with Sprout & Beep’s short video, then explore three chapters.'}</p><a href="#${route(current[0])}">${hasProgress ? 'Continue' : 'Start'} at step ${currentIndex+1} ${icon('arrow')}</a>` : `<p>All ${stations.length} discoveries complete! Pick a step to explore again.</p><a href="#journal">Open my journal ${icon('book')}</a>`}</div>
-    <ol aria-describedby="trail-instructions">${stations.map((s,i) => `<li class="${state.done.includes(s[0]) ? 'trail-done' : ''} ${current?.[0]===s[0]?'trail-current':''}"><a href="#${route(s[0])}" ${current?.[0]===s[0]?'aria-current="step"':''}><img class="activity-preview preview-${s[0]}" src="assets/${['photosynthesis-video-thumbnail','mystery-garden','adventure-cover','mystery-garden','world','greenhouse-investigation','canopy-kart','world'][i]}.webp" alt="" width="1536" height="1024" loading="lazy"><span class="trail-step"><span>Step ${i+1}</span>${current?.[0]===s[0]?`<span class="trail-step-cue">${hasProgress?'Next step':'Start here'}</span>`:''}</span><span class="trail-marker" aria-hidden="true">${icon(state.done.includes(s[0])?'check':s[2])}</span><strong>${s[0]==='check'?'Nico’s forest':s[1]}</strong><small>${state.done.includes(s[0])?'Discovered!':s[3]}</small></a></li>`).join('')}</ol>
+    <ol aria-describedby="trail-instructions">${stations.map((s,i) => `<li class="${state.done.includes(s[0]) ? 'trail-done' : ''} ${current?.[0]===s[0]?'trail-current':''}"><a href="#${route(s[0])}" ${current?.[0]===s[0]?'aria-current="step"':''}><img class="activity-preview preview-${s[0]}" src="assets/${['photosynthesis-video-thumbnail','mystery-garden','adventure-cover','mystery-garden','world','greenhouse-investigation','canopy-kart','celebration-garden'][i]}.webp" alt="" width="1536" height="1024" loading="lazy"><span class="trail-step"><span>Step ${i+1}</span>${current?.[0]===s[0]?`<span class="trail-step-cue">${hasProgress?'Next step':'Start here'}</span>`:''}</span><span class="trail-marker" aria-hidden="true">${icon(state.done.includes(s[0])?'check':s[2])}</span><strong>${s[0]==='check'?'Nico’s forest':s[1]}</strong><small>${state.done.includes(s[0])?'Discovered!':s[3]}</small></a></li>`).join('')}</ol>
+    <div class="actions"><a class="btn secondary" href="#grove">Play Nico’s forest · optional bonus ${icon('game')}</a><p>Finish your discoveries first, then explore the forest if you wish.</p></div>
     <details class="trail-goals"><summary>What will I discover?</summary><p>Learn what photosynthesis means, name at least two of its four needs, and identify at least one product: starch or oxygen. Practise each chapter with a game. Nico’s forest is a bonus adventure for fun.</p></details>
   </section>`;
 }

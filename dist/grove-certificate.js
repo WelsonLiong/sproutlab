@@ -1,4 +1,4 @@
-import {completedCampaign} from './grove-completion.js';
+import {completedCampaign} from './grove-completion.js?v=20261106d';
 
 const dateLabel = value => value
   ? new Date(value).toLocaleDateString('en-MY', {day: 'numeric', month: 'long', year: 'numeric'})

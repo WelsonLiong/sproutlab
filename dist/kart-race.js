@@ -1,7 +1,7 @@
-import {createGamepadControls} from './gamepad-controls.js';
-import {createKartEffects} from './kart-audio.js';
-import {createCatchMusic} from './catch-music.js';
-import {state,save} from './app.js?v=10';
+import {createGamepadControls} from './gamepad-controls.js?v=20261106d';
+import {createKartEffects} from './kart-audio.js?v=20261106d';
+import {createCatchMusic} from './catch-music.js?v=20261106d';
+import {state,save} from './app.js?v=20261106d';
 const controlIcon=(name)=>{
  const shapes={keyboard:'<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M5 9h1m3 0h1m3 0h1m3 0h1M5 13h1m3 0h1m3 0h1m3 0h1M7 16h10"/>',touch:'<path d="M8 12V5a2 2 0 0 1 4 0v6l2-1 5 3v5l-3 3h-6l-6-7a2 2 0 0 1 3-2l3 3"/>',controller:'<path d="M7 7h10c3 0 5 9 4 11s-4-1-6-3H9c-2 2-5 5-6 3S4 7 7 7Z"/><path d="M6 10v4m-2-2h4m8-1h.01m3 2h.01"/>',stick:'<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="m2 12 2-2m-2 2 2 2m18-2-2-2m2 2-2 2"/>',arrows:'<path d="M10 6 4 12l6 6m-6-6h16m-6-6 6 6-6 6"/>',down:'<path d="M12 3v17m-6-6 6 6 6-6"/>',menu:'<path d="M5 6h14M5 12h14M5 18h14"/>',fullscreen:'<path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/>',cross:'<path d="m7 7 10 10M17 7 7 17"/>',triangle:'<path d="m12 4 9 16H3Z"/>'};
  return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${shapes[name]||shapes.arrows}</svg>`;

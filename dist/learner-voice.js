@@ -1,4 +1,4 @@
-import {activeProfile} from './grove-progress.js';
+import {activeProfile} from './grove-progress.js?v=20261106d';
 
 // Return plain text. HTML renderers must escape it at their output boundary.
 export function learnerLine(named,generic){

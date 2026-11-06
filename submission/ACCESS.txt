@@ -1,27 +1,15 @@
-SPROUT LAB — YEAR 4 PHOTOSYNTHESIS
+AKSES SPROUT LAB VERSI 6 NOVEMBER 2026
 
-Verified publication URL:
+Versi tempatan dan pakej sumber sudah dikemas kini. URL akhir versi ini belum direkodkan dalam semakan ini.
+Gunakan URL hosting yang telah anda pilih selepas memuat naik kandungan dist versi terkini. Pastikan pensyarah dan penguji boleh membukanya.
+
+Pratonton tempatan: jalankan python -m http.server 4174 --directory dist dari folder sumber dan buka http://localhost:4174.
+Alamat localhost bukan pautan untuk dihantar kepada pensyarah.
+
+Dokumentasi semasa: submission/2026-final/Dokumentasi-Sprout-Lab-BM.docx
+Muka depan: disediakan sendiri oleh pemilik.
+Ujian dua dewasa dan penambahbaikan: perlu diisi berdasarkan respons sebenar.
+
+Rekod penerbitan terdahulu (8 Oktober 2026, tidak disahkan sepadan dengan versi akhir):
 https://sprout-lab-greenhaven.smocks-pickets-7r.chatgpt.site
-
-Deployment status: succeeded, 8 October 2026.
-Audience: private, owner only. Sharing access must be arranged before a lecturer or pupils can open the hosted site.
-
-Local preview:
-http://127.0.0.1:4174/#map
-This local address works only while the preview server is running on this computer.
-
-Portable source:
-Extract Sprout-Lab-Source-Backup.zip. From the extracted folder, serve dist through an HTTP server, for example:
-python -m http.server 4174 --directory dist
-Then visit http://localhost:4174
-
-For disconnected use without a server, open dist/offline.html directly and print it if desired.
-
-Documentation:
-Sprout-Lab-EDUP3133-Documentation-DRAFT.pdf — 7 pages.
-The official cover details and genuine evidence from two adult usability tests remain to be completed. No adult tests are claimed by this draft.
-
-The supplied third-person game and its 3D assets are intentionally excluded. Proposed improvements and the future integration plan are in docs/future-game.md.
-
-Published source commit:
-bc6b9e2d76d8a1d8d9113b7670a1f2e74d8122d7
+Jangan anggap pautan lama ini sudah memaparkan perubahan semasa.

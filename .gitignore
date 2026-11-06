@@ -12,3 +12,12 @@ __pycache__/
 node_modules/
 .DS_Store
 Thumbs.db
+
+# Generated submission archives and temporary Office files
+submission/**/*.zip
+submission/**/*.tar.gz
+~$*
+
+# Keep Word and PDF documents local
+*.docx
+*.pdf

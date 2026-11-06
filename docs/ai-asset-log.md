@@ -1,3 +1,5 @@
+> Rekod sejarah pembangunan. Untuk penghantaran semasa, rujuk **log-ai-dan-aset.md**. Dakwaan tentang aktiviti atau aset lama di bawah tidak menggambarkan versi akhir.
+
 # AI and asset log
 
 Dates: 7–8 October 2026. Status: implementation record; student review and lecturer declaration still required.

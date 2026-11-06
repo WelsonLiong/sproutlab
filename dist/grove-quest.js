@@ -1,10 +1,10 @@
-import {learnerLine,learnerPrompt} from './learner-voice.js';
+import {learnerLine,learnerPrompt} from './learner-voice.js?v=20261106d';
 import * as THREE from './vendor/three/three.module.js';
-import {icon,escapeHTML,state,save,complete} from './app.js?v=10';
-import {challenges,chapters,correctConfiguration} from './grove-challenges.js';
-import {ensureAttempt,newAttempt,configFor,commitAnswer,advanceAttempt,attemptScore,persist,canSave} from './grove-progress.js';
-import {gasCollector} from './grove-apparatus.js';
-import {mountCertificate} from './grove-certificate-ui.js';
+import {icon,escapeHTML,state,save,complete} from './app.js?v=20261106d';
+import {challenges,chapters,correctConfiguration} from './grove-challenges.js?v=20261106d';
+import {ensureAttempt,newAttempt,configFor,commitAnswer,advanceAttempt,attemptScore,persist,canSave} from './grove-progress.js?v=20261106d';
+import {gasCollector} from './grove-apparatus.js?v=20261106d';
+import {mountCertificate} from './grove-certificate-ui.js?v=20261106d';
 
 // The assessment lives in the existing forest. Only the active clearing's props
 // are added; the renderer, character, movement, camera and nature are shared.
