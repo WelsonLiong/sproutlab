@@ -1,10 +1,6 @@
 // The two-screen illustrated preview. The remaining lessons retain their own UI.
 import {learnerLine} from './learner-voice.js?v=20261106d';
 export function welcome({state, stations, icon, escapeHTML, explorerFields}) {
-  const current = stations.find(s => !state.done.includes(s[0]));
-  const currentIndex = stations.indexOf(current);
-  const hasProgress = stations.some(s => state.done.includes(s[0]));
-  const route = id => id === 'story' ? 'factory' : id;
   return `<section class="adventure-cover" aria-labelledby="adventure-title">
     <img class="cover-art" src="assets/adventure-cover.webp" alt="Sprout and Beep investigate a sunny garden filled with oversized flowers." fetchpriority="high" width="1536" height="1024">
     <div class="cover-copy"><h1 id="adventure-title">Little leaves.<br>Big ideas.</h1>
@@ -14,11 +10,22 @@ export function welcome({state, stations, icon, escapeHTML, explorerFields}) {
     <span class="character-hello">Meet Sprout & Beep!</span>
   </section>
   <p class="caption">The Sprout and Beep characters were generated using Generative AI.</p>
-  <section class="discovery-trail" aria-labelledby="trail-title">
+  ${discoveryTrail({done:state.done,stations,icon})}`;
+}
+
+export function discoveryTrail({done,stations,icon,pending=false}) {
+  const current = stations.find(s => !done.includes(s[0]));
+  const currentIndex = stations.indexOf(current);
+  const hasProgress = stations.some(s => done.includes(s[0]));
+  const route = id => id === 'story' ? 'factory' : id;
+  return `  <section class="discovery-trail" aria-labelledby="trail-title">
     <div class="trail-heading"><h2 id="trail-title">Your discovery trail</h2><p id="trail-instructions">Follow steps 1–${stations.length} in order. You can revisit any step.</p></div>
-    <div class="trail-next">${current ? `<p>${hasProgress ? 'Ready for your next discovery?' : 'Start with Sprout & Beep’s short video, then explore three chapters.'}</p><a href="#${route(current[0])}">${hasProgress ? 'Continue' : 'Start'} at step ${currentIndex+1} ${icon('arrow')}</a>` : `<p>All ${stations.length} discoveries complete! Pick a step to explore again.</p><a href="#journal">Open my journal ${icon('book')}</a>`}</div>
-    <ol aria-describedby="trail-instructions">${stations.map((s,i) => `<li class="${state.done.includes(s[0]) ? 'trail-done' : ''} ${current?.[0]===s[0]?'trail-current':''}"><a href="#${route(s[0])}" ${current?.[0]===s[0]?'aria-current="step"':''}><img class="activity-preview preview-${s[0]}" src="assets/${['photosynthesis-video-thumbnail','mystery-garden','adventure-cover','mystery-garden','world','greenhouse-investigation','canopy-kart','celebration-garden'][i]}.webp" alt="" width="1536" height="1024" loading="lazy"><span class="trail-step"><span>Step ${i+1}</span>${current?.[0]===s[0]?`<span class="trail-step-cue">${hasProgress?'Next step':'Start here'}</span>`:''}</span><span class="trail-marker" aria-hidden="true">${icon(state.done.includes(s[0])?'check':s[2])}</span><strong>${s[0]==='check'?'Nico’s forest':s[1]}</strong><small>${state.done.includes(s[0])?'Discovered!':s[3]}</small></a></li>`).join('')}</ol>
-    <div class="actions"><a class="btn secondary" href="#grove">Play Nico’s forest · optional bonus ${icon('game')}</a><p>Finish your discoveries first, then explore the forest if you wish.</p></div>
+    <div class="trail-next">${pending ? '<p>Confirm the explorer above to begin or continue their trail.</p><button class="btn" type="submit" form="explorer-form">Confirm explorer</button>' : current ? `<p>${hasProgress ? 'Ready for your next discovery?' : 'Start with Sprout & Beep’s short video, then explore three chapters.'}</p><a href="#${route(current[0])}">${hasProgress ? 'Continue' : 'Start'} at step ${currentIndex+1} ${icon('arrow')}</a>` : `<p>All ${stations.length} discoveries complete! Pick a step to explore again.</p><a href="#journal">Open my journal ${icon('book')}</a>`}</div>
+    <ol aria-describedby="trail-instructions"${pending?' inert':''}>${stations.map((s,i) => `<li class="${done.includes(s[0]) ? 'trail-done' : ''} ${current?.[0]===s[0]?'trail-current':''}"><a href="#${route(s[0])}" ${current?.[0]===s[0]?'aria-current="step"':''}><img class="activity-preview preview-${s[0]}" src="assets/${['photosynthesis-video-thumbnail','mystery-garden','adventure-cover','mystery-garden','world','greenhouse-investigation','trail-kart-gameplay','celebration-garden'][i]}.webp" alt="" width="1536" height="1024" loading="lazy"><span class="trail-step"><span>Step ${i+1}</span>${current?.[0]===s[0]?`<span class="trail-step-cue">${hasProgress?'Next step':'Start here'}</span>`:''}</span><span class="trail-marker" aria-hidden="true">${icon(done.includes(s[0])?'check':s[2])}</span><strong>${s[0]==='check'?'Nico’s forest':s[1]}</strong><small>${done.includes(s[0])?'Discovered!':s[3]}</small></a></li>`).join('')}</ol>
+    <a class="trail-bonus" href="#grove"${pending?' inert':''}>
+      <img src="assets/trail-nico-gameplay.webp" alt="" width="896" height="504" loading="lazy">
+      <div class="trail-bonus-copy"><span>Optional bonus adventure</span><strong>Nico’s forest</strong><p>Explore Greenhaven and help Nico bring sunlight and water back to Sprout.</p><span class="trail-bonus-action">Play Nico’s forest ${icon('arrow')}</span></div>
+    </a>
     <details class="trail-goals"><summary>What will I discover?</summary><p>Learn what photosynthesis means, name at least two of its four needs, and identify at least one product: starch or oxygen. Practise each chapter with a game. Nico’s forest is a bonus adventure for fun.</p></details>
   </section>`;
 }

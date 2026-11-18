@@ -40,10 +40,22 @@ body[data-route=grove] main{position:fixed;inset:0;max-width:none;padding:0;min-
 .grove-marker>span{display:grid;place-items:center;width:41px;height:41px;border-radius:50% 50% 50% 3px;transform:translate(-50%,-120%) rotate(-45deg);background:#ffe294;color:#4b4f2c;box-shadow:0 5px 18px #3c431c44;border:2px solid #fff6d6}
 .grove-marker>b{position:absolute;left:0;top:-104px;transform:translateX(-50%);width:max-content;max-width:185px;padding:8px 11px;border-radius:8px;background:#fff9e8;color:#294632;box-shadow:0 5px 18px #203c2833;font:900 14px/1.25 Nunito,sans-serif;text-align:center}
 .grove-marker .icon{transform:rotate(45deg);width:21px;height:21px}
-.grove-context{position:absolute;bottom:157px;left:50%;transform:translateX(-50%);z-index:8;white-space:nowrap}
+.grove-context{position:absolute;bottom:157px;left:50%;transform:translateX(-50%);z-index:8;white-space:nowrap;display:flex;flex-direction:column;align-items:center}
 .grove-context button{background:#fff9e8;box-shadow:0 5px 20px #213d2944;padding:10px 22px 10px 10px}
 .grove kbd{font:850 12px Nunito,sans-serif;border:1px solid #8e9a7c;border-bottom-width:2px;padding:2px 6px;border-radius:4px;background:#fffcf0;white-space:nowrap}
 .grove-context kbd{background:#355d40;color:#fff8dd;border:0;min-width:33px;height:33px;display:grid;place-items:center;font-size:17px}
+.grove kbd.grove-pad-button{display:inline-flex;align-items:center;justify-content:center;min-width:28px;min-height:28px;border:2px solid currentColor;border-radius:50%;padding:2px 6px;background:#263f2f;color:#fff9e8;font-size:14px;line-height:1}
+.grove kbd.grove-pad-a{color:#c2ee9a}
+.grove kbd.grove-pad-b{color:#ffb9aa}
+.grove kbd.grove-pad-lb,.grove kbd.grove-pad-menu{border-radius:6px;color:#fff9e8}
+.grove-pad-button svg{width:18px;height:18px}
+#grove-action-key{display:inline-flex;align-items:center}
+#grove-turn-hint{display:block;max-width:min(450px,calc(100vw - 32px));white-space:normal;text-align:center;font-size:13px;font-weight:850;line-height:1.4;background:#fff9e8;color:#263f2f;border-radius:8px;padding:8px 12px;margin-bottom:7px}
+.grove:has(#grove-turn-hint:not([hidden])) .grove-message{bottom:290px}
+@media(max-width:760px){.grove-context{align-items:flex-end}.grove:has(#grove-turn-hint:not([hidden])) .grove-message{bottom:265px!important}}
+.grove-controls{max-width:calc(100% - 64px);flex-wrap:wrap}
+.grove-controls>span{display:inline-flex;align-items:center;gap:6px}
+.grove-controls svg{width:22px;height:22px;vertical-align:middle}
 .grove-controls{position:absolute;bottom:101px;left:32px;display:flex;align-items:center;gap:19px;color:#263f2f;font-size:12px;z-index:5;background:#fff9e8e8;padding:9px 14px;border-radius:8px}
 .grove-message{position:absolute;left:50%;bottom:165px;max-width:min(590px,calc(100% - 40px));transform:translate(-50%,10px);background:#263f2ff5;color:#fff9e8;border-radius:13px;padding:15px 22px;font-size:15px;font-weight:750;text-align:center;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:7;box-shadow:0 8px 30px #203c2822}
 .grove-message.visible{opacity:1;transform:translate(-50%,0)}

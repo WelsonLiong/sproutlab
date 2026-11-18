@@ -106,4 +106,19 @@ body.low-data[data-route]:not([data-route=grove]){background-image:none;backgrou
 @media print{body[data-route]:not([data-route=grove]){background:white!important}.app-header,.site-footer{box-shadow:none!important}.lesson-heading,.chapter-scene,.greenhouse,.recap-sheet{box-shadow:none!important}}
 /* Keep the artwork fully visible; the former sliding reveal clipped the mobile postcard. */
 body:not(.reduce-motion) .adventure-cover .cover-art{animation:none;clip-path:none}
-.discovery-trail .preview-products-game{object-fit:contain;background:#9cdae7;object-position:center}
+.discovery-trail .preview-products-game{object-position:center 75%}
+.trail-next button[form]{min-height:46px}
+.trail-bonus{
+ display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);
+ width:min(100%,500px);margin:24px 0 20px;overflow:hidden;
+ background:#dff2c6;color:#143e34;text-decoration:none;
+ border:4px solid #fff9de;border-radius:18px 22px 12px 20px;
+ box-shadow:0 5px 0 #4e724e45;
+}
+.trail-bonus img{display:block;width:100%;height:100%;min-height:0;object-fit:cover;object-position:30% center}
+.trail-bonus-copy{display:grid;align-content:center;gap:4px;padding:12px 16px}
+.trail-bonus-copy strong{font-size:23px;padding:0}
+.trail-bonus-copy p{margin:0;font-size:14px;line-height:1.4}
+.trail-bonus-copy>span:first-child{font-weight:850;font-size:12px}
+.trail-bonus-action{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:900;margin-top:3px;text-decoration:underline;text-underline-offset:4px}
+.trail-bonus:hover{background:#eaf6d9}
